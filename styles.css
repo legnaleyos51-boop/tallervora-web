@@ -1083,21 +1083,29 @@ details p { padding: 0 20px 20px; color: var(--gray); }
 
 /* BOTÓN WHATSAPP: Reducido para jerarquía visual */
 .btn-whatsapp-small {
+    display: inline-block; /* INDISPENSABLE para que tome el padding y bordes */
     background: transparent;
-    color: #888; /* Gris más suave para que no compita */
-    width: auto; /* Ya no ocupa todo el ancho */
-    padding: 8px 20px; /* Padding reducido */
-    border: 1px solid #333; /* Borde más oscuro/discreto */
+    color: #888; 
+    width: auto; 
+    padding: 8px 20px; 
+    border: 1px solid #333; 
     border-radius: 4px;
     font-weight: 500;
-    font-size: 0.8rem; /* Fuente más pequeña */
-    text-transform: none; /* Quitamos las mayúsculas para suavizarlo */
-    text-decoration: none;
+    font-size: 0.8rem; 
+    text-transform: none; 
+    text-decoration: none; /* Quita el subrayado azul por defecto */
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-whatsapp-small:hover {
     color: #4cd78f;
     border-color: #4cd78f;
     background: rgba(76, 215, 143, 0.05);
+}
+
+/* Espaciado para el icono de WhatsApp al final */
+.btn-whatsapp-small i {
+    margin-left: 8px;
+    vertical-align: middle;
 }
