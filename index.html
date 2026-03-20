@@ -46,9 +46,34 @@
 </header>
 
 
-    <hr class="section-divider">
 
-  
+
+
+
+<hr class="section-divider">
+
+
+
+
+
+
+<section class="vora-comparison" id="comparison-trigger">
+    <h2 class="section-title">¿QUÉ PREFIERES?</h2>
+    
+    <div class="photo-comparison-container">
+        <div class="side bad-side-base"></div>
+
+        <div class="side pro-side-top" id="moving-clip"></div>
+
+        <div class="diagonal-line" id="divider-line"></div>
+
+        <p class="bad-text-overlay">un recuerdo difuso o...</p>
+        <p class="good-text-overlay">...uno de <span class="elite-box">ÉLITE</span></p>
+    </div>
+</section>
+
+
+<hr class="section-divider">
     
 <section class="compromiso-section">
     <div class="container">
@@ -82,45 +107,95 @@
 
 <hr class="section-divider">
 
-<section class="metodo-section">
-    <div class="container-metodo">
-        <h2 class="main-title">ETAPAS DE TU SESIÓN</h2>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>1. reunión Creativa</h3>
-                    <p>Todo inicia con una reunión de diseño. Definimos la <strong>identidad del atleta</strong>, el deporte y el estilo visual. Aquí decidimos si la visión requiere una locación real, una producción en estudio o construcción digital.</p>
-                </div>
-            </div>
 
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>2. sesión fotográfica</h3>
-                    <p>Sesión fotográfica enfocada en la <strong>técnica y la intensidad</strong>. Utilizamos iluminación profesional para congelar la acción y capturar la gestualidad que define al deportista.</p>
-                </div>
-            </div>
+<section class="etapas-sesion">
+    <h2 class="titulo-seccion">EL CAMINO HACIA TU OBRA</h2>
 
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>3. Retoque Digital</h3>
-                    <p>Donde ocurre la transformación. Diseñamos <strong>entornos ficticios y atmósferas épicas</strong> mediante composición digital. Aplicamos retoque de color avanzado para lograr una estética de marca mundial.</p>
-                </div>
-            </div>
+    <div class="timeline-container">
+        <div class="line-wrapper">
+            <svg class="timeline-svg" viewBox="0 0 100 1000" preserveAspectRatio="none">
+                <path d="M50,0 Q90,200 50,500 T50,1000" class="path-bg" />
+                <path d="M50,0 Q90,200 50,500 T50,1000" class="path-activa" id="path-progreso" />
+            </svg>
+        </div>
 
-            <div class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <h3>4. Entrega y PÓSTER</h3>
-                    <p>Recibes tu galería digital en alta resolución. Como cierre, entregamos el <strong>Póster VORA (Edición Impresa)</strong>, una pieza física diseñada para ser el centro de atención en el espacio del atleta.</p>
+        <div class="etapa-item item-1">
+            <div class="punto-anclaje"><div class="etapa-punto">1</div></div>
+            <div class="etapa-contenido">
+                <div class="etapa-visual"><img src="assets/imagen portada.png"></div>
+                <div class="etapa-texto">
+                    <h3 class="verde">DISEÑO CONCEPTUAL</h3>
+                    <p>No improvisamos. Antes de la sesión, definimos una estética personalizada basada en la energía de la disciplina y seleccionando una paleta de colores diseñada para complementar y potenciar los tonos de su uniforme.</p>
+                    <ul class="puntos-clave">
+                        <li>Definición de Moodboard visual.</li>
+                        <li>Planificación de composición artística.</li>
+                    </ul>
                 </div>
             </div>
+            <div class="separador-movil"></div>
+        </div>
+
+        <div class="etapa-item item-2">
+            <div class="punto-anclaje"><div class="etapa-punto">2</div></div>
+            <div class="etapa-contenido">
+                <div class="etapa-visual"><img src="assets/imagen portada.png"></div>
+                <div class="etapa-texto">
+                    <h3 class="verde">PRODUCCIÓN EN SET</h3>
+                    <p>Llevamos iluminación profesional de alta potencia a la locación para detener el tiempo. Capturamos el máximo esfuerzo con una nitidez y dramatismo imposibles de lograr con luz natural.</p>
+                    <ul class="puntos-clave">
+                        <li>Congelación exacta del movimiento.</li>
+                        <li>Dirección de arte especializada.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="separador-movil"></div>
+        </div>
+
+        <div class="etapa-item item-3">
+            <div class="punto-anclaje"><div class="etapa-punto">3</div></div>
+            <div class="etapa-contenido">
+                <div class="etapa-visual">
+                    <div class="slider-comparativo">
+                        <img src="assets/imagen portada.png" class="img-despues">
+                        <img src="assets/foto mala.png" class="img-antes" id="img-retoque-antes">
+                        <div class="slider-handle" id="retoque-handle">
+                            <div class="handle-linea"></div>
+                            <div class="handle-bala"></div>
+                        </div>
+                        <input type="range" min="0" max="100" value="50" class="slider-input" id="retoque-input">
+                    </div>
+                </div>
+                <div class="etapa-texto">
+                    <h3 class="verde">REVELADO DIGITAL</h3>
+                    <p>Cada fotografía pasa por un laboratorio digital donde esculpimos la luz y el color. Es aquí donde la captura trasciende la realidad, integrando elementos y entornos que elevan la pieza a un nivel cinematográfico.</p>
+                    <ul class="puntos-clave">
+                        <li>Corrección detallada de texturas.</li>
+                        <li>Composición y Fondos</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="separador-movil"></div>
+        </div>
+
+        <div class="etapa-item item-4">
+            <div class="punto-anclaje"><div class="etapa-punto">4</div></div>
+            <div class="etapa-contenido">
+                <div class="etapa-visual"><img src="assets/imagen portada.png"></div>
+                <div class="etapa-texto">
+                    <h3 class="verde">ENTREGA DE GALERÍA</h3>
+                    <p>La obra final se materializa en soportes físicos de alta gama. Entregamos una pieza de calidad de museo, diseñada para perdurar y ser el centro de atención.</p>
+                    <ul class="puntos-clave">
+                        <li>Impresión en soportes rígidos.</li>
+                        <li>Garantía de Durabilidad.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="separador-movil"></div>
         </div>
     </div>
 </section>
+
+
 
 <hr class="section-divider">
 
@@ -242,23 +317,7 @@
 
 
 
-<section class="vora-comparison" id="comparison-trigger">
-    <h2 class="section-title">¿QUÉ PREFIERES?</h2>
-    
-    <div class="photo-comparison-container">
-        <div class="side bad-side-base"></div>
 
-        <div class="side pro-side-top" id="moving-clip"></div>
-
-        <div class="diagonal-line" id="divider-line"></div>
-
-        <p class="bad-text-overlay">un recuerdo difuso o...</p>
-        <p class="good-text-overlay">...uno de <span class="elite-box">ÉLITE</span></p>
-    </div>
-</section>
-
-</body>
-</html>
 
 
 <hr class="section-divider">
@@ -411,31 +470,12 @@
 
 
 
-    <section class="faq">
-        <h2 class="section-title">FAQ</h2>
-        <div class="faq-container">
-            <details>
-                <summary>¿Trabajan otros deportes?</summary>
-                <p>Sí, adaptamos la estética a cualquier disciplina de alto impacto.</p>
-            </details>
-            <details>
-                <summary>¿Cuánto tarda la entrega?</summary>
-                <p>De 15 a 20 días hábiles debido al proceso de post-producción élite.</p>
-            </details>
-        </div>
-    </section>
-
-    <footer class="final-cta">
-        <h2>¿LISTO PARA EL SIGUIENTE NIVEL?</h2>
-        <a href="#" class="cta-button-final">AGENDAR CITA CREATIVA</a>
-    </footer>
-   
-   
+  
 
    
-    <a href="https://wa.me/573239135052" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+<a href="https://wa.me/573239135052" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <img src="assets/icono wapp.png" alt="WhatsApp" class="whatsapp-icon">
-    </a>
+</a>
 
 
     
@@ -443,6 +483,3 @@
 </body>
 </html>
 
-<link rel="stylesheet" href="css/style.css">
-
-<link rel="stylesheet" href="css/style.css?v=1.1">

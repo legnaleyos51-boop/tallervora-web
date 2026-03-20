@@ -291,26 +291,7 @@ header.hero .hero-content p {
 .badge-good { background: var(--neon-green); color: black; }
 .img-placeholder { width: 100%; height: 250px; background: #222; margin: 20px 0; border-radius: 5px; }
 
-/* FAQ */
-.faq { padding: 100px 5%; background: #0f0f0f; }
-.faq-container { max-width: 800px; margin: 0 auto; }
-details { background: var(--card-bg); margin-bottom: 10px; border-radius: 5px; border: 1px solid #222; }
-summary { padding: 20px; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-summary::after { content: '+'; color: var(--neon-green); }
-details p { padding: 0 20px 20px; color: var(--gray); }
 
-/* FOOTER / FINAL CTA */
-.final-cta { padding: 120px 5%; text-align: center; }
-.cta-button-final { 
-    display: inline-block; 
-    background: var(--neon-green); 
-    color: black; 
-    padding: 20px 40px; 
-    font-weight: 900; 
-    text-decoration: none; 
-    border-radius: 4px; 
-    margin-top: 30px; 
-}
 
 /* MEDIA QUERIES (MÓVIL) */
 @media (max-width: 768px) {
@@ -374,102 +355,82 @@ details p { padding: 0 20px 20px; color: var(--gray); }
 
 
 /* =========================================
-   SECCIÓN: EL MÉTODO (TIMELINE NARANJA)
+   SECCIÓN: EL MÉTODO 
 ========================================= */
 
-.metodo-section {
-    padding: 100px 5%;
-    background-color: #121212 !important; /* Gris oscuro sólido */
-    color: #fff;
-    text-align: left;
+/* --- BASE --- */
+.etapas-sesion { background: #000; padding: 60px 0; color: #fff; position: relative; overflow: hidden; }
+.titulo-seccion { font-size: 2rem; text-align: center; margin-bottom: 60px; }
+.timeline-container { position: relative; width: 100%; margin: 0 auto; display: flex; flex-direction: column; }
+
+/* Línea Vertical */
+.line-wrapper { position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; left: 10px; }
+.timeline-svg { width: 100%; height: 100%; fill: none; }
+.path-bg { stroke: #333; stroke-width: 4; }
+.path-activa { stroke: #FF6600; stroke-width: 5; stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 0.1s linear; }
+
+/* Puntos Anclaje */
+.punto-anclaje { position: absolute; top: 50%; left: 10px; transform: translate(25px, -50%); z-index: 30; }
+.etapa-punto { width: 30px; height: 30px; background: #111; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; font-size: 0.8rem; }
+.etapa-punto.active { background: #FF6600; border-color: #FF6600; color: #fff; box-shadow: 0 0 10px #FF6600; }
+
+/* Viñetas */
+.puntos-clave { list-style: none; padding: 0; margin: 15px 0 0 0; }
+.puntos-clave li { position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.9rem; color: #aaa; text-align: left; }
+.puntos-clave li::before { content: "•"; position: absolute; left: 0; color: #FF6600; font-weight: bold; }
+
+/* --- MÓVIL --- */
+.etapa-item { position: relative; width: 100%; padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; }
+.etapa-contenido { width: 100%; padding-left: 80px; padding-right: 20px; display: flex; flex-direction: column; }
+.etapa-visual { width: 100%; margin-bottom: 15px; order: 2; }
+.etapa-visual img { width: 100%; border: 1px solid #4cd78f; border-radius: 4px; }
+.etapa-texto { order: 3; text-align: left; }
+.verde { color: #4cd78f; order: 1; margin-bottom: 10px; font-size: 1.2rem; text-align: left; }
+
+/* Línea naranja suave horizontal para móvil */
+.separador-movil {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.4), transparent);
+    margin: 20px auto 0;
 }
 
-.container-metodo {
-    max-width: 800px;
-    margin: 0 auto;
+/* --- ESCRITORIO --- */
+@media (min-width: 1025px) {
+    .separador-movil { display: none; }
+    .titulo-seccion { font-size: 2.5rem; }
+    .line-wrapper { left: 50%; transform: translateX(-50%); width: 150px; }
+    .punto-anclaje { left: 50%; transform: translate(-50%, -50%); }
+    
+    .etapa-item { height: 500px; padding-bottom: 0; margin-bottom: 0; flex-direction: row; }
+    .etapa-contenido { flex-direction: row; padding: 0; justify-content: space-between; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto; }
+    
+    /* Etapa 1 y 3 */
+    .item-1 .etapa-contenido, .item-3 .etapa-contenido { flex-direction: row; }
+    .item-1 .etapa-visual, .item-3 .etapa-visual { width: 45%; order: 1; }
+    .item-1 .etapa-texto, .item-3 .etapa-texto { width: 45%; order: 2; padding-left: 30px; text-align: left; }
+
+    /* Etapa 2 y 4: Imagen a la derecha, pero TEXTO JUSTIFICADO A LA IZQUIERDA */
+    .item-2 .etapa-contenido, .item-4 .etapa-contenido { flex-direction: row-reverse; }
+    .item-2 .etapa-visual, .item-4 .etapa-visual { width: 45%; order: 1; }
+    .item-2 .etapa-texto, .item-4 .etapa-texto { 
+        width: 45%; 
+        order: 2; 
+        padding-right: 30px; 
+        text-align: left; /* CORRECCIÓN: Alineación izquierda */
+    }
 }
 
-.metodo-section .main-title {
-    text-align: center;
-    margin-bottom: 80px;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+/* Slider */
+.slider-comparativo { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid #4cd78f; }
+.img-antes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 5; clip-path: inset(0 50% 0 0); }
+.img-despues { width: 100%; height: 100%; object-fit: cover; }
+.slider-handle { position: absolute; left: 50%; top: 0; height: 100%; z-index: 15; transform: translateX(-50%); pointer-events: none; }
+.handle-linea { width: 3px; height: 100%; background: #FF6600; }
+.handle-bala { width: 30px; height: 30px; background: #FF6600; border: 2px solid #fff; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.slider-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; opacity: 0; cursor: col-resize; }
 
-.timeline {
-    position: relative;
-    padding-left: 30px;
-}
 
-/* Desactivamos la línea global antigua si existía */
-.timeline::before {
-    display: none;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 60px;
-    display: flex;
-    align-items: flex-start;
-}
-
-/* LA LÍNEA (Segmentos entre puntos) */
-/* El :not(:last-child) hace que la línea NO se dibuje después del punto 4 */
-.timeline-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 25px;    /* Comienza en el centro del punto */
-    left: -21px;  /* Alineado perfectamente al centro del punto */
-    width: 2px;
-    height: calc(100% + 40px); /* Une un punto con el siguiente */
-    background: #ff6b00; /* Naranja VORA */
-    box-shadow: 0 0 15px rgba(255, 107, 0, 0.5); /* Resplandor sutil */
-    z-index: 1;
-}
-
-/* EL PUNTO (Marker) */
-.timeline-marker {
-    position: absolute;
-    left: -30px;
-    top: 5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ff6b00; /* Naranja VORA */
-    border: 3px solid #ffffff21; /* Borde del mismo color que el fondo gris */
-    box-shadow: 0 0 15px #ff6b00;
-    z-index: 2; /* Siempre por encima de la línea */
-}
-
-.timeline-content {
-    padding-left: 30px;
-}
-
-.timeline-content h3 {
-    margin: 0 0 10px;
-    font-size: 1.5rem;
-    color: #4cd78f; /* Títulos en naranja */
-    text-transform: uppercase;
-}
-
-.timeline-content p {
-    margin: 0;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #ccc;
-}
-
-/* Ajuste para el último item */
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-/* Responsive móvil */
-@media (max-width: 768px) {
-    .timeline-content h3 { font-size: 1.2rem; }
-    .timeline-content p { font-size: 1rem; }
-}
 
 
 /* WHATSAPP FLOTANTE */

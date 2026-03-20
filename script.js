@@ -71,6 +71,17 @@ function handleComparisonScroll() {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
 // --- LÓGICA DE LIGHTBOX ---
 function createDots() {
     const container = document.getElementById('dots-inner');
@@ -159,4 +170,57 @@ document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') nextImage(e);
         if (e.key === 'ArrowLeft') prevImage(e);
     }
+});
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Lógica del Slider
+    const inputRetoque = document.getElementById('retoque-input');
+    const imgAntes = document.getElementById('img-retoque-antes');
+    const handle = document.getElementById('retoque-handle');
+
+    if (inputRetoque) {
+        inputRetoque.addEventListener('input', (e) => {
+            let val = e.target.value;
+            imgAntes.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+            handle.style.left = `${val}%`;
+        });
+    }
+
+    // 2. Lógica de Scroll (Línea y Puntos)
+    const path = document.getElementById('path-progreso');
+    const container = document.querySelector('.timeline-container');
+    const puntos = document.querySelectorAll('.etapa-punto');
+    const dashArray = 1000;
+
+    const handleScroll = () => {
+        const winH = window.innerHeight;
+        const trigger = winH / 2;
+
+        puntos.forEach(p => {
+            if (p.getBoundingClientRect().top < trigger) {
+                p.classList.add('active');
+            } else {
+                p.classList.remove('active');
+            }
+        });
+
+        if (container && path) {
+            const rect = container.getBoundingClientRect();
+            let progress = (trigger - rect.top) / rect.height;
+            progress = Math.max(0, Math.min(1, progress));
+            path.style.strokeDashoffset = dashArray - (progress * dashArray);
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
 });
