@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORA | Fotografía Deportiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=4.0">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/">
+            <img src="assets/logo-header-vora.png" alt="VORA Fotografía Deportiva" class="logo-img">
+        </a>
+    </nav>
+
+    <header class="hero" style="position: relative;"> <div style="position: absolute; top: 100px; left: 0; width: 100%; text-align: center; z-index: 10;">
+        <p style="color: #ffffff !important; letter-spacing: 6px; font-size: 1.5rem; margin: 0; font-weight: 300; text-transform: uppercase;">
+            FOTOGRAFÍA DE ÉLITE
+        </p>
+    </div>
+
+    <div class="hero-v-bg">V</div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+        <h1>MÁS QUE UN HOBBY<br><span class="highlight-orange">ES SU IDENTIDAD</span></h1>
+        
+        <p>Tu hijo entrena con la disciplina de un profesional. Capturamos la imagen que refleja su mentalidad de élite y transformamos su esfuerzo en un</p>
+        
+        <p class="poster-coleccionista">
+            <strong>Póster mvp</strong>
+        </p>
+    
+    </div>
+</header>
+
+
+    <hr class="section-divider">
+
+  
+    
+<section class="compromiso-section">
+    <div class="container">
+        <h2 class="main-title">NUESTRO COMPROMISO</h2>
+       
+        
+        <div class="pilares-grid">
+            <div class="pilar-item">
+                <img src="assets/icono autoconfianza.png" alt="Autoconfianza" class="icon-pilar">
+                <h3 class="pilar-title">AUTOCONFIANZA</h3>
+                <span class="pilar-subtitle">su mayor activo en la cancha</span>
+                <p class="pilar-desc">Verse como un profesional es el primer paso para competir como uno. El talento de tu hijo merece ser comunicado con la misma seriedad con la que él entrena.</p>
+            </div>
+
+            <div class="pilar-item">
+                <img src="assets/icono impacto visual.png" alt="Impacto Visual" class="icon-pilar">
+                <h3 class="pilar-title">IMPACTO VISUAL</h3>
+                
+                <p class="pilar-desc">Transformamos su disciplina en una declaración visual de élite. Elevamos su imagen para que el mundo vea el sello de su compromiso real.</p>
+            </div>
+
+            <div class="pilar-item">
+                <img src="assets/icono testimonio.png" alt="Testimonio de Entrega" class="icon-pilar">
+                <h3 class="pilar-title">TESTIMONIO DE ENTREGA</h3>
+                
+                <p class="pilar-desc">Construimos un tesoro visual para que tú y tu hijo recuerden siempre la pasión de su etapa deportiva. Un legado que perdurará más allá de las canchas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="metodo-section">
+    <div class="container-metodo">
+        <h2 class="main-title">ETAPAS DE TU SESIÓN</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>1. reunión Creativa</h3>
+                    <p>Todo inicia con una reunión de diseño. Definimos la <strong>identidad del atleta</strong>, el deporte y el estilo visual. Aquí decidimos si la visión requiere una locación real, una producción en estudio o construcción digital.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>2. sesión fotográfica</h3>
+                    <p>Sesión fotográfica enfocada en la <strong>técnica y la intensidad</strong>. Utilizamos iluminación profesional para congelar la acción y capturar la gestualidad que define al deportista.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>3. Retoque Digital</h3>
+                    <p>Donde ocurre la transformación. Diseñamos <strong>entornos ficticios y atmósferas épicas</strong> mediante composición digital. Aplicamos retoque de color avanzado para lograr una estética de marca mundial.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <h3>4. Entrega y PÓSTER</h3>
+                    <p>Recibes tu galería digital en alta resolución. Como cierre, entregamos el <strong>Póster VORA (Edición Impresa)</strong>, una pieza física diseñada para ser el centro de atención en el espacio del atleta.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+
+<head>
+    <style>
+        :root {
+            --vora-green: #4cd78f;
+    --dark-bg: #000000;
+    --white: #ffffff;
+    --bad-text-color: #ff5e00;
+    
+    /* REEMPLAZO: En lugar de 70deg, usamos esto */
+    --scroll-pos: 50%; 
+    
+    --image-pro: url('assets/imagen portada.png');
+    --image-bad: url('assets/foto mala.png');
+}
+
+        .vora-comparison {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6rem 0;
+            width: 100%;
+        }
+
+        .section-title {
+            color: var(--vora-green);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .photo-comparison-container {
+            width: 100%;
+            aspect-ratio: 1 / 1; 
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #222;
+        }
+
+        .side {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bad-side-base { z-index: 1; background-image: var(--image-bad); }
+        .pro-side-top {
+            z-index: 2;
+            background-image: var(--image-pro);
+            -webkit-mask-image: linear-gradient(calc(90deg + var(--split-angle)), transparent 50%, black 50.1%);
+            mask-image: linear-gradient(calc(90deg + var(--split-angle)), transparent 50%, black 50.1%);
+        }
+
+        /* TEXTOS INTERNOS */
+        .bad-text-overlay, .good-text-overlay {
+            position: absolute;
+            z-index: 10;
+            font-weight: 900;
+            pointer-events: none;
+        }
+
+        /* Texto Naranja (Minúsculas y Angosto) */
+        .bad-text-overlay {
+            top: 25px;
+            left: 25px;
+            color: var(--bad-text-color);
+            font-size: clamp(1.3rem, 2.8vw, 1.2rem);
+            text-transform: lowercase; /* Forzamos minúsculas */
+            font-weight: 500; 
+            letter-spacing: -0.5px;
+            transform: scaleX(0.85); /* Un poco más angosto */
+            transform-origin: left;
+        }
+
+        /* Texto Pro (Minúsculas excepto ÉLITE) */
+        .good-text-overlay {
+            bottom: 25px;
+            right: 25px;
+            color: var(--vora-green); /* Texto "o uno de" en blanco para que resalte */
+            font-size: clamp(1.3rem, 2.8vw, 1.2rem);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: lowercase; /* Forzamos minúsculas */
+        }
+
+        /* RECUADRO ÉLITE (Negro sobre Verde) */
+        .elite-box {
+            background-color: var(--vora-green);
+            color: #000000 !important; /* Negro para legibilidad */
+            padding: 2px 12px;
+            border-radius: 3px;
+            font-weight: 900;
+            text-transform: uppercase; /* Élite se mantiene en mayúsculas por marca */
+            display: inline-block;
+        }
+
+        /* Línea diagonal */
+        .photo-comparison-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(calc(90deg + var(--split-angle)), transparent 50%, var(--vora-green) 50%, var(--vora-green) 50.5%, transparent 50.5%);
+            z-index: 3;
+        }
+
+        @media (max-width: 768px) {
+            .photo-comparison-container { max-width: 100%; border: none; }
+            .bad-text-overlay { top: 20px; left: 20px; }
+            .good-text-overlay { bottom: 20px; right: 20px; }
+        }
+    </style>
+
+
+
+<section class="vora-comparison" id="comparison-trigger">
+    <h2 class="section-title">¿QUÉ PREFIERES?</h2>
+    
+    <div class="photo-comparison-container">
+        <div class="side bad-side-base"></div>
+
+        <div class="side pro-side-top" id="moving-clip"></div>
+
+        <div class="diagonal-line" id="divider-line"></div>
+
+        <p class="bad-text-overlay">un recuerdo difuso o...</p>
+        <p class="good-text-overlay">...uno de <span class="elite-box">ÉLITE</span></p>
+    </div>
+</section>
+
+</body>
+</html>
+
+
+<hr class="section-divider">
+
+
+
+
+<section class="gallery-section">
+    <h2 class="section-title">Muestra </h2>
+    
+    <div class="bento-grid" id="gallery">
+        <div class="gallery-item large" onclick="openLightbox(this)">
+            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 1">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+
+        <div class="gallery-item tall" onclick="openLightbox(this)">
+            <img src="assets/foto mala.png" alt="Comparativa Vora Mala 1">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 2">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/foto mala.png" alt="Comparativa Vora Mala 2">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+
+        <div class="gallery-item wide" onclick="openLightbox(this)">
+            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 3">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+    </div>
+</section>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close-btn" onclick="closeLightbox(event)">&times;</span>
+    
+    <img id="lightbox-img" src="" alt="Full View" onclick="event.stopPropagation()">
+
+    <div class="nav-container" onclick="event.stopPropagation()">
+        <span class="nav-arrow prev" onclick="prevImage(event)">&#10094;</span>
+        
+        <div class="dots-window">
+            <div id="dots-inner" class="dots-inner">
+                </div>
+        </div>
+
+        <span class="nav-arrow next" onclick="nextImage(event)">&#10095;</span>
+    </div>
+</div>
+
+
+
+<hr class="section-divider">
+
+
+
+
+<section class="pricing-section">
+    <h2 class="section-title">PAQUETES </h2>
+    <div class="pricing-container">
+        
+        <div class="pricing-card">
+            <div class="card-header">
+                <h3>ESENCIAL</h3>
+                <p class="enfoque">Nivel Bronce</p>
+            </div>
+            <div class="card-price">$280.000</div>
+            <ul class="card-features">
+                <li>1 Hora de sesión</li>
+                <li>4 Retratos digitales editados</li>
+                <li class="physical-item-v4">
+                    <span class="item-main">Impresión en <br> papel fotográfico</span>
+                    <span class="item-sub">20 x 30 cm</span>
+                </li>
+            </ul>
+
+</div>
+
+        <div class="pricing-card featured">
+                <div class="card-header">
+                <h3>ÉLITE</h3>
+                <p class="enfoque">Nivel Plata</p>
+            </div>
+            <div class="card-price">$490.000</div>
+            <ul class="card-features">
+                <li>2 Horas de sesión</li>
+                <li>8 Retratos digitales editados</li>
+                <li>Fondo digital personalizado</li>
+                <li class="physical-item-v4">
+                    <span class="item-main">PÓSTER EN <br>
+                        <span class="highlight-orange">PANEL DE ALUCOBOND</span></span>
+                    <span class="item-detail">Incluye montaje flotante de galería</span>
+                    <span class="item-sub">40 x 50 cm</span>
+                </li>
+            </ul>
+</div>
+    
+
+
+        <div class="pricing-card">
+            <div class="card-header">
+                <h3>BLACK EDITION</h3>
+                <p class="enfoque">Nivel Oro</p>
+            </div>
+            <div class="card-price">$920.000</div>
+            <ul class="card-features">
+                <li>2 Horas de sesión</li>
+                <li>Galería digital completa editada</li>
+                <li>Máxima fidelidad de color</li>
+                <li>Atención prioritaria</li>
+                <li class="physical-item-v4">
+                    <span class="item-main">PÓSTER EN <br>
+                        <span class="highlight-orange">CHROMALUXE ALUMINIO HD</span></span>
+                    <span class="item-detail">Incluye montaje flotante de galería</span>
+                    <span class="item-sub">40 x 50 cm</span>
+                </li>
+            </ul>
+            
+        </a>
+    </div>
+</div>
+    
+
+<div class="unified-booking-zone">
+    <div class="booking-content">
+        <h3>¿LISTO PARA EMPEZAR?</h3>
+        <p class="reserva-text">
+            Inicia tu proceso con una <strong>reunión creativa</strong> por solo $50.000.
+            <span class="abono-detalle">Valor abonable al total del plan seleccionado</span>
+        </p>
+    </div>
+    
+    <div class="booking-actions">
+    <a href="LINK_DE_PAGO" class="btn-primary-full">RESERVAR CUPO Y AGENDAR</a>
+    
+    <a href="https://wa.me/573212317726" class="btn-whatsapp-small">
+        ¿Tienes dudas? Escríbenos
+    </a>
+</div>
+
+
+
+</div>
+
+
+
+    <section class="faq">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-container">
+            <details>
+                <summary>¿Trabajan otros deportes?</summary>
+                <p>Sí, adaptamos la estética a cualquier disciplina de alto impacto.</p>
+            </details>
+            <details>
+                <summary>¿Cuánto tarda la entrega?</summary>
+                <p>De 15 a 20 días hábiles debido al proceso de post-producción élite.</p>
+            </details>
+        </div>
+    </section>
+
+    <footer class="final-cta">
+        <h2>¿LISTO PARA EL SIGUIENTE NIVEL?</h2>
+        <a href="#" class="cta-button-final">AGENDAR CITA CREATIVA</a>
+    </footer>
+   
+   
+   
+    <a href="https://wa.me/573212317726" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <img src="assets/icono wapp.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/style.css?v=1.1">

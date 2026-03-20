@@ -1,0 +1,1103 @@
+/* VARIABLES Y ESTILOS GLOBALES */
+:root {
+    --neon-green: #4cd78f; /* Verde menta neón ajustado */
+    --dark-bg: #000000;
+    --vibrant-orange: #ff5e00;
+    --card-bg: #141414;
+    --white: #ffffff;
+    --gray: #888888;
+    --gray-light: #cccccc;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    background-color: var(--dark-bg); 
+    color: var(--white); 
+    font-family: 'Inter', sans-serif; 
+    overflow-x: hidden; 
+}
+
+/* UTILIDADES */
+.highlight-green { color: var(--neon-green); }
+.highlight-orange { color: var(--vibrant-orange); }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
+
+/* NAVBAR */
+.navbar { 
+    height: 85px;
+    padding: 0 5%; 
+    background: rgba(0, 0, 0, 0.95); 
+    position: fixed; 
+    width: 100%; 
+    z-index: 1000; 
+    display: flex; 
+    align-items: center; 
+    border-bottom: 1px solid #1a1a1a;
+    backdrop-filter: blur(10px);
+}
+
+.logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    /* Revisa que la ruta de la imagen sea correcta */
+    background: url('../assets/imagen portada.png') no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-v-bg { 
+    position: absolute; 
+    right: -5%; 
+    font-size: 50vw; 
+    font-weight: 900; 
+    color: rgba(167, 232, 189, 0.05); 
+    line-height: 1; 
+    z-index: 1; 
+    user-select: none; 
+    font-style: italic;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado lineal: Negro sólido abajo para legibilidad, transparente arriba */
+    background: linear-gradient(
+        to top, 
+        rgb(0, 0, 0) 0%,    /* Negro casi total en la base */
+        rgba(0, 0, 0, 0.492) 30%,   /* Sombra media sobre el texto */
+        transparent 50%           /* Totalmente claro en la parte superior */
+    );
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 20px;
+    max-width: 900px;
+    
+    /* 1. Ocupar todo el ancho para poder calcular el centro */
+    width: 100% !important; 
+    
+    /* 2. Activar Flexbox en columna */
+    display: flex !important;
+    flex-direction: column !important;
+    
+    /* 3. Centrar los elementos hijos horizontalmente */
+    align-items: center !important; 
+    
+    /* 4. Centrar el texto internamente */
+    text-align: center !important;
+    
+    margin: 0 auto;
+    padding-bottom: 10rem !important; 
+}
+
+
+/* AJUSTE TÍTULO HERO */
+header.hero .hero-content h1 {
+    /* Reducción de tamaño: de (2.5rem, 8vw, 4.5rem) a (2rem, 6vw, 3.5rem) */
+    font-size: clamp(2rem, 6vw, 3.5rem) !important;
+    
+    /* Reducción de interlineado: un valor de 0.9 o 1.0 pega más las líneas */
+    line-height: 0.95 !important;
+    
+    /* Ajuste de margen inferior para compensar el nuevo tamaño */
+    margin-bottom: 20px !important;
+    
+    font-weight: 900;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+/* Asegura que el span naranja herede el nuevo interlineado */
+header.hero .hero-content h1 .highlight-orange {
+    display: inline-block;
+    line-height: inherit;
+}
+
+/* =========================================
+   PÓSTER MVP - VERSIÓN FINAL CORREGIDA
+========================================= */
+
+.poster-coleccionista {
+    display: flex !important;
+    flex-direction: row !important; /* FUERZA LA FILA HORIZONTAL */
+    flex-wrap: nowrap !important;   /* PROHÍBE QUE SE PARTA EN 3 LÍNEAS */
+    justify-content: center !important;
+    align-items: center !important;
+    
+    width: 100% !important;
+    margin: 0 0 30px 0 !important; /* Pegado al párrafo de arriba */
+    color: #ffffff !important;
+    text-transform: uppercase !important;
+    font-size: 1.6rem !important; 
+    font-weight: 900 !important;
+    gap: 15px !important;
+}
+
+.poster-coleccionista strong {
+    white-space: nowrap !important; /* El texto no se divide */
+}
+
+.poster-coleccionista::before,
+.poster-coleccionista::after {
+    content: "" !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important; /* Los diamantes no se encogen */
+    width: 60px;
+    height: 12px;
+    background: 
+        linear-gradient(45deg, transparent 40%, rgba(255, 107, 0, 0.3) 40%, rgba(255, 107, 0, 0.3) 60%, transparent 60%) 0% 50% / 8px 6px no-repeat,
+        linear-gradient(45deg, transparent 35%, rgba(255, 107, 0, 0.6) 35%, rgba(255, 107, 0, 0.6) 65%, transparent 65%) 50% 50% / 12px 9px no-repeat,
+        linear-gradient(45deg, transparent 30%, rgb(255, 107, 0) 30%, rgb(255, 107, 0) 70%, transparent 70%) 100% 50% / 18px 12px no-repeat;
+}
+
+.poster-coleccionista::after {
+    transform: scaleX(-1);
+}
+
+/* --- AJUSTE MÓVIL --- */
+@media (max-width: 768px) {
+    .poster-coleccionista {
+        font-size: 1rem !important;
+        gap: 8px !important;
+    }
+    
+    .poster-coleccionista::before,
+    .poster-coleccionista::after {
+        width: 35px !important;
+        background-size: 6px 4px, 9px 6px, 13px 9px !important;
+    }
+}
+
+
+/* ELIMINAR ESPACIO ENTRE PÁRRAFO Y MVP */
+header.hero .hero-content p {
+    margin-bottom: 5px !important; /* Reduce el espacio del párrafo superior */
+}
+
+
+
+
+/* SECCIÓN: NUESTRO COMPROMISO (PILARES) */
+.compromiso-section {
+    padding: 100px 5%;
+    background-color: #000000 !important;
+    text-align: center;
+
+    /* CAPA 1 (Arriba): El foco radial | CAPA 2 (Abajo): Tu textura */
+    background-image: 
+        linear-gradient(to bottom, 
+            #000000 0%, 
+            #000000cb 30%, 
+            #000000 100%),
+        url("./assets/texturafibra.jpg") !important;
+
+    /* IMPORTANTE: Un valor para cada capa */
+    /* El degradado no se repite, la textura sí */
+    background-repeat: no-repeat, no-repeat !important;
+    
+    /* El degradado cubre todo (cover), la textura mide 60px */
+    background-size: cover, 100% 100%, 2000px !important;
+
+    background-position: center !important;
+}
+
+.compromiso-section .main-title {
+    margin-bottom: 100px; /* Este es el espacio hacia abajo */
+    display: block;      /* Asegura que el margen funcione correctamente */
+}
+.pilares { 
+    padding: 100px 5%; 
+    background-color: var(--dark-bg);
+}
+
+/* Contenedor Grid */
+.pilares-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 60px; 
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.pilar-item { 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Iconos - Tamaño Escritorio */
+.icon-pilar { 
+    height: 120px; 
+    width: auto; 
+    margin-bottom: 25px; 
+    object-fit: contain;
+    display: block;
+}
+
+/* Título Verde Neón */
+.pilar-title {
+    color: var(--neon-green);
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+/* Subtítulo Blanco Minúsculas */
+.pilar-subtitle {
+    color: var(--white);
+    text-transform: lowercase;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Descripción Gris Light */
+.pilar-desc {
+    color: var(--gray-light);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 1rem;
+    max-width: 350px;
+}
+
+/* CONTRASTE */
+.contraste { padding: 100px 5%; background: #0f0f0f; }
+.comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.comp-card { background: var(--card-bg); padding: 30px; border-radius: 10px; border: 1px solid #222; position: relative; }
+.featured-card { border: 1px solid var(--neon-green); box-shadow: 0 0 20px rgba(167, 232, 189, 0.1); }
+.badge { position: absolute; top: 20px; right: 20px; padding: 5px 12px; font-size: 0.7rem; font-weight: 900; border-radius: 3px; }
+.badge-bad { background: var(--vibrant-orange); }
+.badge-good { background: var(--neon-green); color: black; }
+.img-placeholder { width: 100%; height: 250px; background: #222; margin: 20px 0; border-radius: 5px; }
+
+/* FAQ */
+.faq { padding: 100px 5%; background: #0f0f0f; }
+.faq-container { max-width: 800px; margin: 0 auto; }
+details { background: var(--card-bg); margin-bottom: 10px; border-radius: 5px; border: 1px solid #222; }
+summary { padding: 20px; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+summary::after { content: '+'; color: var(--neon-green); }
+details p { padding: 0 20px 20px; color: var(--gray); }
+
+/* FOOTER / FINAL CTA */
+.final-cta { padding: 120px 5%; text-align: center; }
+.cta-button-final { 
+    display: inline-block; 
+    background: var(--neon-green); 
+    color: black; 
+    padding: 20px 40px; 
+    font-weight: 900; 
+    text-decoration: none; 
+    border-radius: 4px; 
+    margin-top: 30px; 
+}
+
+/* MEDIA QUERIES (MÓVIL) */
+@media (max-width: 768px) {
+    .navbar { height: 70px; }
+    .logo-img { height: 32px; }
+    .hero h1 { font-size: 2.8rem; }
+}
+
+/* Línea divisoria (Opcional, se mantiene por si se usa en otras secciones) */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    margin: 0px 0;
+}
+
+/* SECCIÓN COMPROMISO - VORA */
+.compromiso-section {
+    padding: 100px 5%;
+    background: #000;
+    text-align: center;
+}
+
+.pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Iconos Escritorio */
+.icon-pilar {
+    height: 120px !important; /* Forzamos el tamaño base */
+    width: auto !important;
+    margin-bottom: 25px;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pilar-title { color: #4cd78f; text-transform: uppercase; font-weight: 900; font-size: 1.4rem; margin-bottom: 5px; }
+.pilar-subtitle { color: #fff; font-weight: 900; font-size: 1.1rem; margin-bottom: 15px; display: block; }
+.pilar-desc { color: #ccc; font-weight: 300; line-height: 1.7; font-size: 1rem; max-width: 320px; margin: 0 auto; }
+
+/* AJUSTE MÓVIL FORZADO */
+@media (max-width: 768px) {
+    .compromiso-section { padding: 60px 5%; }
+    
+    .icon-pilar {
+        height: 120px !important; /* Aquí controlas el tamaño en el celular */
+        min-height: 90px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .pilares-grid {
+        gap: 80px; /* Espacio entre cada pilar en el cel */
+    }
+}
+
+
+/* =========================================
+   SECCIÓN: EL MÉTODO (TIMELINE NARANJA)
+========================================= */
+
+.metodo-section {
+    padding: 100px 5%;
+    background-color: #121212 !important; /* Gris oscuro sólido */
+    color: #fff;
+    text-align: left;
+}
+
+.container-metodo {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.metodo-section .main-title {
+    text-align: center;
+    margin-bottom: 80px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+/* Desactivamos la línea global antigua si existía */
+.timeline::before {
+    display: none;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* LA LÍNEA (Segmentos entre puntos) */
+/* El :not(:last-child) hace que la línea NO se dibuje después del punto 4 */
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 25px;    /* Comienza en el centro del punto */
+    left: -21px;  /* Alineado perfectamente al centro del punto */
+    width: 2px;
+    height: calc(100% + 40px); /* Une un punto con el siguiente */
+    background: #ff6b00; /* Naranja VORA */
+    box-shadow: 0 0 15px rgba(255, 107, 0, 0.5); /* Resplandor sutil */
+    z-index: 1;
+}
+
+/* EL PUNTO (Marker) */
+.timeline-marker {
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff6b00; /* Naranja VORA */
+    border: 3px solid #ffffff21; /* Borde del mismo color que el fondo gris */
+    box-shadow: 0 0 15px #ff6b00;
+    z-index: 2; /* Siempre por encima de la línea */
+}
+
+.timeline-content {
+    padding-left: 30px;
+}
+
+.timeline-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+    color: #4cd78f; /* Títulos en naranja */
+    text-transform: uppercase;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* Ajuste para el último item */
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+    .timeline-content h3 { font-size: 1.2rem; }
+    .timeline-content p { font-size: 1rem; }
+}
+
+
+/* WHATSAPP FLOTANTE */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--neon-green); /* Usa tu color de marca */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10000; /* Prioridad máxima sobre cualquier sección */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: var(--white);
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* AJUSTE PARA MÓVIL */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+/* =========================================
+   FOTO COMPARACIÓN DINÁMICA (CORREGIDO)
+========================================= */
+
+/* 1. Reset del contenedor */
+.photo-comparison-container {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* --- BLOQUE CORREGIDO PARA COMPARACIÓN --- */
+
+/* Aseguramos que el contenedor tenga la variable por defecto */
+.vora-comparison {
+    --scroll-pos: 50%;
+}
+
+.photo-comparison-container {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+/* Restringimos los estilos de 'side' solo a esta sección */
+.vora-comparison .side {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    clip-path: none !important; /* Limpia solo aquí */
+}
+
+/* Capa superior Pro */
+:root {
+    /* Esto asegura que la línea nazca en el 90% (abajo) y no en la mitad (50%) */
+    --scroll-pos: 100%; 
+}
+
+#moving-clip, #divider-line {
+    /* Reduce el tiempo de transición para que no haya "lag" al scrollear rápido */
+    transition: clip-path 0.0s linear !important;
+}
+
+/* Línea divisora */
+#divider-line {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #4cd78f; /* Verde Neón */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    pointer-events: none;
+    z-index: 2;
+    clip-path: polygon(
+        0% var(--scroll-pos), 
+        100% calc(var(--scroll-pos) - 15%), 
+        100% calc(var(--scroll-pos) - 14.5%), 
+        0% calc(var(--scroll-pos) + 0.5%)
+    ) !important;
+    transition: clip-path 0.1s ease-out;
+}
+
+/* 3. El recorte dinámico */
+#moving-clip {
+    z-index: 1;
+    /* Sobrescribimos cualquier clip-path anterior */
+    clip-path: polygon(
+        0% var(--scroll-pos, 50%), 
+        100% calc(var(--scroll-pos, 50%) - 15%), 
+        100% 100%, 
+        0% 100%
+    ) !important;
+    transition: clip-path 0.1s ease-out;
+}
+
+/* 4. La línea divisora (Ahora como bloque sólido) */
+#divider-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4cd78f; /* La línea ahora es el fondo de este div */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+    pointer-events: none;
+    z-index: 2;
+    
+    /* Recortamos el div para que solo se vea una franja de 4px de grosor */
+    clip-path: polygon(
+        0% var(--scroll-pos, 50%), 
+        100% calc(var(--scroll-pos, 50%) - 15%), 
+        100% calc(var(--scroll-pos, 50%) - 14.5%), /* Ajuste de grosor */
+        0% calc(var(--scroll-pos, 50%) + 0.5%)     /* Ajuste de grosor */
+    ) !important;
+    transition: clip-path 0.1s ease-out;
+}
+
+
+
+
+
+
+
+
+/* =========================================
+   ESTILOS DE GALERÍA BENTO
+========================================= */
+.gallery-section {
+    padding: 80px 5%;
+    background-color: #000000; /* Fondo negro sólido */
+}
+
+/* Título de Sección - Reutilizando estilos existentes */
+.gallery-section .section-title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    color: #ffffff;
+}
+
+/* Contenedor del Mosaico */
+.bento-grid {
+    display: grid;
+    /* Columnas auto-ajustables con ancho mínimo */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 280px; /* Altura base de fila */
+    grid-auto-flow: dense; /* Rellena huecos automáticamente */
+    gap: 15px; /* Espacio entre fotos */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Estilos de cada Item */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #111;
+    cursor: pointer;
+    border: 1px solid #222; /* Borde sutil */
+}
+
+/* Imagen dentro del item */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta para llenar el espacio sin deformar */
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* --- CLASES DE TAMAÑO (Bento Effect) --- */
+.gallery-item.large { grid-column: span 2; grid-row: span 2; } /* Ocupa 2x2 */
+.gallery-item.tall { grid-row: span 2; } /* Ocupa 1x2 (Vertical) */
+.gallery-item.wide { grid-column: span 2; } /* Ocupa 2x1 (Horizontal) */
+
+/* Efectos al pasar el ratón (Hover) */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Zoom suave */
+}
+
+/* Capa de superposición (Overlay) Verde Vora */
+.gallery-item .overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(76, 215, 143, 0.3); /* Verde con transparencia */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover .overlay { opacity: 1; }
+
+/* Icono de expansión (+) */
+.expand-icon {
+    color: white;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 200;
+}
+
+/* =========================================
+   ESTILOS DEL LIGHTBOX
+========================================= */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 99999; /* Por encima de TODO */
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.97); /* Fondo casi opaco */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(12px); /* Desenfoque de fondo */
+}
+
+/* Imagen en pantalla completa */
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(76, 215, 143, 0.3);
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+/* Botón Cerrar */
+.close-btn {
+    position: absolute;
+    top: 30px; right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: 200;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas en móvil */
+        grid-auto-rows: 200px; /* Filas más bajas */
+        gap: 10px;
+    }
+    
+    /* Forzamos que los elementos grandes ocupen el ancho completo */
+    .gallery-item.large, .gallery-item.wide { grid-column: span 2; }
+    
+    .close-btn { top: 20px; right: 25px; font-size: 40px; }
+}
+
+/* =========================================
+   ESTILOS DE FLECHAS EN LIGHTBOX (VORA ÉLITE)
+========================================= */
+
+/* Estilo común para ambas flechas */
+.nav-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Centrado vertical parcial */
+    transform: translateY(-50%); /* Ajuste perfecto del centro */
+    width: auto;
+    padding: 20px 25px;
+    color: white;
+    font-weight: 200;
+    font-size: 50px;
+    transition: 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 10001; /* Por encima de la imagen */
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo sutil para legibilidad */
+    border-radius: 5px;
+}
+
+/* Posicionamiento específico */
+.prev { left: 30px; }
+.next { right: 30px; }
+
+/* Efecto Hover (Brillo Verde Vora) */
+.nav-btn:hover {
+    background-color: rgba(76, 215, 143, 0.8); /* Verde Vora transparente */
+    color: #000; /* Texto negro para contraste */
+}
+
+/* Transición suave para la imagen al cambiar (Recomendado) */
+#lightbox-img {
+    /* 0.4s es más ágil y profesional que 1s */
+    transition: opacity 0.2s ease-in-out;
+    opacity: 1;
+}
+
+/* Contenedor principal */
+.nav-container {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 100;
+}
+
+/* Ventana que recorta los puntos */
+.dots-window {
+    width: 100px; /* Ajusta este ancho para ver más o menos puntos */
+    height: 40px; /* Añadimos una altura fija suficiente */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+/* Pista que se desliza con rebote */
+.dots-inner {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Este cubic-bezier genera el efecto elástico/rebote */
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    will-change: transform;
+}
+
+/* Puntos con escala elástica */
+.dot {
+    min-width: 8px;
+    height: 8px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    opacity: 0.2;
+    transform: scale(0.7);
+    /* Aplicamos el mismo rebote a la escala y opacidad */
+    transition: 
+        transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+        opacity 0.5s ease,
+        background-color 0.5s ease;
+}
+
+.dot.active {
+    background-color: #00FF00;
+    opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+}
+
+/* Puntos Adyacentes */
+.dot.level-1 {
+    opacity: 0.6;
+    transform: scale(1);
+}
+
+.nav-arrow {
+    color: #00FF00;
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+.pricing-section {
+    padding: 100px 5%;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.pricing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 320px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tarjeta Destacada (Élite) */
+.pricing-card.featured {
+    border-color: #4cd78f; /* Tu Verde Vora */
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4cd78f;
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.card-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+
+/* Ajuste del texto de enfoque (Bronce, Plata, Oro) */
+.enfoque {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #4cd78f; /* Mantenemos tu verde para los niveles */
+    margin-bottom: 25px;
+}
+
+.card-price {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.card-price span {
+    font-size: 1rem;
+    color: #666;
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.card-features li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/* Estilo para el ÍTEM FÍSICO (Naranja y Agrupado) */
+.physical-item-v4 {
+    margin-top: 25px;
+    padding-top: 25px; /* Más espacio arriba para que no pegue con la cinta */
+    position: relative;
+    list-style: none;
+    text-align: center; /* Centramos todo el bloque */
+}
+
+/* La Cinta Diagonal (Ribbon) */
+.physical-item-v4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%; /* Centramos la base de la cinta */
+    transform: translateX(-50%); /* Ajuste fino de centrado */
+    width: 60px; /* Ancho de la cinta */
+    height: 6px; /* Alto de la cinta */
+    background: #ff6600; /* Tu naranja */
+    
+    /* CLAVE: clip-path crea la forma diagonal cortando las esquinas */
+    /* Imagina 4 puntos: (top-left, top-right, bottom-right, bottom-left) */
+    clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+    
+    z-index: 1;
+}
+
+.item-main {
+    display: block;
+    color: #ffffff; /* Texto en blanco */
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.highlight-orange {
+    color: #ff6600; /* Material en naranja */
+    font-weight: 900;
+    display: block; /* Salto de línea para el material */
+    margin-top: 2px;
+}
+
+.item-detail {
+    display: block;
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    margin: 8px 0;
+    font-style: italic;
+}
+
+.item-sub {
+    display: block;
+    font-size: 0.75rem;
+    color: #666666;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+/* Icono de check solo para los no físicos para no ensuciar */
+.card-features li:not(.physical-item)::before {
+    content: "•";
+    color: #4cd78f; /* Tu verde original para los digitales */
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+.unified-booking-zone {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid #222;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.booking-content h3 {
+    color: #4cd78f;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.reserva-text {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.abono-detalle {
+    display: block;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+.booking-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Reducimos el espacio entre botones */
+}
+
+/* BOTÓN PRINCIPAL: Mantiene su fuerza */
+.btn-primary-full {
+    background: #4cd78f;
+    color: #000;
+    width: 100%;
+    max-width: 380px;
+    padding: 16px;
+    border-radius: 5px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* BOTÓN WHATSAPP: Reducido para jerarquía visual */
+.btn-whatsapp-small {
+    background: transparent;
+    color: #888; /* Gris más suave para que no compita */
+    width: auto; /* Ya no ocupa todo el ancho */
+    padding: 8px 20px; /* Padding reducido */
+    border: 1px solid #333; /* Borde más oscuro/discreto */
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.8rem; /* Fuente más pequeña */
+    text-transform: none; /* Quitamos las mayúsculas para suavizarlo */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-small:hover {
+    color: #4cd78f;
+    border-color: #4cd78f;
+    background: rgba(76, 215, 143, 0.05);
+}
