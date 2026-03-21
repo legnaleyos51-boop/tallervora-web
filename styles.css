@@ -1070,3 +1070,158 @@ header.hero .hero-content p {
     margin-left: 8px;
     vertical-align: middle;
 }
+
+
+
+
+
+
+
+
+
+.group-contact {
+    background-color: #0d0d0d; /* Un gris casi negro para diferenciar de las otras secciones */
+    padding: 60px 20px;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.group-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Para móviles */
+    gap: 30px;
+}
+
+.group-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.group-title {
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.group-text {
+    color: #888;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.btn-group {
+    display: inline-block;
+    padding: 15px 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-group:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .group-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .btn-group {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+.faq-section {
+    background-color: #000;
+    color: #fff;
+    padding: 80px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.faq-title {
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 5px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.faq-container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #222;
+    padding: 20px 0;
+}
+
+.faq-question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 40px;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #aaa;
+}
+
+/* Icono de apertura */
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 10px;
+    font-size: 1.4rem;
+    font-weight: 300;
+    transition: transform 0.4s ease;
+}
+
+.faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 20px 0 10px 0;
+    color: #888; /* Texto en gris para jerarquía visual */
+    line-height: 1.7;
+    font-size: 1rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.faq-answer strong {
+    color: #fff; /* Resaltados en blanco */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Quitar flecha en Safari/Chrome */
+.faq-question::-webkit-details-marker {
+    display: none;
+}
