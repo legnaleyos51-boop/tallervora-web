@@ -23,7 +23,24 @@ body {
 .highlight-orange { color: var(--vibrant-orange); }
 .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
 
-/* NAVBAR */
+
+
+/* =========================================
+   linea divisoria entre secciones
+========================================= */
+.section-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    margin: 0px 0;
+}
+
+
+
+
+/* =========================================
+  navbar
+========================================= */
 .navbar { 
     height: 85px;
     padding: 0 5%; 
@@ -43,7 +60,60 @@ body {
     object-fit: contain;
 }
 
-/* HERO SECTION */
+
+
+/* =========================================
+   wapp flotante
+   ========================================= */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--neon-green); /* Usa tu color de marca */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10000; /* Prioridad máxima sobre cualquier sección */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: var(--white);
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* AJUSTE PARA MÓVIL */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+
+
+/* =========================================
+   seccion de inicio
+========================================= */
 .hero {
     position: relative;
     height: 100vh;
@@ -131,10 +201,6 @@ header.hero .hero-content h1 .highlight-orange {
     line-height: inherit;
 }
 
-/* =========================================
-   PÓSTER MVP - VERSIÓN FINAL CORREGIDA
-========================================= */
-
 .poster-coleccionista {
     display: flex !important;
     flex-direction: row !important; /* FUERZA LA FILA HORIZONTAL */
@@ -195,290 +261,8 @@ header.hero .hero-content p {
 
 
 
-/* SECCIÓN: NUESTRO COMPROMISO (PILARES) */
-.compromiso-section {
-    padding: 100px 5%;
-    background-color: #000000 !important;
-    text-align: center;
-
-    /* CAPA 1 (Arriba): El foco radial | CAPA 2 (Abajo): Tu textura */
-    background-image: 
-        linear-gradient(to bottom, 
-            #000000 0%, 
-            #000000cb 30%, 
-            #000000 100%),
-        url("./assets/texturafibra.jpg") !important;
-
-    /* IMPORTANTE: Un valor para cada capa */
-    /* El degradado no se repite, la textura sí */
-    background-repeat: no-repeat, no-repeat !important;
-    
-    /* El degradado cubre todo (cover), la textura mide 60px */
-    background-size: cover, 100% 100%, 2000px !important;
-
-    background-position: center !important;
-}
-
-.compromiso-section .main-title {
-    margin-bottom: 100px; /* Este es el espacio hacia abajo */
-    display: block;      /* Asegura que el margen funcione correctamente */
-}
-.pilares { 
-    padding: 100px 5%; 
-    background-color: var(--dark-bg);
-}
-
-/* Contenedor Grid */
-.pilares-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    gap: 60px; 
-    max-width: 1300px;
-    margin: 0 auto;
-}
-
-.pilar-item { 
-    text-align: center; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Iconos - Tamaño Escritorio */
-.icon-pilar { 
-    height: 120px; 
-    width: auto; 
-    margin-bottom: 25px; 
-    object-fit: contain;
-    display: block;
-}
-
-/* Título Verde Neón */
-.pilar-title {
-    color: var(--neon-green);
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-}
-
-/* Subtítulo Blanco Minúsculas */
-.pilar-subtitle {
-    color: var(--white);
-    text-transform: lowercase;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    display: block;
-}
-
-/* Descripción Gris Light */
-.pilar-desc {
-    color: var(--gray-light);
-    font-weight: 300;
-    line-height: 1.7;
-    font-size: 1rem;
-    max-width: 350px;
-}
-
-/* CONTRASTE */
-.contraste { padding: 100px 5%; background: #0f0f0f; }
-.comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-.comp-card { background: var(--card-bg); padding: 30px; border-radius: 10px; border: 1px solid #222; position: relative; }
-.featured-card { border: 1px solid var(--neon-green); box-shadow: 0 0 20px rgba(167, 232, 189, 0.1); }
-.badge { position: absolute; top: 20px; right: 20px; padding: 5px 12px; font-size: 0.7rem; font-weight: 900; border-radius: 3px; }
-.badge-bad { background: var(--vibrant-orange); }
-.badge-good { background: var(--neon-green); color: black; }
-.img-placeholder { width: 100%; height: 250px; background: #222; margin: 20px 0; border-radius: 5px; }
-
-
-
-/* MEDIA QUERIES (MÓVIL) */
-@media (max-width: 768px) {
-    .navbar { height: 70px; }
-    .logo-img { height: 32px; }
-    .hero h1 { font-size: 2.8rem; }
-}
-
-/* Línea divisoria (Opcional, se mantiene por si se usa en otras secciones) */
-.section-divider {
-    border: 0;
-    height: 1px;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-    margin: 0px 0;
-}
-
-/* SECCIÓN COMPROMISO - VORA */
-.compromiso-section {
-    padding: 100px 5%;
-    background: #000;
-    text-align: center;
-}
-
-.pilares-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Iconos Escritorio */
-.icon-pilar {
-    height: 120px !important; /* Forzamos el tamaño base */
-    width: auto !important;
-    margin-bottom: 25px;
-    object-fit: contain;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.pilar-title { color: #4cd78f; text-transform: uppercase; font-weight: 900; font-size: 1.4rem; margin-bottom: 5px; }
-.pilar-subtitle { color: #fff; font-weight: 900; font-size: 1.1rem; margin-bottom: 15px; display: block; }
-.pilar-desc { color: #ccc; font-weight: 300; line-height: 1.7; font-size: 1rem; max-width: 320px; margin: 0 auto; }
-
-/* AJUSTE MÓVIL FORZADO */
-@media (max-width: 768px) {
-    .compromiso-section { padding: 60px 5%; }
-    
-    .icon-pilar {
-        height: 120px !important; /* Aquí controlas el tamaño en el celular */
-        min-height: 90px !important;
-        margin-bottom: 20px !important;
-    }
-
-    .pilares-grid {
-        gap: 80px; /* Espacio entre cada pilar en el cel */
-    }
-}
-
-
 /* =========================================
-   SECCIÓN: EL MÉTODO 
-========================================= */
-
-/* --- BASE --- */
-.etapas-sesion { background: #000; padding: 60px 0; color: #fff; position: relative; overflow: hidden; }
-.titulo-seccion { font-size: 2rem; text-align: center; margin-bottom: 60px; }
-.timeline-container { position: relative; width: 100%; margin: 0 auto; display: flex; flex-direction: column; }
-
-/* Línea Vertical */
-.line-wrapper { position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; left: 10px; }
-.timeline-svg { width: 100%; height: 100%; fill: none; }
-.path-bg { stroke: #333; stroke-width: 4; }
-.path-activa { stroke: #FF6600; stroke-width: 5; stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 0.1s linear; }
-
-/* Puntos Anclaje */
-.punto-anclaje { position: absolute; top: 50%; left: 10px; transform: translate(25px, -50%); z-index: 30; }
-.etapa-punto { width: 30px; height: 30px; background: #111; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; font-size: 0.8rem; }
-.etapa-punto.active { background: #FF6600; border-color: #FF6600; color: #fff; box-shadow: 0 0 10px #FF6600; }
-
-/* Viñetas */
-.puntos-clave { list-style: none; padding: 0; margin: 15px 0 0 0; }
-.puntos-clave li { position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.9rem; color: #aaa; text-align: left; }
-.puntos-clave li::before { content: "•"; position: absolute; left: 0; color: #FF6600; font-weight: bold; }
-
-/* --- MÓVIL --- */
-.etapa-item { position: relative; width: 100%; padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; }
-.etapa-contenido { width: 100%; padding-left: 80px; padding-right: 20px; display: flex; flex-direction: column; }
-.etapa-visual { width: 100%; margin-bottom: 15px; order: 2; }
-.etapa-visual img { width: 100%; border: 1px solid #4cd78f; border-radius: 4px; }
-.etapa-texto { order: 3; text-align: left; }
-.verde { color: #4cd78f; order: 1; margin-bottom: 10px; font-size: 1.2rem; text-align: left; }
-
-/* Línea naranja suave horizontal para móvil */
-.separador-movil {
-    width: 60%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.4), transparent);
-    margin: 20px auto 0;
-}
-
-/* --- ESCRITORIO --- */
-@media (min-width: 1025px) {
-    .separador-movil { display: none; }
-    .titulo-seccion { font-size: 2.5rem; }
-    .line-wrapper { left: 50%; transform: translateX(-50%); width: 150px; }
-    .punto-anclaje { left: 50%; transform: translate(-50%, -50%); }
-    
-    .etapa-item { height: 500px; padding-bottom: 0; margin-bottom: 0; flex-direction: row; }
-    .etapa-contenido { flex-direction: row; padding: 0; justify-content: space-between; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto; }
-    
-    /* Etapa 1 y 3 */
-    .item-1 .etapa-contenido, .item-3 .etapa-contenido { flex-direction: row; }
-    .item-1 .etapa-visual, .item-3 .etapa-visual { width: 45%; order: 1; }
-    .item-1 .etapa-texto, .item-3 .etapa-texto { width: 45%; order: 2; padding-left: 30px; text-align: left; }
-
-    /* Etapa 2 y 4: Imagen a la derecha, pero TEXTO JUSTIFICADO A LA IZQUIERDA */
-    .item-2 .etapa-contenido, .item-4 .etapa-contenido { flex-direction: row-reverse; }
-    .item-2 .etapa-visual, .item-4 .etapa-visual { width: 45%; order: 1; }
-    .item-2 .etapa-texto, .item-4 .etapa-texto { 
-        width: 45%; 
-        order: 2; 
-        padding-right: 30px; 
-        text-align: left; /* CORRECCIÓN: Alineación izquierda */
-    }
-}
-
-/* Slider */
-.slider-comparativo { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid #4cd78f; }
-.img-antes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 5; clip-path: inset(0 50% 0 0); }
-.img-despues { width: 100%; height: 100%; object-fit: cover; }
-.slider-handle { position: absolute; left: 50%; top: 0; height: 100%; z-index: 15; transform: translateX(-50%); pointer-events: none; }
-.handle-linea { width: 3px; height: 100%; background: #FF6600; }
-.handle-bala { width: 30px; height: 30px; background: #FF6600; border: 2px solid #fff; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.slider-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; opacity: 0; cursor: col-resize; }
-
-
-
-
-/* WHATSAPP FLOTANTE */
-.whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: var(--neon-green); /* Usa tu color de marca */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    z-index: 10000; /* Prioridad máxima sobre cualquier sección */
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    background-color: var(--white);
-}
-
-.whatsapp-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-}
-
-/* AJUSTE PARA MÓVIL */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-    }
-    
-    .whatsapp-icon {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-
-/* =========================================
-   FOTO COMPARACIÓN DINÁMICA (CORREGIDO)
+   FOTO COMPARACIÓN principal (CORREGIDO)
 ========================================= */
 
 /* 1. Reset del contenedor */
@@ -583,6 +367,395 @@ header.hero .hero-content p {
 
 
 
+/* =========================================
+ sección compromiso
+========================================= */
+.compromiso-section {
+    padding: 100px 5%;
+    background-color: #000000 !important;
+    text-align: center;
+
+    /* CAPA 1 (Arriba): El foco radial | CAPA 2 (Abajo): Tu textura */
+    background-image: 
+        linear-gradient(to bottom, 
+            #000000 0%, 
+            #000000cb 30%, 
+            #000000 100%),
+        url("./assets/texturafibra.jpg") !important;
+
+    /* IMPORTANTE: Un valor para cada capa */
+    /* El degradado no se repite, la textura sí */
+    background-repeat: no-repeat, no-repeat !important;
+    
+    /* El degradado cubre todo (cover), la textura mide 60px */
+    background-size: cover, 100% 100%, 2000px !important;
+
+    background-position: center !important;
+}
+
+.compromiso-section .main-title {
+    margin-bottom: 100px; /* Este es el espacio hacia abajo */
+    display: block;      /* Asegura que el margen funcione correctamente */
+}
+.pilares { 
+    padding: 100px 5%; 
+    background-color: var(--dark-bg);
+}
+
+/* Contenedor Grid */
+.pilares-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 60px; 
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.pilar-item { 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Iconos - Tamaño Escritorio */
+.icon-pilar { 
+    height: 120px; 
+    width: auto; 
+    margin-bottom: 25px; 
+    object-fit: contain;
+    display: block;
+}
+
+/* Título Verde Neón */
+.pilar-title {
+    color: var(--neon-green);
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+/* Subtítulo Blanco Minúsculas */
+.pilar-subtitle {
+    color: var(--white);
+    text-transform: lowercase;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Descripción Gris Light */
+.pilar-desc {
+    color: var(--gray-light);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 1rem;
+    max-width: 350px;
+}
+
+/* CONTRASTE */
+.contraste { padding: 100px 5%; background: #0f0f0f; }
+.comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.comp-card { background: var(--card-bg); padding: 30px; border-radius: 10px; border: 1px solid #222; position: relative; }
+.featured-card { border: 1px solid var(--neon-green); box-shadow: 0 0 20px rgba(167, 232, 189, 0.1); }
+.badge { position: absolute; top: 20px; right: 20px; padding: 5px 12px; font-size: 0.7rem; font-weight: 900; border-radius: 3px; }
+.badge-bad { background: var(--vibrant-orange); }
+.badge-good { background: var(--neon-green); color: black; }
+.img-placeholder { width: 100%; height: 250px; background: #222; margin: 20px 0; border-radius: 5px; }
+
+
+
+/* MEDIA QUERIES (MÓVIL) */
+@media (max-width: 768px) {
+    .navbar { height: 70px; }
+    .logo-img { height: 32px; }
+    .hero h1 { font-size: 2.8rem; }
+}
+
+
+
+
+
+
+
+/* =========================================
+   SECCIÓN: AUTOR VORA (CONSOLIDADO)
+   ========================================= */
+
+.author-story-vora {
+    background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, #000000 100%);
+    padding: 100px 5%;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+    overflow: hidden;
+}
+
+.author-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Flujo base para móvil */
+}
+
+/* --- TÍTULO Y ETIQUETA --- */
+.author-header-mobile {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.author-label-vora {
+    color: #666;
+    letter-spacing: 6px;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.author-heading-vora {
+    color: #00FF88; /* Verde Neón VORA */
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+/* --- WRAPPER DE CONTENIDO --- */
+.author-wrapper-vora {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* --- BLOQUE VISUAL (FOTO Y CITA) --- */
+.author-visual-vora {
+    position: relative;
+    max-width: 450px;
+    margin: 0 auto 60px; /* Margen para la cita que sobresale */
+}
+
+.img-container-vora {
+    position: relative;
+    border: 1px solid #1a1a1a;
+}
+
+.img-bw-vora {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%) contrast(1.2) brightness(0.9);
+    display: block;
+}
+
+.photo-glow-vora {
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    z-index: -1;
+}
+
+/* Cita Blanca Invertida */
+.author-quote-vora {
+    position: absolute;
+    bottom: -80px;
+    right: -20px;
+    background: #FFFFFF;
+    color: #000000;
+    padding: 25px;
+    max-width: 260px;
+    border-left: 5px solid #FF5500; /* Naranja VORA */
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.author-quote-vora p {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.3;
+}
+
+.quote-author-name {
+    font-size: 0.7rem;
+    color: #666;
+    display: block;
+    margin-top: 5px;
+}
+
+/* --- BLOQUE DE TEXTO LARGO --- */
+.author-text-box-vora {
+    text-align: center;
+}
+
+.author-description-vora p {
+    color: #FFFFFF;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.highlight-orange-vora {
+    color: #FF5500;
+    font-weight: 700;
+}
+
+/* =========================================
+   COMPORTAMIENTO ESCRITORIO (> 901px)
+   ========================================= */
+@media (min-width: 901px) {
+    .author-main-container {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 0 80px;
+    }
+
+    .author-header-mobile {
+        grid-column: 2;
+        text-align: left;
+        align-self: end;
+        margin-bottom: 30px;
+    }
+
+    .author-wrapper-vora {
+        display: contents; /* Permite que los hijos sigan el grid del padre */
+    }
+
+    .author-visual-vora {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        margin: 0;
+        max-width: 100%;
+    }
+
+    .author-text-box-vora {
+        grid-column: 2;
+        grid-row: 2;
+        text-align: left;
+    }
+
+    .author-heading-vora {
+        font-size: 2rem;
+    }
+
+    .author-quote-vora {
+        bottom: -10px;
+        right: -40px;
+    }
+}
+
+
+/* =========================================
+   SECCIÓN: proceso
+========================================= */
+
+/* --- BASE --- */
+.etapas-sesion {
+    padding: 100px 5%;
+    background-color: #000000 !important;
+
+    /* CAPA 1 (Arriba): El foco radial | CAPA 2 (Abajo): Tu textura */
+    background-image: 
+        linear-gradient(to bottom, 
+            #000000 0%, 
+            #000000d7 50%, 
+            #000000 100%),
+        url("./assets/texturafibra.jpg") !important;
+
+    /* IMPORTANTE: Un valor para cada capa */
+    /* El degradado no se repite, la textura sí */
+    background-repeat: si-repeat, si-repeat !important;
+    
+    /* El degradado cubre todo (cover), la textura mide 60px */
+    background-size: cover, 100% 100%, 000px !important;
+
+    background-position: center !important;
+}
+.titulo-seccion { font-size: 2rem; text-align: center; margin-bottom: 60px; }
+.timeline-container { position: relative; width: 100%; margin: 0 auto; display: flex; flex-direction: column; }
+
+/* Línea Vertical */
+.line-wrapper { position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; left: 10px; }
+.timeline-svg { width: 100%; height: 100%; fill: none; }
+.path-bg { stroke: #333; stroke-width: 4; }
+.path-activa { stroke: #FF6600; stroke-width: 5; stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 0.1s linear; }
+
+/* Puntos Anclaje */
+.punto-anclaje { position: absolute; top: 50%; left: 10px; transform: translate(25px, -50%); z-index: 30; }
+.etapa-punto { width: 30px; height: 30px; background: #111; border: 2px solid #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; font-size: 0.8rem; }
+.etapa-punto.active { background: #FF6600; border-color: #FF6600; color: #fff; box-shadow: 0 0 10px #FF6600; }
+
+/* Viñetas */
+.puntos-clave { list-style: none; padding: 0; margin: 15px 0 0 0; }
+.puntos-clave li { position: relative; padding-left: 20px; margin-bottom: 5px; font-size: 0.9rem; color: #aaa; text-align: left; }
+.puntos-clave li::before { content: "•"; position: absolute; left: 0; color: #FF6600; font-weight: bold; }
+
+/* --- MÓVIL --- */
+.etapa-item { position: relative; width: 100%; padding-bottom: 40px; display: flex; flex-direction: column; align-items: center; }
+.etapa-contenido { width: 100%; padding-left: 80px; padding-right: 20px; display: flex; flex-direction: column; }
+.etapa-visual { width: 100%; margin-bottom: 15px; order: 2; }
+.etapa-visual img { width: 100%; border: 1px solid #4cd78f; border-radius: 4px; }
+.etapa-texto { order: 3; text-align: left; }
+.verde { color: #4cd78f; order: 1; margin-bottom: 10px; font-size: 1.2rem; text-align: left; }
+
+/* Línea naranja suave horizontal para móvil */
+.separador-movil {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.4), transparent);
+    margin: 20px auto 0;
+}
+
+/* --- ESCRITORIO --- */
+@media (min-width: 1025px) {
+    .separador-movil { display: none; }
+    .titulo-seccion { font-size: 2.5rem; }
+    .line-wrapper { left: 50%; transform: translateX(-50%); width: 150px; }
+    .punto-anclaje { left: 50%; transform: translate(-50%, -50%); }
+    
+    .etapa-item { height: 500px; padding-bottom: 0; margin-bottom: 0; flex-direction: row; }
+    .etapa-contenido { flex-direction: row; padding: 0; justify-content: space-between; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto; }
+    
+    /* Etapa 1 y 3 */
+    .item-1 .etapa-contenido, .item-3 .etapa-contenido { flex-direction: row; }
+    .item-1 .etapa-visual, .item-3 .etapa-visual { width: 45%; order: 1; }
+    .item-1 .etapa-texto, .item-3 .etapa-texto { width: 45%; order: 2; padding-left: 30px; text-align: left; }
+
+    /* Etapa 2 y 4: Imagen a la derecha, pero TEXTO JUSTIFICADO A LA IZQUIERDA */
+    .item-2 .etapa-contenido, .item-4 .etapa-contenido { flex-direction: row-reverse; }
+    .item-2 .etapa-visual, .item-4 .etapa-visual { width: 45%; order: 1; }
+    .item-2 .etapa-texto, .item-4 .etapa-texto { 
+        width: 45%; 
+        order: 2; 
+        padding-right: 30px; 
+        text-align: left; /* CORRECCIÓN: Alineación izquierda */
+    }
+}
+
+/* Slider */
+.slider-comparativo { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid #4cd78f; }
+.img-antes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 5; clip-path: inset(0 50% 0 0); }
+.img-despues { width: 100%; height: 100%; object-fit: cover; }
+.slider-handle { position: absolute; left: 50%; top: 0; height: 100%; z-index: 15; transform: translateX(-50%); pointer-events: none; }
+.handle-linea { width: 3px; height: 100%; background: #FF6600; }
+.handle-bala { width: 30px; height: 30px; background: #FF6600; border: 2px solid #fff; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.slider-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; opacity: 0; cursor: col-resize; }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* =========================================
@@ -590,8 +763,7 @@ header.hero .hero-content p {
 ========================================= */
 .gallery-section {
     padding: 80px 5%;
-    background-color: #000000; /* Fondo negro sólido */
-}
+background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, #000000 100%);}
 
 /* Título de Sección - Reutilizando estilos existentes */
 .gallery-section .section-title {
@@ -825,11 +997,13 @@ header.hero .hero-content p {
 
 
 
-
+/* =========================================
+   precios
+   ========================================= */
 
 .pricing-section {
-    padding: 100px 5%;
-    background-color: #000;
+    padding: 30px 5%;
+    background-color: #000000;
     color: #fff;
     text-align: center;
 }
@@ -988,11 +1162,18 @@ header.hero .hero-content p {
 
 
 
+/* =========================================
+   agendar cita
+   ========================================= */
 
+.booking-section {
+    background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, #000000 100%);
+    padding: 30px 0;
+}
 
 .unified-booking-zone {
     max-width: 800px;
-    margin: 60px auto;
+    margin: 0 auto;
     padding: 40px;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid #222;
@@ -1077,10 +1258,12 @@ header.hero .hero-content p {
 
 
 
-
+/* =========================================
+   contacto grupos
+   ========================================= */
 
 .group-contact {
-    background-color: #0d0d0d; /* Un gris casi negro para diferenciar de las otras secciones */
+    background-color: #0f0f0f; /* Un gris casi negro para diferenciar de las otras secciones */
     padding: 60px 20px;
     border-top: 1px solid #1a1a1a;
     border-bottom: 1px solid #1a1a1a;
@@ -1149,7 +1332,9 @@ header.hero .hero-content p {
 
 
 
-
+/* =========================================
+   preguntas
+   ========================================= */
 
 .faq-section {
     background-color: #000;
@@ -1225,3 +1410,105 @@ header.hero .hero-content p {
 .faq-question::-webkit-details-marker {
     display: none;
 }
+
+
+
+
+
+
+/* =========================================
+   footer
+   ========================================= */
+
+
+.main-footer {
+    background-color: var(--dark-bg);
+    padding: 30px 20px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.footer-logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo-img {
+    /* ANTES: max-width: 100px; */
+    max-width: 180px; /* Aumento significativo para presencia visual */
+    
+    height: auto; /* Mantiene la proporción */
+    filter: brightness(0) invert(1); /* Mantiene el logo blanco puro */
+    
+    /* AJUSTE DE ESPACIADO */
+    margin-bottom: 10px; /* Más espacio entre la imagen y el texto "Taller VORA" */
+    display: inline-block; /* Asegura que el centrado funcione bien */
+}
+
+/* OPCIONAL: Ajuste del texto debajo del logo */
+.footer-logo-text {
+    display: block;
+    font-size: 1.5rem; /* Un poco más grande para acompañar al logo */
+    letter-spacing: 7px; /* Más aire entre letras para elegancia */
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    color: #fff;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-column a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0px;
+    transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 2px solid #111;
+    padding-top: 30px;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #444;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
