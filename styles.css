@@ -1501,6 +1501,74 @@ background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, 
     letter-spacing: 1px;
 }
 
+/* =========================================
+   reserva page
+   ========================================= */
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.reserva-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 85px 5% 60px;
+}
+
+.reserva-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+.reserva-label {
+    color: #FF5500;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.reserva-title {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+    color: #00FF88; /* Verde VORA */
+}
+
+.reserva-subtitle {
+    color: #888;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.calendly-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    background: #000;
+    border: 1px solid #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .reserva-title { font-size: 1.8rem; }
+    .reserva-header { margin-bottom: 20px; }
+    .reserva-container { padding-top: 70px; }
+}
+
 
 
 
