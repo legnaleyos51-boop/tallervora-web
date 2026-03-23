@@ -1669,9 +1669,10 @@ body {
     margin-bottom: 20px;
 }
 
-.info-card ul {
-    list-style: none;
-    padding: 0;
+..info-card ul {
+    list-style: disc inside;
+    padding-left: 20px;
+    margin: 0;
 }
 
 .info-card ul li {
