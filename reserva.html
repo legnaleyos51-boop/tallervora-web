@@ -33,14 +33,22 @@
             </p>
         </header>
 
-        <div class="calendly-wrapper">
-            <div class="calendly-inline-widget" 
-                 data-url="https://calendly.com/contacto-tallervora/reunion-creativa?background_color=000000&text_color=ffffff&primary_color=ff5500" 
-                 style="min-width:320px;height:700px;">
-            </div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        </div>
-    </main>
+  <div class="calendly-wrapper">
+    <div class="calendly-inline-widget" 
+         data-url="https://calendly.com/contacto-tallervora/reunion-creativa?background_color=000000&text_color=ffffff&primary_color=4cd78f&hide_gdpr_banner=1" 
+         style="min-width:320px; height:750px;">
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    
+    <script>
+    window.addEventListener('message', function(e) {
+      if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+        // Redirige a tu página de instrucciones sin pasar por el filtro de seguridad de Calendly
+        window.location.href = 'https://www.tallervora.com/postreserva.html';
+      }
+    });
+    </script>
+</div>
 
     <footer class="main-footer">
         <div class="footer-container">

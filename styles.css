@@ -54,6 +54,12 @@ body {
     backdrop-filter: blur(10px);
 }
 
+/* Evita que el contenido se oculte detrás del navbar fijo */
+.post-reserva-container,
+.reserva-container {
+    padding-top: calc(500px + 1.5rem);
+}
+
 .logo-img {
     height: 48px;
     width: auto;
@@ -1547,7 +1553,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 85px 5% 60px;
+    padding: 130px 5% 60px;
+}
+
+@media (max-width: 768px) {
+    .reserva-container {
+        padding-top: 110px;
+    }
 }
 
 .reserva-header {
@@ -1610,10 +1622,16 @@ body {
    ========================================= */
 
 .post-reserva-container {
-    padding: 80px 20px;
+    padding: 130px 20px 40px;
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .post-reserva-container {
+        padding-top: 110px;
+    }
 }
 
 .confirmation-hero h1 {
