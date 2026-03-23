@@ -1209,9 +1209,9 @@ background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, 
     gap: 10px; /* Reducimos el espacio entre botones */
 }
 
-/* BOTÓN PRINCIPAL: Mantiene su fuerza */
+/* BOTÓN PRINCIPAL: Estética de Élite con efecto Neón */
 .btn-primary-full {
-    background: #4cd78f;
+    background-color: #4cd78f;
     color: #000;
     width: 100%;
     max-width: 380px;
@@ -1220,7 +1220,34 @@ background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, 
     font-weight: 900;
     text-transform: uppercase;
     text-decoration: none;
-    transition: all 0.3s ease;
+    display: inline-block; /* Asegura que el transform y padding funcionen bien */
+    text-align: center;
+    border: none;
+    
+    /* Sombra inicial suave para dar profundidad sobre el negro */
+    box-shadow: 0 4px 15px rgba(76, 215, 143, 0.3);
+    
+    /* Transición fluida para todos los estados */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+/* EFECTO HOVER: Interacción dinámica */
+.btn-primary-full:hover {
+    /* El botón sube ligeramente y crece un poco */
+    transform: translateY(-3px) scale(1.02);
+    
+    /* El color se vuelve un poco más vibrante */
+    background-color: #59ffaa;
+    
+    /* Efecto Neón: La sombra se intensifica y expande */
+    box-shadow: 0 8px 25px rgba(76, 215, 143, 0.6);
+}
+
+/* EFECTO ACTIVE: Respuesta al hacer clic */
+.btn-primary-full:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 2px 10px rgba(76, 215, 143, 0.4);
 }
 
 /* BOTÓN WHATSAPP: Reducido para jerarquía visual */
@@ -1578,5 +1605,91 @@ body {
 
 
 
+/* =========================================
+   postreserva page
+   ========================================= */
 
+.post-reserva-container {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
 
+.confirmation-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 15px 0;
+    letter-spacing: -1px;
+}
+
+.label-orange {
+    color: #ff8c00;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin: 50px 0;
+    text-align: left;
+}
+
+.info-card {
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #222;
+}
+
+.info-card h3 {
+    color: #4cd78f;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card ul li {
+    margin-bottom: 12px;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.highlight-card {
+    border: 1px solid #4cd78f33;
+    background: linear-gradient(145deg, #111 0%, #050505 100%);
+}
+
+.payment-note {
+    background: rgba(76, 215, 143, 0.1);
+    padding: 15px;
+    border-left: 4px solid #4cd78f;
+    margin: 20px 0;
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: 30px;
+    color: #888;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.btn-secondary:hover {
+    color: #4cd78f;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
