@@ -1,0 +1,165 @@
+/* =========================================
+   ESTILOS ESPECÍFICOS PARA ALIANZAS (B2B)
+   ========================================= */
+
+/* BENEFITS SCALE - Escala de Beneficios */
+.benefits-scale {
+    padding: 80px 5%;
+    background: #0a0a0a;
+    border-radius: 20px;
+    margin: 60px 0;
+    border: 1px solid #1a1a1a;
+}
+
+.benefits-scale .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.benefits-scale .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--neon-green);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.benefits-scale .section-header p {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.benefits-table {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(76, 215, 143, 0.2);
+}
+
+.benefit-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 25px 30px;
+    border-bottom: 1px solid #222;
+    transition: 0.3s;
+}
+
+.benefit-row:last-child {
+    border-bottom: none;
+}
+
+.benefit-row.header-row {
+    background: rgba(76, 215, 143, 0.1);
+    border-bottom: 2px solid var(--neon-green);
+}
+
+.benefit-row.header-row .benefit-type,
+.benefit-row.header-row .benefit-volume,
+.benefit-row.header-row .benefit-discount,
+.benefit-row.header-row .benefit-commission {
+    font-weight: 900;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.benefit-row:not(.header-row):hover {
+    background: rgba(76, 215, 143, 0.05);
+}
+
+.benefit-type {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.benefit-volume {
+    color: #ccc;
+    font-size: 1rem;
+}
+
+.benefit-discount,
+.benefit-commission {
+    font-weight: 900;
+    color: var(--neon-orange);
+    font-size: 1.2rem;
+}
+
+/* NOTE BELOW TABLE */
+.benefits-note {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    color: #ccc;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.legal-security-box {
+    background: #1a1a1a;
+    border: 1px solid var(--neon-orange);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.legal-security-box p {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .benefit-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .benefit-row.header-row {
+        display: none; /* Ocultar header en móvil para simplicidad */
+    }
+    
+    .benefit-type {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .benefit-volume,
+    .benefit-discount,
+    .benefit-commission {
+        font-size: 1rem;
+    }
+}
+
+/* B2B UNIFIED BOX */
+.b2b-unified-box {
+    background: #0a0a0a;
+    border: 1px solid rgba(76, 215, 143, 0.2);
+    border-radius: 20px;
+    padding: 60px 5%;
+    margin: 60px 0;
+}
+
+/* STEPS */
+.step-number {
+    color: var(--neon-green);
+    font-weight: 900;
+}
+
+/* NOTE IN FIN-ITEM */
+.note {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #ccc;
+}
