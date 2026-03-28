@@ -431,6 +431,26 @@
 
 <section class="pricing-section">
     <h2 class="section-title">PAQUETES </h2>
+    <style>
+        .club-discount {
+            background-color: #ff8c00; /* Naranja neón */
+            color: #000;
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            border-radius: 0 0 8px 8px;
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+     
+     
+    </style>
     <div class="pricing-container">
         
         <div class="pricing-card">
@@ -447,7 +467,9 @@
                     <span class="item-sub">30 x 45 cm</span>
                 </li>
             </ul>
-
+            <div class="club-discount">
+                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $289.000</strong></p>
+            </div>
 </div>
 
         <div class="pricing-card featured">
@@ -467,6 +489,9 @@
                     <span class="item-sub">40 x 50 cm</span>
                 </li>
             </ul>
+            <div class="club-discount">
+                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $493.000</strong></p>
+            </div>
 </div>
     
 
@@ -489,6 +514,9 @@
                     <span class="item-sub">40 x 50 cm</span>
                 </li>
             </ul>
+            <div class="club-discount">
+                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $977.500</strong></p>
+            </div>
         </div>
     </div>
 </section>
@@ -496,51 +524,152 @@
 <hr class="section-divider">
 
 
-<section class="booking-section">
-    <div class="unified-booking-zone">
-    <div class="booking-content">
-        <h3>¿LISTO PARA EMPEZAR?</h3>
-        <p class="reserva-text">
-            Inicia tu proceso con una reunión creativa sin costo. <br>Definiremos el concepto artístico, la locación <br>y los detalles técnicos de tu sesión de élite.</span>
-        </p>
-    </div>
-    
-    <div class="booking-actions">
-    <a href="reserva.html" class="btn-primary-full">AGENDAR REUNIÓN CREATIVA</a>
-     <p class="group-text">
-                Espacios limitados por semana para garantizar atención personalizada.
-            </p>
-    
-    <a href="https://wa.me/573239135052" class="btn-whatsapp-small">
-    ¿Tienes dudas? Escríbenos <i class="fab fa-whatsapp"></i>
-    </a>
-</div>
+<section id="contacto" class="section-anchor" style="padding: 80px 20px; background-color: #050505; color: #fff; font-family: sans-serif;">
+    <style>
+        /* --- ESTILOS ESPECÍFICOS DE LA SECCIÓN (BIFURCACIÓN) --- */
+        #contacto .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dos columnas iguales en escritorio */
+            gap: 30px; /* Espacio entre las tarjetas */
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
+        #contacto .contacto-card {
+            background: #0a0a0a; /* Fondo oscuro de las tarjetas */
+            border: 2px solid transparent; /* Borde transparente por defecto */
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Alinea contenido y botón al final */
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-</div>
+        /* --- ESTILO DE LA TARJETA B2B (ESCUELAS) --- */
+        #contacto .contacto-card.b2b {
+            border-color: rgba(255, 145, 0, 0.15); /* Borde verde neón sutil (VORA Green) */
+        }
 
- 
+        /* --- EFECTO HOVER EN LAS TARJETAS --- */
+        #contacto .contacto-card:hover {
+            transform: translateY(-5px); /* Pequeña elevación */
+        }
 
+        #contacto .contacto-card.b2b:hover {
+            border-color: #ff9100; /* Borde verde neón brillante al pasar el mouse */
+            box-shadow: 0 5px 20px rgba(255, 145, 0, 0.15); /* Resplandor verde */
+        }
 
-</section>
-<hr class="section-divider">
+        #contacto .contacto-card.b2c:hover {
+            border-color: #4cd78f; /* Borde naranja neón sutil (VORA Orange) */
+            box-shadow: 0 5px 20px rgba(76, 215, 143, 0.2); /* Resplandor naranja */
+        }
 
+        /* --- TEXTOS DE LAS TARJETAS --- */
+        #contacto .contacto-card h3 {
+            font-size: 28px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
 
-<section class="group-contact">
-    <div class="group-container">
-        <div class="group-content">
-            <h2 class="group-title">GRUPOS Y ESCUELAS</h2>
-            <p class="group-text">
-                Desarrollamos jornadas de producción coordinada para equipos que buscan elevar su estándar visual. Ofrecemos condiciones preferenciales para grupos desde 5 atletas y beneficios exclusivos para la institución.
-            </p>
-        </div>
-        <div class="group-cta">
-            <a href="https://wa.me/573239135052?text=Hola%20VORA,%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20el%20Plan%20Grupal%20para%20un%20equipo/escuela." 
-               class="btn-group" 
-               target="_blank">
-               CONSULTAR PLAN GRUPAL
+        #contacto .contacto-card.b2b h3 {
+            color: #ff9100; /* Título verde para escuelas */
+        }
+
+        #contacto .contacto-card.b2c h3 {
+            color: #4cd78f; /* Título naranja para padres */
+        }
+
+        #contacto .contacto-card p {
+            font-size: 16px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            min-height: 80px; /* Asegura que los textos tengan la misma altura */
+        }
+
+        /* --- ESTILO DE LOS BOTONES (Iguales para equilibrio) --- */
+        #contacto .btn-vora-contacto {
+            display: inline-block;
+            padding: 15px 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            width: 100%; /* Botones de ancho completo */
+            box-sizing: border-box;
+        }
+
+        /* --- BOTÓN B2C (PADRES) --- */
+        #contacto .btn-vora-contacto.btn-b2c {
+            background-color: transparent;
+            border: 2px solid #4cd78f; /* Borde naranja */
+            color: #4cd78f;
+        }
+
+        #contacto .btn-vora-contacto.btn-b2c:hover {
+            background-color: #4cd78f;
+            color: #000;
+        }
+
+        /* --- BOTÓN B2B (ESCUELAS) --- */
+        #contacto .btn-vora-contacto.btn-b2b {
+            background-color: transparent;
+            border: 2px solid #ff9100; /* Borde verde */
+            color: #ff9100;
+        }
+
+        #contacto .btn-vora-contacto.btn-b2b:hover {
+            background-color: #ff9100;
+            color: #000;
+        }
+
+        /* --- RESPONSIVIDAD (MÓVIL) --- */
+        @media (max-width: 768px) {
+            #contacto .contacto-grid {
+                grid-template-columns: 1fr; /* Una sola columna en móvil */
+                gap: 20px;
+            }
+
+            #contacto .contacto-card {
+                padding: 30px;
+            }
+
+            #contacto .contacto-card p {
+                min-height: auto; /* Desactiva la altura mínima en móvil */
+            }
+        }
+    </style>
+
+    <div class="contacto-grid">
+
+        <div class="contacto-card b2c">
+            <div>
+                <h3>Para Padres</h3>
+                <p>Inicia tu proceso con una reunión creativa sin costo.
+Definiremos el concepto artístico, la locación
+y los detalles técnicos de tu sesión de élite.</p>
+            </div>
+            <a href="reserva.html" class="btn-vora-contacto btn-b2c">
+                AGENDAR SESIÓN INDIVIDUAL
             </a>
         </div>
+
+        <div class="contacto-card b2b">
+            <div>
+                <h3>Para Clubes</h3>
+                <p>Activa el Sistema de <span class="resaltado">Beneficios Progresivos</span>. Gestionamos jornadas coordinadas con <span class="resaltado">tarifas preferenciales</span> para los padres, apoyo al crecimiento del club y <span class="resaltado">material de marketing</span> profesional gratuito.</p>
+    </div>
+            <a href="https://wa.me/573239135052?text=Hola%20VORA,%20soy%20director/entrenador%20de%20un%20Club%20y%20me%20interesa%20conocer%20el%20Convenio%20CLUB" target="_blank" class="btn-vora-contacto btn-b2b">
+        CONSULTAR CONVENIO
+</a>
+        </div>
+
     </div>
 </section>
 
