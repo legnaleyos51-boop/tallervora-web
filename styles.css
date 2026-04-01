@@ -1617,7 +1617,7 @@ body {
     margin-bottom: 20px;
 }
 
-..info-card ul {
+.info-card ul {
     list-style: disc inside;
     padding-left: 20px;
     margin: 0;
@@ -1879,6 +1879,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(76, 215, 143, 0.3);
     transition: 0.3s;
+    display: inline-block;
 }
 
 .btn-outline-orange {
@@ -1889,6 +1890,12 @@ body {
     font-weight: 700;
     border-radius: 8px;
     transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-outline-orange:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
 }
 
 .btn-primary-neon:hover {
@@ -2307,4 +2314,40 @@ body {
     margin-top: 10px;
     font-size: 0.8rem;
     color: #ccc;
+}
+
+/* UTILIDAD PARA CENTRAR TEXTO */
+.text-center {
+    text-align: center;
+}
+
+/* ESTILOS LISTA BENEFICIOS SQUAD */
+.squad-intro {
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #eee;
+}
+
+.squad-benefits-list {
+    list-style: disc;
+    padding-left: 20px;
+    max-width: 650px;
+    margin: 15px auto 35px; /* Reducido el margen superior para agruparlo con la intro */
+    text-align: left; /* Alineación a la izquierda para legibilidad */
+}
+
+.squad-benefits-list li {
+    margin-bottom: 10px; /* Espacio reducido para que se vea como un bloque */
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.squad-benefits-list li::marker {
+    color: var(--neon-orange); /* Balas en color naranja neón */
+}
+
+.squad-benefits-list li strong {
+    color: #fff; /* Títulos resaltados en blanco */
+    font-weight: 700;
 }
