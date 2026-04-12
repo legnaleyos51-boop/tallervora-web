@@ -289,10 +289,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // para permitir activación manual o por otra lógica si se desea.
 });
 
-function copyBaseProposal(btn) {
-    const textToCopy = "¡Hola a todos! 🏆 Como parte de nuestro compromiso con el crecimiento de nuestros atletas, hemos concretado una alianza con Taller VORA para elevar su imagen deportiva.";
-    
-    navigator.clipboard.writeText(textToCopy).then(() => {
+/**
+ * Función robusta para copiar al portapapeles (Compatible con móvil/no-HTTPS)
+ */
+function executeCopy(text, btn) {
+    const originalContent = btn.innerHTML;
+    const successCallback = () => {
         const originalContent = btn.innerHTML;
         btn.innerHTML = '<span class="material-icons" style="font-size: 1.2rem;">check</span> ¡COPIADO!';
         btn.style.color = "var(--neon-green)";
@@ -302,23 +304,42 @@ function copyBaseProposal(btn) {
             btn.style.color = "";
             btn.style.borderColor = "";
         }, 2000);
-    }).catch(err => console.error('Error al copiar el texto: ', err));
+    };
+
+    // Intentar API moderna
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(successCallback).catch(() => fallbackCopy(text, successCallback));
+    } else {
+        // Fallback para móvil/desarrollo local
+        fallbackCopy(text, successCallback);
+    }
+}
+
+function fallbackCopy(text, callback) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed"; // Evitar scroll
+    textArea.style.left = "-9999px";
+    textArea.style.top = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+        if (document.execCommand('copy')) callback();
+    } catch (err) {
+        console.error('Error en el fallback de copiado:', err);
+    }
+    document.body.removeChild(textArea);
+}
+
+function copyBaseProposal(btn) {
+    const text = "¡Hola a todos! 🏆 Como parte de nuestro compromiso con el crecimiento de nuestros atletas, hemos concretado una alianza con Taller VORA para elevar su imagen deportiva.";
+    executeCopy(text, btn);
 }
 
 function copyPortalLink(btn) {
-    const linkToCopy = "https://www.tallervora.com/alianzas_padres.html";
-    
-    navigator.clipboard.writeText(linkToCopy).then(() => {
-        const originalContent = btn.innerHTML;
-        btn.innerHTML = '<span class="material-icons" style="font-size: 1.2rem;">check</span> ¡COPIADO!';
-        btn.style.color = "var(--neon-green)";
-        btn.style.borderColor = "var(--neon-green)";
-        setTimeout(() => {
-            btn.innerHTML = originalContent;
-            btn.style.color = "";
-            btn.style.borderColor = "";
-        }, 2000);
-    }).catch(err => console.error('Error al copiar el enlace: ', err));
+    const text = "https://www.tallervora.com/alianzas_padres.html";
+    executeCopy(text, btn);
 }
 
 function openAficheGallery() {
