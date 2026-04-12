@@ -306,7 +306,7 @@ function copyBaseProposal(btn) {
 }
 
 function copyPortalLink(btn) {
-    const linkToCopy = "https://www.tallervora.com/alianzas_padres";
+    const linkToCopy = "https://www.tallervora.com/alianzas_padres.html";
     
     navigator.clipboard.writeText(linkToCopy).then(() => {
         const originalContent = btn.innerHTML;
