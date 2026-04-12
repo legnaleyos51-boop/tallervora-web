@@ -107,12 +107,33 @@ function openLightbox(element) {
 
 function updateLightbox() {
     const lightboxImg = document.getElementById('lightbox-img');
+    const downloadBtn = document.getElementById('download-btn');
     if (lightboxImg) {
         lightboxImg.style.opacity = 0; 
         updateDots(); 
         setTimeout(() => {
-            lightboxImg.src = galleryImages[currentIndex];
+            const currentSrc = galleryImages[currentIndex];
+            if (!currentSrc) return;
+            
+            // Preparamos el evento de carga
             lightboxImg.onload = () => { lightboxImg.style.opacity = 1; };
+            lightboxImg.onerror = () => { 
+                console.error("No se pudo cargar la imagen:", currentSrc);
+                lightboxImg.style.opacity = 1; // Mostramos aunque sea el alt/error
+            };
+            
+            lightboxImg.src = currentSrc;
+
+            // Si la imagen ya está en caché, el onload podría no dispararse en algunos navegadores
+            if (lightboxImg.complete) {
+                lightboxImg.style.opacity = 1;
+            }
+
+            // Actualizar link de descarga si el botón existe
+            if (downloadBtn) {
+                downloadBtn.href = currentSrc;
+                downloadBtn.style.display = 'inline-block';
+            }
         }, 300); // Sincronizado con el efecto rebote
     }
 }
@@ -224,3 +245,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', handleScroll);
 });
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Captura de elementos
+    const modal = document.getElementById('modal-bifurcacion');
+    const btnAbrir = document.getElementById('btn-abrir-modal');
+    const btnCerrar = document.getElementById('btn-cerrar-modal');
+
+    // 2. Verificación de existencia para evitar errores en consola
+    if (btnAbrir && modal && btnCerrar) {
+        
+        // Función para abrir el modal
+        btnAbrir.addEventListener('click', function() {
+            modal.style.display = "flex";
+            // Bloquea el scroll del cuerpo para mejorar la UX
+            document.body.style.overflow = "hidden";
+        });
+
+        // Función para cerrar el modal desde la (X)
+        btnCerrar.addEventListener('click', function() {
+            modal.style.display = "none";
+            // Devuelve el scroll al cuerpo
+            document.body.style.overflow = "auto";
+        });
+
+        // Función para cerrar el modal al hacer clic fuera del contenido
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+    }
+
+    // Lógica para iluminar pasos en la Guía del Director
+    // Eliminado: Lógica de la línea de tiempo dinámica y activación de pasos por scroll.
+    // Los estilos para .guide-step.active .step-number-large se mantendrán en CSS
+    // para permitir activación manual o por otra lógica si se desea.
+});
+
+function copyBaseProposal(btn) {
+    const textToCopy = "¡Hola a todos! 🏆 Como parte de nuestro compromiso con el crecimiento de nuestros atletas, hemos concretado una alianza con Taller VORA para elevar su imagen deportiva.";
+    
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<span class="material-icons" style="font-size: 1.2rem;">check</span> ¡COPIADO!';
+        btn.style.color = "var(--neon-green)";
+        btn.style.borderColor = "var(--neon-green)";
+        setTimeout(() => {
+            btn.innerHTML = originalContent;
+            btn.style.color = "";
+            btn.style.borderColor = "";
+        }, 2000);
+    }).catch(err => console.error('Error al copiar el texto: ', err));
+}
+
+function copyPortalLink(btn) {
+    const linkToCopy = "https://www.tallervora.com/alianzas_padres";
+    
+    navigator.clipboard.writeText(linkToCopy).then(() => {
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<span class="material-icons" style="font-size: 1.2rem;">check</span> ¡COPIADO!';
+        btn.style.color = "var(--neon-green)";
+        btn.style.borderColor = "var(--neon-green)";
+        setTimeout(() => {
+            btn.innerHTML = originalContent;
+            btn.style.color = "";
+            btn.style.borderColor = "";
+        }, 2000);
+    }).catch(err => console.error('Error al copiar el enlace: ', err));
+}
+
+function openAficheGallery() {
+    // Busca el primer item de la galería de afiches para abrir el lightbox
+    const firstAfiche = document.querySelector('#afiche-gallery-items .gallery-item');
+    if (firstAfiche) openLightbox(firstAfiche);
+}

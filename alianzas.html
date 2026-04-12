@@ -124,6 +124,16 @@
                     </ul>
                 </article>
             </div>
+
+            <div class="text-center" style="margin: 40px 0;">
+                <a href="https://wa.me/573239135052?text=Hola%20VORA%2C%20revis%C3%A9%20los%20planes%20de%20producci%C3%B3n%20en%20la%20web%20y%20me%20interesa%20contratar%20un%20paquete%20audiovisual%20para%20mi%20club%20%5BNombre%20del%20Club%5D." class="btn-cta-production" target="_blank" rel="noopener noreferrer">
+                    <span class="material-icons">videocam</span>
+                    CONTRATAR PRODUCCIÓN <br> PARA MI CLUB
+                </a>
+                <a href="#programa-squad" class="cta-secondary-link">
+                    ¿Buscas una opción sin inversión inicial? <strong>Ver Convenio Costo Cero</strong>
+                </a>
+            </div>
         </section>
 
 
@@ -158,9 +168,7 @@
                             </div>
                         </div>
 
-                        <div class="legal-security-box">
-                            <p><strong>Seguridad Jurídica y Acceso Directo: Tramitamos el consentimiento legal de cada deportista y entregamos el material digital listo para su uso institucional, eliminando la necesidad de solicitar archivos o permisos a los padres.</strong></p>
-                        </div>
+                        <p class="benefits-note"><strong>Seguridad Jurídica y Acceso Directo:</strong> Tramitamos el consentimiento legal de cada deportista y entregamos el material digital listo para su uso institucional, eliminando la necesidad de solicitar archivos o permisos a los padres.</p>
 
                         <div class="benefits-table">
                             <div class="benefit-row header-row">
@@ -184,7 +192,9 @@
                             </div>
                         </div>
 
-                        <p class="benefits-note">Si quieres que el valor de tu comisión se convierta en un beneficio directo para los padres, puedes hacerlo. Te garantizamos que comunicaremos tu gesto a la comunidad, fortaleciendo el vínculo y la fidelidad con tu academia. </p>
+                        <div class="legal-security-box">
+                            <p>Si quieres que el valor de tu comisión se convierta en un beneficio directo para los padres, puedes hacerlo. Te garantizamos que comunicaremos tu gesto a la comunidad, fortaleciendo el vínculo y la fidelidad con tu academia. </p>
+                        </div>
                      </div>
                 
                     </section>
@@ -194,28 +204,29 @@
 
 
 
-        <section class="final-cta">
-            <div class="cta-inner">
-                <h2>¿LISTO PARA LIDERAR EL MERCADO?</h2>
-                <p>Contacta con nuestro equipo para conocer cómo llevamos la producción audiovisual a tu club.</p>
-                <a href="https://wa.me/573239135052?text=Hola%20VORA%2C%20soy%20director%20de%20un%20club%20y%20me%20interesa%20el%20convenio%20B2B" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                    <span class="material-icons">chat</span>
-                    HABLAR CON UN CONSULTOR
-                </a>
-            </div>
-        </section>
+   <section id="activacion-convenio" style="text-align: center; padding: 100px 20px; background: #000;">
+    <h2 style="color: #fff; font-size: 2.5rem; margin-bottom: 10px;">¿Listo para activar el convenio en tu club?</h2>
+    <p style="color: #ccc; margin-bottom: 40px;">Selecciona tu rol para recibir la ruta de implementación y tu kit de convocatoria.</p>
+    
+    <button id="btn-abrir-modal" class="btn-naranja">ACTIVAR MI CONVENIO</button>
+</section>
 
-    </main>
+<div id="modal-bifurcacion" class="modal-overlay">
+    <div class="modal-content">
+        <span id="btn-cerrar-modal" class="close-button">&times;</span>
+        
+        <div class="opciones-container">
+            <a href="guia-director.html" class="tarjeta-modal">
+                <h4>SOY DIRECTOR DE CLUB</h4>
+            </a>
+            
+            <a href="guia-entrenador.html" class="tarjeta-modal">
+                <h4>SOY ENTRENADOR / PROFE</h4>
+            </a>
+        </div>
+    </div>
+</div>
 
-    <script>
-        // Navegación interactiva
-        const tabs = document.querySelectorAll('.tab-item');
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-            });
-        });
-    </script>
-</body>
+<script src="script.js"></script>
+
 </html>
