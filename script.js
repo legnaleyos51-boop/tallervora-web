@@ -290,6 +290,59 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
+ * LÓGICA MODAL INFORMATIVO ACABADOS
+ */
+const finishData = {
+    alucobond: {
+        title: "Elegancia minimalista <br> para capturar su historia.",
+        points: [
+            "<strong>Composición Estructural:</strong> Núcleo de polietileno de baja densidad acoplado entre dos láminas de aluminio de 0.3 mm.",
+            "<strong>Acabado Visual:</strong> Impresión fotográfica profesional con laminado protector UV que elimina reflejos molestos.",
+            "<strong>Estabilidad:</strong> Panel de alta rigidez que garantiza una superficie 100% plana, inmune a deformaciones por humedad.",
+            "<strong>Efecto de Montaje:</strong> Incluye bastidor posterior de madera para un sistema de colgado 'flotante'."
+        ],
+        legal: "Materiales suministrados por Graphyco Colombia bajo especificaciones de fábrica.",
+        variantClass: "alucobond-variant"
+    },
+    chromaluxe: {
+        title: "Un legado visual <br>diseñado para ser inmortal.",
+        points: [
+            "<strong>Tecnología de Infusión:</strong> Panel de aluminio sólido de 1.1 mm. Pigmentos integrados dentro del recubrimiento del metal mediante sublimación térmica (sin papel ni adhesivos).",
+            "<strong>Impacto Visual:</strong> Nitidez de ultra-alta definición (HD) con profundidad de color y contraste superiores a soportes tradicionales.",
+            "<strong>Resistencia Certificada:</strong> Superficie con escudo polimérico resistente a rayones, calor, humedad y agentes químicos.",
+            "<strong>Longevidad de Archivo:</strong> Colores estables y vibrantes <span class='highlight-orange'>garantizados por más de 65 años en interiores.</span>"
+        ],
+        legal: "Pruebas de resistencia realizadas bajo estándares de Wilhelm Imaging Research. Materiales bajo especificaciones originales de ChromaLuxe.",
+        variantClass: "chromaluxe-variant"
+    }
+};
+
+function openInfoModal(type) {
+    const modal = document.getElementById('info-modal');
+    const container = document.getElementById('info-modal-container');
+    const title = document.getElementById('info-modal-title');
+    const pointsList = document.getElementById('info-modal-points');
+    const legal = document.getElementById('info-modal-legal');
+    
+    const data = finishData[type];
+
+    if (modal && data) {
+        title.innerHTML = data.title;
+        legal.innerHTML = data.legal;
+        pointsList.innerHTML = data.points.map(p => `<li>${p}</li>`).join('');
+        
+        container.className = 'info-modal-content ' + data.variantClass;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeInfoModal(e) {
+    document.getElementById('info-modal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+/**
  * Función robusta para copiar al portapapeles (Compatible con móvil/no-HTTPS)
  */
 function executeCopy(text, btn) {

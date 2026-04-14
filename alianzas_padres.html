@@ -34,9 +34,8 @@
     <div class="hero-overlay"></div>
     
     <div class="hero-content">
-        <h1>MÁS QUE UN HOBBY<br><span class="highlight-orange">ES SU IDENTIDAD</span></h1>
-        
-        <p>Tu hijo entrena con la disciplina de un profesional. Capturamos la imagen que refleja su mentalidad de élite y transformamos su esfuerzo en un</p>
+        <h1>BIENVENIDO AL CONVENIO<br><span class="highlight-orange">OFICIAL DE TU ESCUELA</span></h1>
+        <p>Aprovecha el beneficio exclusivo gestionado por tu institución para inmortalizar el esfuerzo de tu atleta con retratos de élite.</p>
         
         <p class="poster-coleccionista">
             <strong>Póster mvp</strong>
@@ -45,22 +44,7 @@
     </div>
 </header>
 
-
-
-<a href="https://wa.me/573239135052" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
-        <img src="assets/icono wapp.png" alt="WhatsApp" class="whatsapp-icon">
-</a>
-
-
-
-
-
 <hr class="section-divider">
-
-
-
-
-
 
 <section class="vora-comparison" id="comparison-trigger">
     <h2 class="section-title">¿QUÉ PREFIERES?</h2>
@@ -77,6 +61,179 @@
     </div>
 </section>
 
+<hr class="section-divider">
+
+<section class="gallery-section">
+    <h2 class="section-title">Muestra </h2>
+    
+    <div class="bento-grid" id="gallery">
+        <div class="gallery-item large" onclick="openLightbox(this)">
+            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 1">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+
+        <div class="gallery-item tall" onclick="openLightbox(this)">
+            <img src="assets/foto mala.png" alt="Comparativa Vora Mala 1">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 2">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="assets/foto mala.png" alt="Comparativa Vora Mala 2">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+
+        <div class="gallery-item wide" onclick="openLightbox(this)">
+            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 3">
+            <div class="overlay"><i class="expand-icon">+</i></div>
+        </div>
+    </div>
+</section>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="close-btn" onclick="closeLightbox(event)">&times;</span>
+    
+    <img id="lightbox-img" src="" alt="Full View" onclick="event.stopPropagation()">
+
+    <div class="nav-container" onclick="event.stopPropagation()">
+        <span class="nav-arrow prev" onclick="prevImage(event)">&#10094;</span>
+        
+        <div class="dots-window">
+            <div id="dots-inner" class="dots-inner">
+                </div>
+        </div>
+
+        <span class="nav-arrow next" onclick="nextImage(event)">&#10095;</span>
+    </div>
+</div>
+
+<a href="https://wa.me/573239135052?text=Hola%20VORA,%20vengo%20de%20la%20página%20de%20convenios%20y%20quiero%20solicitar%20el%20ingreso%20al%20grupo%20de%20mi%20escuela%20para%20asegurar%20mi%20beneficio." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <img src="assets/icono wapp.png" alt="WhatsApp" class="whatsapp-icon">
+</a>
+
+<hr class="section-divider">
+
+<section class="pricing-section">
+    <h2 class="section-title">PAQUETES </h2>
+    <style>
+        .club-discount {
+            background-color: #ff8c00; /* Naranja neón */
+            color: #000;
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            border-radius: 0 0 8px 8px;
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            right: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+     
+     
+    </style>
+    <div class="pricing-container">
+        
+        <div class="pricing-card">
+            <div class="card-header">
+                <h3>ESENCIAL</h3>
+                <p class="enfoque">Nivel Bronce</p>
+            </div>
+            <div class="card-price">$340.000</div>
+            <ul class="card-features">
+                <li>1 Hora de sesión</li>
+                <li>4 Retratos digitales editados</li>
+                <li class="physical-item-v4">
+                    <span class="item-main">Impresión en <br> papel fotográfico</span>
+                    <span class="item-sub">30 x 45 cm</span>
+                </li>
+            </ul>
+            <div class="club-discount">
+                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $289.000</strong></p>
+            </div>
+</div>
+
+        <div class="pricing-card featured">
+                <div class="card-header">
+                <h3>ÉLITE</h3>
+                <p class="enfoque">Nivel Plata</p>
+            </div>
+            <div class="card-price">$580.000</div>
+            <ul class="card-features">
+                <li>2 Horas de sesión</li>
+                <li>8 Retratos digitales editados</li>
+                <li>Fondo digital personalizado</li>
+                <li class="physical-item-v4">
+                    <span class="item-main">PÓSTER EN <br>
+                        <span class="highlight-orange finish-link" onclick="openInfoModal('alucobond')">PANEL DE ALUCOBOND <i class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 5px;">ads_click</i></span></span>
+                    <span class="item-detail">Incluye montaje flotante de galería</span>
+                    <span class="item-sub">40 x 50 cm</span>
+                </li>
+            </ul>
+            <div class="club-discount">
+                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $493.000</strong></p>
+            </div>
+</div>
+    
+
+
+        <div class="pricing-card">
+            <div class="card-header">
+                <h3>BLACK EDITION</h3>
+                <p class="enfoque">Nivel Oro</p>
+            </div>
+            <div class="card-price">$1.150.000</div>
+            <ul class="card-features">
+                <li>2 Horas de sesión</li>
+                <li>Galería digital completa editada</li>
+                <li>Máxima fidelidad de color</li>
+                <li>Atención prioritaria</li>
+                <li class="physical-item-v4">
+                    <span class="item-main">PÓSTER EN <br>
+                        <span class="highlight-orange finish-link" onclick="openInfoModal('chromaluxe')">CHROMALUXE ALUMINIO HD <i class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 5px;">ads_click</i></span></span>
+                    <span class="item-detail">Incluye montaje flotante de galería</span>
+                    <span class="item-sub">40 x 50 cm</span>
+                </li>
+            </ul>
+            <div class="club-discount">
+                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $977.500</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<section class="benefits-scale" style="padding: 60px 5%;">
+    <div class="section-header">
+        <h2 class="section-title">🏷️ TARIFAS ESPECIALES POR CONVENIO</h2>
+    </div>
+    <div class="benefits-table" style="max-width: 800px; margin: 0 auto;">
+        <div class="benefit-row header-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="benefit-volume">CANTIDAD DE ATLETAS</div>
+            <div class="benefit-discount">TU DESCUENTO</div>
+        </div>
+
+        <div class="benefit-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="benefit-volume">5 o 10 Atletas</div>
+            <div class="benefit-discount">5% OFF</div>
+        </div>
+        <div class="benefit-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="benefit-volume">20+ Atletas</div>
+            <div class="benefit-discount">15% OFF</div>
+        </div>
+    </div>
+    <p class="text-center" style="margin-top: 25px; color: #aaa; font-size: 0.95rem;">
+        <i>Si tu institución decidió transferir su beneficio, tu descuento final será del 20% automáticamente.</i>
+    </p>
+</section>
 
 <hr class="section-divider">
     
@@ -112,44 +269,6 @@
 
 
 <hr class="section-divider">
-
-
-<section class="author-story-vora">
-    <div class="author-main-container">
-        
-        <div class="author-header-mobile">
-            <span class="author-label-vora">EL ORIGEN</span>
-            <h2 class="author-heading-vora">UN PADRE DETRÁS DEL LENTE</h2>
-        </div>
-
-        <div class="author-wrapper-vora">
-            
-            <div class="author-visual-vora">
-                <div class="img-container-vora">
-                    <img src="assets/imagen portada.png" alt="Fundador Taller VORA" class="img-bw-vora">
-                    <div class="photo-glow-vora"></div>
-                </div>
-                
-                <div class="author-quote-vora">
-                    <p>"MI META ES QUE CADA VEZ QUE MIRE SU PÓSTER, RECUERDE DE QUÉ ES CAPAZ."</p>
-                    <span class="quote-author-name">- FUNDADOR VORA</span>
-                </div>
-            </div>
-
-            <div class="author-text-box-vora">
-                <div class="author-description-vora">
-                    <p>Taller VORA nació en los parques de Bogotá. Como padre de un joven deportista, entendí que esos momentos de esfuerzo y disciplina merecen algo más que una foto en un celular que el tiempo terminará borrando.</p>
-                    
-                    <p>Comprendí que esos instantes merecen ser tratados como <strong class="highlight-orange-vora">arte que perdure en el tiempo.</strong> Sé que con el paso de los años, cuando miremos atrás, ese póster será el testimonio vivo de su determinación y el recuerdo de lo que siempre fue capaz de lograr.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-
 
 <hr class="section-divider">
 
@@ -229,20 +348,48 @@
         <div class="etapa-item item-4">
             <div class="punto-anclaje"><div class="etapa-punto">4</div></div>
             <div class="etapa-contenido">
-                <div class="etapa-visual"><img src="assets/imagen portada.png"></div>
+                <div class="etapa-visual">
+                    <div class="comparativa-visual">
+                        <div class="layer layer-papel"></div>
+                        <div class="layer layer-alucobond"></div>
+                        <div class="layer layer-chromaluxe"></div>
+                    </div>
+                </div>
                 <div class="etapa-texto">
                     <h3 class="verde">ENTREGA DE GALERÍA</h3>
-                    <p>La obra final se materializa en soportes físicos de alta gama. Entregamos una pieza de calidad de museo, diseñada para perdurar y ser el centro de atención.</p>
-                    <ul class="puntos-clave">
-                        <li>Impresión en soportes rígidos.</li>
-                        <li>Garantía de Durabilidad.</li>
-                    </ul>
+                    <div class="material-block">
+                        <h4>EL ESTÁNDAR - Papel Fotográfico</h4>
+                        <p>Impresión profesional de alta resolución con laminado mate para marcos tradicionales.</p>
+                    </div>
+                    <div class="material-block">
+                        <h4>LA MODERNA - Panel de Alucobond</h4>
+                        <p>Montaje sobre panel rígido de aluminio con acabado mate elegante y colgado flotante.</p>
+                    </div>
+                    <div class="material-block">
+                        <h4>LA JOYA - ChromaLuxe Aluminio HD</h4>
+                        <p>Infusión térmica en metal con brillo cinematográfico y durabilidad de 65+ años.</p>
+                    </div>
+                
                 </div>
             </div>
             <div class="separador-movil"></div>
         </div>
     </div>
 </section>
+
+<!-- MODAL INFORMATIVO DE ACABADOS -->
+<div id="info-modal" class="info-modal-overlay" onclick="closeInfoModal(event)">
+    <div id="info-modal-container" class="info-modal-content" onclick="event.stopPropagation()">
+        <span class="info-modal-close" onclick="closeInfoModal(event)">&times;</span>
+        <div class="info-modal-body">
+            <img id="info-modal-img" src="assets/imagen portada.png" alt="Detalle del Acabado">
+            <h2 id="info-modal-title">Cargando...</h2>
+            <ul id="info-modal-points" class="info-modal-points"></ul>
+            <p id="info-modal-legal" class="info-modal-legal"></p>
+            <button class="btn-primary-full" onclick="closeInfoModal(event)" style="margin-top: 20px; padding: 12px;">ENTENDIDO</button>
+        </div>
+    </div>
+</div>
 
 
 
@@ -426,103 +573,14 @@
 
 <hr class="section-divider">
 
-
-
-
-<section class="pricing-section">
-    <h2 class="section-title">PAQUETES </h2>
-    <style>
-        .club-discount {
-            background-color: #ff8c00; /* Naranja neón */
-            color: #000;
-            padding: 20px 15px;
-            text-align: center;
-            font-weight: bold;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            border-radius: 0 0 8px 8px;
-            position: absolute;
-            bottom: -7px;
-            left: 0;
-            right: 0;
-            width: 100%;
-            box-sizing: border-box;
-        }
-     
-     
-    </style>
-    <div class="pricing-container">
-        
-        <div class="pricing-card">
-            <div class="card-header">
-                <h3>ESENCIAL</h3>
-                <p class="enfoque">Nivel Bronce</p>
-            </div>
-            <div class="card-price">$340.000</div>
-            <ul class="card-features">
-                <li>1 Hora de sesión</li>
-                <li>4 Retratos digitales editados</li>
-                <li class="physical-item-v4">
-                    <span class="item-main">Impresión en <br> papel fotográfico</span>
-                    <span class="item-sub">30 x 45 cm</span>
-                </li>
-            </ul>
-            <div class="club-discount">
-                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $289.000</strong></p>
-            </div>
-</div>
-
-        <div class="pricing-card featured">
-                <div class="card-header">
-                <h3>ÉLITE</h3>
-                <p class="enfoque">Nivel Plata</p>
-            </div>
-            <div class="card-price">$580.000</div>
-            <ul class="card-features">
-                <li>2 Horas de sesión</li>
-                <li>8 Retratos digitales editados</li>
-                <li>Fondo digital personalizado</li>
-                <li class="physical-item-v4">
-                    <span class="item-main">PÓSTER EN <br>
-                        <span class="highlight-orange">PANEL DE ALUCOBOND</span></span>
-                    <span class="item-detail">Incluye montaje flotante de galería</span>
-                    <span class="item-sub">40 x 50 cm</span>
-                </li>
-            </ul>
-            <div class="club-discount">
-                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $493.000</strong></p>
-            </div>
-</div>
-    
-
-
-        <div class="pricing-card">
-            <div class="card-header">
-                <h3>BLACK EDITION</h3>
-                <p class="enfoque">Nivel Oro</p>
-            </div>
-            <div class="card-price">$1.150.000</div>
-            <ul class="card-features">
-                <li>2 Horas de sesión</li>
-                <li>Galería digital completa editada</li>
-                <li>Máxima fidelidad de color</li>
-                <li>Atención prioritaria</li>
-                <li class="physical-item-v4">
-                    <span class="item-main">PÓSTER EN <br>
-                        <span class="highlight-orange">CHROMALUXE ALUMINIO HD</span></span>
-                    <span class="item-detail">Incluye montaje flotante de galería</span>
-                    <span class="item-sub">40 x 50 cm</span>
-                </li>
-            </ul>
-            <div class="club-discount">
-                <p>Precio especial por Convenio Club:<br><strong style="font-size: 20px;">desde $977.500</strong></p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <hr class="section-divider">
 
+<section class="benefit-block" style="padding: 60px 5%; background: #0a0a0a; border: 1px dashed var(--neon-orange); margin: 80px 20px; border-radius: 20px; text-align: center;">
+    <h2 class="text-neon-orange" style="margin-bottom: 15px; text-transform: uppercase; font-weight: 900;">🤝 BENEFICIO POR COMUNIDAD</h2>
+    <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+        Recuerda que al completar el cupo mínimo de 5 atletas en tu categoría, se activa automáticamente la tarifa de convenio. <strong>¡Coordina con los otros padres para asegurar el mejor precio!</strong>
+    </p>
+</section>
 
 <section id="contacto" class="section-anchor" style="padding: 80px 20px; background-color: #050505; color: #fff; font-family: sans-serif;">
     <style>
@@ -543,7 +601,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Alinea contenido y botón al final */
+            justify-content: flex-start; /* Alinea contenido al inicio para que el botón suba */
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -587,8 +645,8 @@
             font-size: 16px;
             color: #ccc;
             line-height: 1.6;
-            margin-bottom: 30px;
-            min-height: 80px; /* Asegura que los textos tengan la misma altura */
+            margin-bottom: 20px;
+            min-height: auto; /* Permite que el botón se acerque más al texto */
         }
 
         /* --- ESTILO DE LOS BOTONES (Iguales para equilibrio) --- */
@@ -647,30 +705,11 @@
     </style>
 
     <div class="contacto-grid">
-
         <div class="contacto-card b2c">
-            <div>
-                <h3>Para Padres</h3>
-                <p>Inicia tu proceso con una reunión creativa sin costo.
-Definiremos el concepto artístico, la locación
-y los detalles técnicos de tu sesión de élite.</p>
-            </div>
-            <a href="reserva.html" class="btn-vora-contacto btn-b2c">
-                Reservar Cupo
-            </a>
-            
+            <h3>¿TIENES DUDAS?</h3>
+            <p>Escríbenos directamente para resolver cualquier inquietud sobre la jornada técnica o los productos incluidos en tu convenio escolar.</p>
+            <a href="https://wa.me/573239135052?text=Hola%20VORA,%20vengo%20de%20la%20página%20de%20convenios%20y%20quiero%20solicitar%20el%20ingreso%20al%20grupo%20de%20mi%20escuela%20para%20asegurar%20mi%20beneficio." class="btn-vora-contacto btn-b2c">SOLICITAR ACCESO AL GRUPO DE MI ESCUELA</a>
         </div>
-
-        <div class="contacto-card b2b">
-            <div>
-                <h3>Para Clubes</h3>
-                <p>Activa el Sistema de <span class="resaltado">Beneficios Progresivos</span>. Gestionamos jornadas coordinadas con <span class="resaltado">tarifas preferenciales</span> para los padres, apoyo al crecimiento del club y <span class="resaltado">material de marketing</span> profesional gratuito.</p>
-    </div>
-            <a href="https://wa.me/573239135052?text=Hola%20VORA,%20soy%20director/entrenador%20de%20un%20Club%20y%20me%20interesa%20conocer%20el%20Convenio%20CLUB" target="_blank" class="btn-vora-contacto btn-b2b">
-        CONSULTAR CONVENIO
-</a>
-        </div>
-
     </div>
 </section>
 
@@ -684,6 +723,13 @@ y los detalles técnicos de tu sesión de élite.</p>
     <h2 class="faq-title">PREGUNTAS FRECUENTES</h2>
     <div class="faq-container">
         
+        <details class="faq-item" open>
+            <summary class="faq-question">¿Cómo obtengo el descuento del 20%?</summary>
+            <div class="faq-answer">
+                <p>El descuento máximo se activa automáticamente cuando <strong>5 o más padres de tu misma categoría</strong> se unen para realizar la sesión el mismo día. ¡La unión del grupo garantiza el mejor precio para todos!</p>
+            </div>
+        </details>
+
         <details class="faq-item">
             <summary class="faq-question">¿Qué pasa si el lugar de entrenamiento no es visualmente atractivo?</summary>
             <div class="faq-answer">
@@ -758,4 +804,3 @@ y los detalles técnicos de tu sesión de élite.</p>
 <script src="script.js"></script>
 </body>
 </html>
-

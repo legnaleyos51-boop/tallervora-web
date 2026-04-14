@@ -229,14 +229,28 @@
         <div class="etapa-item item-4">
             <div class="punto-anclaje"><div class="etapa-punto">4</div></div>
             <div class="etapa-contenido">
-                <div class="etapa-visual"><img src="assets/imagen portada.png"></div>
+                <div class="etapa-visual">
+                    <div class="comparativa-visual">
+                        <div class="layer layer-papel"></div>
+                        <div class="layer layer-alucobond"></div>
+                        <div class="layer layer-chromaluxe"></div>
+                    </div>
+                </div>
                 <div class="etapa-texto">
                     <h3 class="verde">ENTREGA DE GALERÍA</h3>
-                    <p>La obra final se materializa en soportes físicos de alta gama. Entregamos una pieza de calidad de museo, diseñada para perdurar y ser el centro de atención.</p>
-                    <ul class="puntos-clave">
-                        <li>Impresión en soportes rígidos.</li>
-                        <li>Garantía de Durabilidad.</li>
-                    </ul>
+                    <div class="material-block">
+                        <h4>EL ESTÁNDAR - Papel Fotográfico</h4>
+                        <p>Impresión profesional de alta resolución con laminado mate para marcos tradicionales.</p>
+                    </div>
+                    <div class="material-block">
+                        <h4>LA MODERNA - Panel de Alucobond</h4>
+                        <p>Montaje sobre panel rígido de aluminio con acabado mate elegante y colgado flotante.</p>
+                    </div>
+                    <div class="material-block">
+                        <h4>LA JOYA - ChromaLuxe Aluminio HD</h4>
+                        <p>Infusión térmica en metal con brillo cinematográfico y durabilidad de 65+ años.</p>
+                    </div>
+                 
                 </div>
             </div>
             <div class="separador-movil"></div>
@@ -484,8 +498,8 @@
                 <li>Fondo digital personalizado</li>
                 <li class="physical-item-v4">
                     <span class="item-main">PÓSTER EN <br>
-                        <span class="highlight-orange">PANEL DE ALUCOBOND</span></span>
-                    <span class="item-detail">Incluye montaje flotante de galería</span>
+                        <span class="highlight-orange finish-link" onclick="openInfoModal('alucobond')">PANEL DE ALUCOBOND <i class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 5px;">ads_click</i></span></span>
+                  
                     <span class="item-sub">40 x 50 cm</span>
                 </li>
             </ul>
@@ -509,9 +523,10 @@
                 <li>Atención prioritaria</li>
                 <li class="physical-item-v4">
                     <span class="item-main">PÓSTER EN <br>
-                        <span class="highlight-orange">CHROMALUXE ALUMINIO HD</span></span>
-                    <span class="item-detail">Incluye montaje flotante de galería</span>
+                        <span class="highlight-orange finish-link" onclick="openInfoModal('chromaluxe')">CHROMALUXE ALUMINIO HD <i class="material-icons" style="font-size: 18px; vertical-align: middle; margin-left: 5px;">ads_click</i></span></span>
+                
                     <span class="item-sub">40 x 50 cm</span>
+                    <br>
                 </li>
             </ul>
             <div class="club-discount">
@@ -543,7 +558,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Alinea contenido y botón al final */
+            justify-content: flex-start; /* Alinea contenido al inicio para que el botón suba */
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -587,8 +602,8 @@
             font-size: 16px;
             color: #ccc;
             line-height: 1.6;
-            margin-bottom: 30px;
-            min-height: 80px; /* Asegura que los textos tengan la misma altura */
+            margin-bottom: 20px;
+            min-height: auto; /* Permite que el botón se acerque más al texto */
         }
 
         /* --- ESTILO DE LOS BOTONES (Iguales para equilibrio) --- */
@@ -655,6 +670,7 @@
 Definiremos el concepto artístico, la locación
 y los detalles técnicos de tu sesión de élite.</p>
             </div>
+            <p style="font-size: 0.75rem; color: var(--neon-orange); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Cupos limitados por semana</p>
             <a href="reserva.html" class="btn-vora-contacto btn-b2c">
                 Reservar Cupo
             </a>
@@ -673,6 +689,20 @@ y los detalles técnicos de tu sesión de élite.</p>
 
     </div>
 </section>
+
+<!-- MODAL INFORMATIVO DE ACABADOS -->
+<div id="info-modal" class="info-modal-overlay" onclick="closeInfoModal(event)">
+    <div id="info-modal-container" class="info-modal-content" onclick="event.stopPropagation()">
+        <span class="info-modal-close" onclick="closeInfoModal(event)">&times;</span>
+        <div class="info-modal-body">
+            <img id="info-modal-img" src="assets/imagen portada.png" alt="Detalle del Acabado">
+            <h2 id="info-modal-title">Cargando...</h2>
+            <ul id="info-modal-points" class="info-modal-points"></ul>
+            <p id="info-modal-legal" class="info-modal-legal"></p>
+            <button class="btn-primary-full" onclick="closeInfoModal(event)" style="margin-top: 20px; padding: 12px;">ENTENDIDO</button>
+        </div>
+    </div>
+</div>
 
 
 
@@ -758,4 +788,3 @@ y los detalles técnicos de tu sesión de élite.</p>
 <script src="script.js"></script>
 </body>
 </html>
-
