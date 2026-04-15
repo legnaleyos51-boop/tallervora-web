@@ -293,6 +293,17 @@ document.addEventListener('DOMContentLoaded', function() {
  * LÓGICA MODAL INFORMATIVO ACABADOS
  */
 const finishData = {
+    papel: {
+        title: "Calidad de Exhibición <br> Tradicional y Atemporal.",
+        points: [
+            "<strong>Soporte Profesional:</strong> Papel fotográfico de alto gramaje con recubrimiento especial para tintas de pigmento.",
+            "<strong>Acabado Mate:</strong> Laminado protector que elimina brillos y protege la imagen de huellas y rayos UV.",
+            "<strong>Versatilidad:</strong> Ideal para ser montado en marcos con vidrio o sobre bastidores rígidos.",
+            "<strong>Resolución Extrema:</strong> Máximo detalle en texturas y fidelidad de color en cada impresión."
+        ],
+        legal: "Papel de grado de archivo impreso en laboratorio profesional.",
+        variantClass: "papel-variant"
+    },
     alucobond: {
         title: "Elegancia minimalista <br> para capturar su historia.",
         points: [
