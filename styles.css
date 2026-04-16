@@ -3098,3 +3098,26 @@ body {
 .info-modal-content.papel-variant h2 {
     color: #fff;
 }
+
+/* Scroll Hint Indicator */
+.scroll-hint-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    opacity: 0.7;
+    animation: bounce-scroll 2s infinite ease-in-out;
+}
+
+.scroll-hint-text {
+    font-size: 0.8rem;
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@keyframes bounce-scroll {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
