@@ -799,7 +799,7 @@
         <details class="faq-item" open>
             <summary class="faq-question">¿Cómo obtengo el descuento del 15%?</summary>
             <div class="faq-answer">
-                <p>El descuento máximo se activa automáticamente cuando <strong>20 o más padres de tu escuela</strong> se unen para realizar la sesión en 2 dias. ¡La unión del grupo garantiza el mejor precio para todos!</p>
+                <p>El descuento máximo se activa automáticamente cuando <strong>16 o más padres de tu escuela</strong> se unen para realizar la sesión en 2 dias. ¡La unión del grupo garantiza el mejor precio para todos!</p>
             </div>
         </details>
 
@@ -820,7 +820,7 @@
         <details class="faq-item">
             <summary class="faq-question">¿Cuánto dura la sesión y cómo funcionan los grupos?</summary>
             <div class="faq-answer">
-                <p>Las sesiones individuales duran de <strong>1 a 2 horas</strong> para garantizar la precisión técnica en iluminación y efectos. Para el <strong>Pack Squad</strong> (grupos de mínimo 4), optimizando el tiempo y el ahorro colectivo.</p>
+                <p>Las sesiones se organizan en bloques de media jornada (4 horas) para grupos de 4 personas, o jornada completa (8 horas) para grupos de 8 o más. Esta distribución asegura que cada atleta reciba la atención técnica necesaria para sus 4 retratos de alta gama.</p>
             </div>
         </details>
 
@@ -876,6 +876,13 @@
             transform: scale(1.05);
             background-color: #2cf371;
             box-shadow: 0 15px 45px rgba(37, 211, 102, 0.5);
+        }
+        @media (max-width: 480px) {
+            .btn-whatsapp-conversion {
+                padding: 18px 25px;
+                font-size: 0.95rem;
+                gap: 10px;
+            }
         }
         @keyframes pulse-cta {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }

@@ -19,11 +19,11 @@
     </nav>
 
     <nav class="b2b-tabs">
-        <a href="#vias-negocio" class="tab-item active">
+        <a href="#vias-negocio" class="tab-item">
             <span class="material-icons text-neon-green">workspace_premium</span>
             <h4>PRODUCCIÓN AUDIOVISUAL</h4>
         </a>
-        <a href="#programa-squad" class="tab-item">
+        <a href="#programa-squad" class="tab-item active">
             <span class="material-icons text-neon-orange">payments</span>
             <h4>CONVENIO <span class="text-neon-orange">COSTO CERO</span></h4>
         </a>
@@ -154,7 +154,7 @@
                             <div class="step-item">
                                 <div class="step-number">01</div>
                                 <h4>JORNADA DE CAPTURA</h4>
-                                <p>Dividimos la producción en bloques de 5 atletas. Cada bloque toma aproximadamente 4 horas de sesión profesional.</p>
+                                <p>Dividimos la producción en bloques de 4 atletas. Cada bloque toma aproximadamente 4 horas de sesión profesional.</p>
                             </div>
                             <div class="step-item">
                                 <div class="step-number">02</div>
@@ -168,33 +168,36 @@
                             </div>
                         </div>
 
-                        <p class="benefits-note"><strong>Seguridad Jurídica y Acceso Directo:</strong> Tramitamos el consentimiento legal de cada deportista y entregamos el material digital listo para su uso institucional, eliminando la necesidad de solicitar archivos o permisos a los padres.</p>
-
-                        <div class="benefits-table">
-                            <div class="benefit-row header-row">
-                                <div class="benefit-type">Convenio</div>
-                                <div class="benefit-volume">Volumen</div>
-                                <div class="benefit-discount">Descuento Padre</div>
-                                <div class="benefit-commission">Comisión Club/Profe</div>
-                            </div>
-                    
-                            <div class="benefit-row">
-                                <div class="benefit-type">Grupos SQUAD</div>
-                                <div class="benefit-volume">5 o 10 Atletas</div>
-                                <div class="benefit-discount">5% OFF</div>
-                                <div class="benefit-commission">5% Comisión</div>
-                            </div>
-                            <div class="benefit-row">
-                                <div class="benefit-type">Convenio CLUB</div>
-                                <div class="benefit-volume">20+ Atletas</div>
-                                <div class="benefit-discount">15% OFF</div>
-                                <div class="benefit-commission">5% Comisión</div>
-                            </div>
+                        <div class="table-responsive">
+                            <table class="minimal-benefits-table">
+                                <thead>
+                                    <tr>
+                                        <th>Escala del Grupo</th>
+                                        <th>Beneficio Club</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Grupo de 4 Atletas <span class="parent-discount-sub">5% OFF Padres</span></td>
+                                        <td>5% Comisión Club</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Grupo de 8 Atletas <span class="parent-discount-sub">10% OFF Padres</span></td>
+                                        <td>5% Comisión Club</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Grupo de 16 o más Atletas <span class="parent-discount-sub">15% OFF Padres</span></td>
+                                        <td>5% Comisión Club</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
-                        <div class="legal-security-box">
-                            <p>Si quieres que el valor de tu comisión se convierta en un beneficio directo para los padres, puedes hacerlo. Te garantizamos que comunicaremos tu gesto a la comunidad, fortaleciendo el vínculo y la fidelidad con tu academia. </p>
-                        </div>
+                        <p class="table-footer-legal">
+                            <strong>*</strong> Si quieres que tu comisión se convierta en un beneficio directo para los padres, puedes hacerlo. Te garantizamos que comunicaremos tu gesto a la comunidad, fortaleciendo el vínculo y la fidelidad con tu academia.
+                            <br><strong>*</strong> Tramitamos el consentimiento legal de cada deportista y entregamos el material digital listo para su uso institucional, eliminando la necesidad de solicitar archivos o permisos a los padres.
+
+                        </p>
                      </div>
                 
                     </section>
@@ -206,26 +209,12 @@
 
    <section id="activacion-convenio" style="text-align: center; padding: 100px 20px; background: #000;">
     <h2 style="color: #fff; font-size: 2.5rem; margin-bottom: 10px;">¿Listo para activar el convenio en tu club?</h2>
-    <p style="color: #ccc; margin-bottom: 40px;">Selecciona tu rol para recibir la ruta de implementación y tu kit de convocatoria.</p>
+    <p style="color: #ccc; margin-bottom: 40px;">recibe la ruta de implementación y tu kit de convocatoria.</p>
     
-    <button id="btn-abrir-modal" class="btn-naranja">ACTIVAR MI CONVENIO</button>
+    <a href="guia-director.html" class="btn-naranja">ACTIVAR MI CONVENIO</a>
 </section>
 
-<div id="modal-bifurcacion" class="modal-overlay">
-    <div class="modal-content">
-        <span id="btn-cerrar-modal" class="close-button">&times;</span>
-        
-        <div class="opciones-container">
-            <a href="guia-director.html" class="tarjeta-modal">
-                <h4>SOY DIRECTOR DE CLUB</h4>
-            </a>
-            
-            <a href="guia-entrenador.html" class="tarjeta-modal">
-                <h4>SOY ENTRENADOR / PROFE</h4>
-            </a>
-        </div>
-    </div>
-</div>
+
 
 <script src="script.js"></script>
 

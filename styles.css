@@ -659,7 +659,7 @@ header.hero .hero-content p {
 
     .author-quote-vora {
         bottom: -10px;
-        right: -40px;
+        right: -40px; /* Se mantiene el efecto original para pantallas grandes */
     }
 }
 
@@ -1087,7 +1087,8 @@ background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, 
     border: 1px solid #222;
     padding: 40px 30px;
     border-radius: 20px;
-    width: 320px;
+    width: 100%;
+    max-width: 320px; /* Ajustado para evitar desborde en pantallas pequeñas */
     transition: transform 0.3s ease, border-color 0.3s ease;
     position: relative;
     display: flex;
@@ -1099,6 +1100,15 @@ background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, 
     border-color: #4cd78f; /* Tu Verde Vora */
     transform: scale(1.05);
     z-index: 2;
+}
+
+@media (max-width: 480px) {
+    .pricing-card {
+        padding: 30px 20px;
+    }
+    .pricing-card.featured {
+        transform: scale(1); /* Evitar que la escala rompa el layout lateral en móviles */
+    }
 }
 
 .badge {
@@ -1884,7 +1894,7 @@ body {
 
 .tab-item.active {
     color: #fff;
-    border-bottom-color: var(--neon-green);
+    border-bottom-color: var(--neon-orange);
 }
 
 /* HERO SPLIT */
@@ -2004,9 +2014,15 @@ body {
 /* MOBILE */
 @media (max-width: 900px) {
     .hero-split, .value-cards, .package-container, .squad-layout, .fin-grid { grid-template-columns: 1fr; }
-    .hero-text h1 { font-size: 2.5rem; }
+    .hero-text h1 { font-size: clamp(1.8rem, 8vw, 2.5rem); }
     .active-card { transform: scale(1); margin: 30px 0; }
     .tab-item { padding: 15px 10px; font-size: 0.8rem; }
+    .squad-box { padding: 40px 20px; border-radius: 20px; }
+    .cta-inner { padding: 40px 20px; border-radius: 20px; }
+    .v-card { padding: 30px 20px; }
+    .hero-split { gap: 40px; }
+    .hero-text { text-align: center; }
+    .hero-btns { justify-content: center; }
 }
 
 /* --- AJUSTES DE CONVERSIÓN B2B --- */
@@ -2052,6 +2068,11 @@ body {
     box-shadow: 0 0 20px rgba(76, 215, 143, 0.3);
     transition: 0.3s;
     display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .pain-points { padding: 40px 20px; }
+    .pain-grid { gap: 20px; }
 }
 
 .btn-outline-orange {
@@ -2179,7 +2200,7 @@ body {
 
 .tab-item.active {
     color: #fff;
-    border-bottom-color: var(--neon-green);
+    border-bottom-color: var(--neon-orange);
 }
 
 .tab-item:hover {
@@ -2356,113 +2377,65 @@ body {
     line-height: 1.6;
 }
 
-.benefits-table {
-    max-width: 1000px;
-    margin: 0 auto;
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid rgba(76, 215, 143, 0.2);
+/* Minimal Benefits Table */
+.table-responsive {
+    overflow-x: auto;
+    margin: 40px auto;
+    max-width: 850px;
 }
 
-.benefit-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 25px 30px;
-    border-bottom: 1px solid #222;
-    transition: 0.3s;
+.minimal-benefits-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0a0a0a;
+    min-width: 500px;
+    border: 1px solid #222;
 }
 
-.benefit-row:last-child {
-    border-bottom: none;
+.minimal-benefits-table th, .minimal-benefits-table td {
+    padding: 22px;
+    border: 1px solid #222;
+    text-align: center;
 }
 
-.benefit-row.header-row {
-    background: rgba(76, 215, 143, 0.1);
-    border-bottom: 2px solid var(--neon-green);
-}
-
-.benefit-row.header-row .benefit-type,
-.benefit-row.header-row .benefit-volume,
-.benefit-row.header-row .benefit-discount,
-.benefit-row.header-row .benefit-commission {
-    font-weight: 900;
+.minimal-benefits-table thead th {
+    background: #111;
     color: var(--neon-green);
+    font-weight: 900;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
 }
 
-.benefit-row:not(.header-row):hover {
-    background: rgba(76, 215, 143, 0.05);
-}
-
-.benefit-type {
-    font-weight: 700;
+.minimal-benefits-table td:first-child {
     color: #fff;
+    font-weight: 700;
     font-size: 1.1rem;
 }
 
-.benefit-volume {
-    color: #ccc;
-    font-size: 1rem;
+.parent-discount-sub {
+    display: block;
+    font-size: 0.85rem;
+    color: #888;
+    font-weight: 400;
+    margin-top: 6px;
 }
 
-.benefit-discount,
-.benefit-commission {
+.minimal-benefits-table td:last-child {
     font-weight: 900;
-    color: var(--neon-orange);
-    font-size: 1.2rem;
+    color: var(--neon-green);
+    background: rgba(76, 215, 143, 0.06);
+    font-size: 1.3rem;
 }
 
-/* NOTE BELOW TABLE */
-.benefits-note {
-    text-align: center;
-    margin: 20px 0;
+.table-footer-legal {
+    margin: 30px auto;
     font-size: 0.9rem;
-    color: #ccc;
+    color: #aaa;
+    line-height: 1.6;
+    font-style: italic;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.legal-security-box {
-    background: #1a1a1a;
-    border: 1px solid var(--neon-orange);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px 0;
     text-align: center;
-}
-
-.legal-security-box p {
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .benefit-row {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        text-align: center;
-    }
-    
-    .benefit-row.header-row {
-        display: none; /* Ocultar header en móvil para simplicidad */
-    }
-    
-    .benefit-type {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-    
-    .benefit-volume,
-    .benefit-discount,
-    .benefit-commission {
-        font-size: 1rem;
-    }
 }
 
 /* B2B UNIFIED BOX */
@@ -2473,6 +2446,14 @@ body {
     padding: 60px 5%;
     margin: 60px 0;
 }
+
+@media (max-width: 768px) {
+    .b2b-unified-box { padding: 40px 20px; }
+    .benefits-scale { padding: 40px 20px; margin: 30px 0; }
+    .benefits-scale .section-header h2 { font-size: 1.8rem; }
+    .benefits-scale .section-header p { font-size: 1rem; }
+}
+
 
 /* STEPS */
 .step-number {
@@ -2728,6 +2709,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 .btn-naranja:hover { transform: scale(1.05); }
 
