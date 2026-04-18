@@ -278,43 +278,43 @@
 
         async function detectarArticulos() {
             const lista = document.getElementById('lista-recientes');
-            let encontrados = 0;
+            const foundArticles = [];
             const currentPath = window.location.pathname.split('/').pop() || 'articulo002.html';
             
-            for (let i = 50; i >= 1; i--) {
-                if (encontrados >= 5) break;
-                
+            for (let i = 1; i <= 100; i++) {
                 const num = i.toString().padStart(3, '0');
                 const url = `articulo${num}.html`;
                 
-                if (url === currentPath) continue;
-
                 try {
                     const response = await fetch(url);
-                    if (response.ok) {
-                        const html = await response.text();
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
-                        
-                        // Extraer datos del artículo
-                        const title = doc.querySelector('h1')?.textContent || `Volumen ${num}`;
-                        const imgSrc = doc.querySelector('.article-container img')?.getAttribute('src') || doc.querySelector('img:not(.logo-vora)')?.getAttribute('src');
-                        const excerpt = doc.querySelector('.article-container p')?.textContent || "";
+                    if (!response.ok) break; 
 
-                        const item = document.createElement('div');
-                        item.className = 'sidebar-item';
-                        item.innerHTML = `
-                            <a href="${url}">
-                                ${imgSrc ? `<img src="${imgSrc}" alt="${title}">` : ''}
-                                <h4>${title}</h4>
-                            </a>
-                            <p>${excerpt.substring(0, 90)}...</p>
-                        `;
-                        lista.appendChild(item);
-                        encontrados++;
-                    }
-                } catch (e) {}
+                    if (url === currentPath) continue;
+
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    const title = doc.querySelector('h1')?.textContent || `Volumen ${num}`;
+                    const imgSrc = doc.querySelector('.article-container img')?.getAttribute('src') || doc.querySelector('img:not(.logo-vora)')?.getAttribute('src');
+                    const excerpt = doc.querySelector('.article-container p')?.textContent || "";
+
+                    foundArticles.push({ url, title, imgSrc, excerpt });
+                } catch (e) { break; }
             }
+
+            foundArticles.reverse().slice(0, 5).forEach(art => {
+                const item = document.createElement('div');
+                item.className = 'sidebar-item';
+                item.innerHTML = `
+                    <a href="${art.url}">
+                        ${art.imgSrc ? `<img src="${art.imgSrc}" alt="${art.title}">` : ''}
+                        <h4>${art.title}</h4>
+                    </a>
+                    <p>${art.excerpt.substring(0, 90)}...</p>
+                `;
+                lista.appendChild(item);
+            });
         }
         detectarArticulos();
         sincronizarFooter();
