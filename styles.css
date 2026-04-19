@@ -38,12 +38,9 @@ img {
 }
 
 /* UTILIDADES */
-.highlight-green { color: var(--neon-green); }
 .highlight-orange { color: var(--vibrant-orange); }
-.text-orange { color: var(--neon-orange); }
 .text-neon-orange { color: var(--neon-orange); font-weight: 900; }
 .text-neon-green { color: var(--neon-green); }
-.text-white { color: #ffffff; }
 .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
 
 
@@ -483,16 +480,6 @@ header.hero .hero-content p {
     font-size: 1rem;
     max-width: 350px;
 }
-
-/* CONTRASTE */
-.contraste { padding: 100px 5%; background: #0f0f0f; }
-.comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-.comp-card { background: var(--card-bg); padding: 30px; border-radius: 10px; border: 1px solid #222; position: relative; }
-.featured-card { border: 1px solid var(--neon-green); box-shadow: 0 0 20px rgba(167, 232, 189, 0.1); }
-.badge { position: absolute; top: 20px; right: 20px; padding: 5px 12px; font-size: 0.7rem; font-weight: 900; border-radius: 3px; }
-.badge-bad { background: var(--vibrant-orange); }
-.badge-good { background: var(--neon-green); color: black; }
-.img-placeholder { width: 100%; height: 250px; background: #222; margin: 20px 0; border-radius: 5px; }
 
 
 
@@ -1320,102 +1307,6 @@ background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, 
     border-top: 1px solid #222;
     padding-top: 15px;
 }
-
-/* PRECIOS CONVENIO */
-.price-regular-striked {
-    color: #666;
-    text-decoration: line-through;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.price-convention-highlight {
-    color: var(--neon-green);
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin-bottom: 25px;
-    display: block;
-    text-shadow: 0 0 15px rgba(76, 215, 143, 0.3);
-}
-
-/* STICKY FOOTER MOBILE */
-.sticky-mobile-cta {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: var(--neon-orange);
-    color: #000;
-    text-align: center;
-    padding: 18px;
-    font-weight: 900;
-    font-size: 1.1rem;
-    z-index: 10000;
-    text-decoration: none;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-@media (max-width: 768px) {
-    .sticky-mobile-cta {
-        display: block;
-    }
-    body { padding-bottom: 60px; }
-}
-
-
-
-
-/* =========================================
-   agendar cita
-   ========================================= */
-
-.booking-section {
-    background: linear-gradient(to bottom, #000000 0%, var(--card-bg, #0a0a0a) 50%, #000000 100%);
-    padding: 30px 0;
-}
-
-.unified-booking-zone {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid #222;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.booking-content h3 {
-    color: #4cd78f;
-    font-size: 1.4rem;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
-
-.reserva-text {
-    font-size: 1.1rem;
-    color: #fff;
-    margin-bottom: 30px;
-}
-
-.abono-detalle {
-    display: block;
-    font-size: 0.8rem;
-    color: #777;
-    margin-top: 8px;
-    font-style: italic;
-}
-
-.booking-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Reducimos el espacio entre botones */
-}
-
 /* BOTÓN PRINCIPAL: Estética de Élite con efecto Neón */
 .btn-primary-full {
     background-color: #4cd78f;
@@ -2456,12 +2347,41 @@ body {
     line-height: 1.6;
 }
 
+.club-discount {
+    width: calc(100% + 60px) !important; /* Compensa 30px de cada lado */
+    max-width: none !important;
+    display: block !important;
+    margin-left: -30px !important;
+    margin-right: -30px !important;
+    margin-bottom: -40px !important; /* Compensa el padding inferior del padre */
+    margin-top: auto !important; /* Empuja el bloque al fondo del flex container */
+    box-sizing: border-box !important;
+    border-radius: 0 0 20px 20px !important; /* Empata con los bordes redondeados del padre */
+    
+    /* Estilos visuales consolidados */
+    background-color: #ff8c00 !important;
+    color: #000 !important;
+    padding: 20px 15px !important;
+    text-align: center !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+}
+
+@media (max-width: 480px) {
+    .club-discount {
+        width: calc(100% + 40px) !important;
+        margin-left: -20px !important;
+        margin-right: -20px !important;
+        margin-bottom: -30px !important;
+    }
+}
+
 /* Minimal Benefits Table */
 .table-responsive {
     overflow-x: auto;
     margin: 40px auto;
-    width: 100%;
-    max-width: 100%;
+    width: 90%;
+    max-width: 850px;
     display: block;
     -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
 }
@@ -2470,12 +2390,12 @@ body {
     width: 100%;
     border-collapse: collapse;
     background: #0a0a0a;
-    min-width: 500px;
+    min-width: auto;
     border: 1px solid #222;
 }
 
 .minimal-benefits-table th, .minimal-benefits-table td {
-    padding: 22px;
+    padding: 10px 5px;
     border: 1px solid #222;
     text-align: center;
 }
@@ -2507,7 +2427,7 @@ body {
     font-weight: 900;
     color: var(--neon-green);
     background: rgba(76, 215, 143, 0.06);
-    font-size: 1.3rem;
+    font-size: 1.15rem;
 }
 
 .table-footer-legal {
@@ -3185,4 +3105,152 @@ body {
 @keyframes bounce-scroll {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(10px); }
+}
+
+/* =========================================
+   BUSCADOR DE CONVENIOS (VORA SEARCH)
+   ========================================= */
+.search-convenio-section {
+    padding: 80px 5%;
+    background-color: #0a0a0a;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.search-container {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.search-input-group {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    flex: 1;
+    background: #111;
+    border: 1px solid #333;
+    padding: 18px 25px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-input:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px rgba(76, 215, 143, 0.2);
+}
+
+.btn-verify {
+    background-color: var(--neon-green);
+    color: #000;
+    border: none;
+    padding: 0 30px;
+    border-radius: 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.btn-verify:hover {
+    background-color: #59ffaa;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 215, 143, 0.4);
+}
+
+.search-results {
+    margin-top: 40px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top: 4px solid var(--neon-green);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn-ambassador {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid var(--neon-orange);
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-ambassador:hover {
+    background-color: var(--neon-orange);
+    color: #000;
+    box-shadow: 0 0 20px rgba(76, 215, 143, 0.3);
+}
+
+@media (max-width: 768px) {
+    .search-input-group {
+        flex-direction: column;
+    }
+    .btn-verify {
+        padding: 18px;
+    }
+}
+
+/* BOTÓN DE ÉXITO EN BÚSQUEDA (ESTÉTICA NARANJA VORA) */
+.btn-orange-search {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--neon-orange);
+    color: #000;
+    padding: 20px 45px;
+    border-radius: 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-orange-search:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 10px 35px rgba(255, 140, 0, 0.6);
+    background-color: #ff9d26;
+}
+
+.verify-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--neon-orange);
+    font-size: 0.85rem;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.verify-link:hover {
+    color: var(--neon-green);
 }

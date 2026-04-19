@@ -411,3 +411,63 @@ function openAficheGallery() {
     const firstAfiche = document.querySelector('#afiche-gallery-items .gallery-item');
     if (firstAfiche) openLightbox(firstAfiche);
 }
+
+/**
+ * LÓGICA DE BÚSQUEDA DE CONVENIOS
+ */
+const conveniosActivos = [
+    { 
+        nombre: "Club Deportivo Elites", 
+        whatsappUrl: "https://chat.whatsapp.com/KXVCZICQecmLVLKtdNB2WY",
+        mensajePersonalizado: "¡Convenio Detectado!"
+    },
+    { 
+        nombre: "Academia Real Bogota", 
+        whatsappUrl: "https://chat.whatsapp.com/KXVCZICQecmLVLKtdNB2WY",
+        mensajePersonalizado: "¡Convenio Detectado!"
+    },
+    { 
+        nombre: "test 01", 
+        whatsappUrl: "https://chat.whatsapp.com/KXVCZICQecmLVLKtdNB2WY",
+        mensajePersonalizado: "¡Convenio Detectado!"
+    }
+];
+
+function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
+
+function verifyClub() {
+    const input = document.getElementById('club-search-input');
+    const resultsContainer = document.getElementById('search-results-container');
+    
+    if (!input || !resultsContainer || !input.value.trim()) return;
+    
+    const query = normalizeString(input.value);
+
+    // Efecto de carga
+    resultsContainer.innerHTML = `
+        <div class="loading-spinner"></div>
+        <p style="color: var(--neon-green); font-weight: 700;">VERIFICANDO...</p>
+    `;
+
+    setTimeout(() => {
+        const match = conveniosActivos.find(c => normalizeString(c.nombre) === query);
+
+        if (match) {
+            resultsContainer.innerHTML = `
+                <p class="status-msg" style="color: var(--neon-orange); font-size: 1.5rem; font-weight: 900; margin-bottom: 25px;">${match.mensajePersonalizado}</p>
+                <a href="${match.whatsappUrl}" class="btn-orange-search" target="_blank">
+                    <i class="fab fa-whatsapp"></i> UNIRSE AL GRUPO VIP
+                </a>
+            `;
+        } else {
+            resultsContainer.innerHTML = `
+                <p class="status-msg" style="color: #fff; font-size: 1.2rem; margin-bottom: 25px;">Tu escuela aún no cuenta con los beneficios de VORA</p>
+                <a href="padres-a-escuelas.html" class="btn-ambassador">
+                    Presentar VORA a mi club
+                </a>
+            `;
+        }
+    }, 1000);
+}

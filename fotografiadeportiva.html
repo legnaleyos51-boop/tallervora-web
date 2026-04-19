@@ -446,33 +446,6 @@
 <section class="pricing-section">
     <h2 class="section-title">PAQUETES </h2>
     <p class="section-subtitle" style="margin-top: -20px; margin-bottom: 40px; color: #aaa;">Selecciona el nivel de impacto visual que deseas para el legado de tu atleta.</p>
-    <style>
-        .club-discount {
-            background-color: #ff8c00; /* Naranja neón */
-            color: #000;
-            padding: 20px 15px;
-            text-align: center;
-            font-weight: bold;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            border-radius: 0 0 20px 20px;
-            margin-top: auto;
-            margin-left: -30px;
-            margin-right: -30px;
-            margin-bottom: -40px;
-            width: calc(100% + 60px);
-            box-sizing: border-box;
-        }
-
-        @media (max-width: 480px) {
-            .club-discount {
-                margin-left: -20px;
-                margin-right: -20px;
-                margin-bottom: -30px;
-                width: calc(100% + 40px);
-            }
-        }
-    </style>
     <div class="pricing-container">
         
         <div class="pricing-card">
@@ -678,11 +651,11 @@
 Definiremos el concepto artístico, la locación
 y los detalles técnicos de tu sesión de élite.</p>
             </div>
-            <p style="font-size: 0.75rem; color: var(--neon-orange); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Cupos limitados por semana</p>
+            <p style="font-size: 0.75rem; color: var(--vora-green); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Cupos limitados por semana</p>
             <a href="reserva.html" class="btn-vora-contacto btn-b2c">
                 Reservar Cupo
             </a>
-            
+            <a href="#buscador-convenios" class="verify-link">¿Tu club tiene convenio? Verifícalo aquí</a>
         </div>
 
         <div class="contacto-card b2b">
@@ -695,6 +668,27 @@ y los detalles técnicos de tu sesión de élite.</p>
 
     </div>
 </section>
+
+
+
+<hr class="section-divider">
+
+<section id="buscador-convenios" class="search-convenio-section">
+    <div class="search-container">
+        <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 20px;">Busca tu Institución</h2>
+        <p style="color: #888; max-width: 500px; margin: 0 auto 30px;">Ingresa el nombre de tu club para verificar si ya cuentas con el beneficio de convenio activado.</p>
+        
+        <div class="search-input-group">
+            <input type="text" id="club-search-input" class="search-input" placeholder="Escribe el nombre de tu escuela o club..." autocomplete="off">
+            <button id="btn-verify-club" class="btn-verify" onclick="verifyClub()">Verificar Convenio</button>
+        </div>
+
+        <div id="search-results-container" class="search-results"></div>
+    </div>
+</section>
+
+
+
 
 <!-- MODAL INFORMATIVO DE ACABADOS -->
 <div id="info-modal" class="info-modal-overlay" onclick="closeInfoModal(event)">
@@ -792,5 +786,8 @@ y los detalles técnicos de tu sesión de élite.</p>
 
     
 <script src="script.js"></script>
+
+
+
 </body>
 </html>
