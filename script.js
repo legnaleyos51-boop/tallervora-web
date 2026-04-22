@@ -401,6 +401,11 @@ function copyBaseProposal(btn) {
     executeCopy(text, btn);
 }
 
+function copyBaseProposal2(btn) {
+    const text = "Hola Profe, ¿cómo está? Mire que me encontré con esta marca, se llama VORA y me pareció muy interesante lo que hacen con las fotos de los chicos. Sé que tienen unos beneficios súper buenos para los padres cuando el club tiene convenio con ellos. Ojalá los pudiera conocer y mirar si se puede cuadrar algo para que nosotros podamos acceder a esos beneficios. ¡Le encargo si les puede echar un ojo! la pagina es tallervora.com/fotografiadeportiva.html#clubes";
+    executeCopy(text, btn);
+}
+
 function copyPortalLink(btn) {
     const text = "https://www.tallervora.com/alianzas_padres.html";
     executeCopy(text, btn);
