@@ -406,6 +406,15 @@ function copyBaseProposal2(btn) {
     executeCopy(text, btn);
 }
 
+/**
+ * Abre WhatsApp para compartir la propuesta base con un contacto
+ */
+function shareViaWhatsApp() {
+    const text = "Hola Profe, ¿cómo está? Mire que me encontré con esta marca, se llama VORA y me pareció muy interesante lo que hacen con las fotos de los chicos. Sé que tienen unos beneficios súper buenos para los padres cuando el club tiene convenio con ellos. Ojalá los pudiera conocer y mirar si se puede cuadrar algo para que nosotros podamos acceder a esos beneficios. ¡Le encargo si les puede echar un ojo! la pagina es tallervora.com/fotografiadeportiva.html#clubes";
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, '_blank');
+}
+
 function copyPortalLink(btn) {
     const text = "https://www.tallervora.com/alianzas_padres.html";
     executeCopy(text, btn);
