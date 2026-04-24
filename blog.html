@@ -424,8 +424,6 @@
 
         // --- LÓGICA DEL POPUP Y BREVO ---
        const POPUP_ID = 'vora_blog_popup_closed';
-        // La API_KEY ya no reside aquí por seguridad, se movió al servidor (suscribir.php)
-        const LIST_ID = 5;
 
         function setPopupExpiration() {
             localStorage.setItem(POPUP_ID, new Date().getTime());
@@ -464,21 +462,17 @@
             btn.innerText = 'PROCESANDO...';
 
             try {
-                const response = await fetch('https://api.brevo.com/v3/contacts', {
+                const response = await fetch('./suscribir.php', {
                     method: 'POST',
                     headers: {
-                        'accept': 'application/json',
-                        'api-key': API_KEY,
-                        'content-type': 'application/json'
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        email: email,
-                        listIds: [LIST_ID],
-                        updateEnabled: true
-                    })
+                    body: JSON.stringify({ email: email })
                 });
 
-                if (response.ok || response.status === 204 || response.status === 201) {
+                const result = await response.json();
+
+                if (response.ok && result.success) {
                     subForm.style.display = 'none';
                     feedback.style.display = 'block';
                     setPopupExpiration();
