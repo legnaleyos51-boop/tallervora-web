@@ -518,6 +518,20 @@
     </div>
 </section>
 
+<!-- MODAL INFORMATIVO DE ACABADOS -->
+<div id="info-modal" class="info-modal-overlay" onclick="closeInfoModal(event)">
+    <div id="info-modal-container" class="info-modal-content" onclick="event.stopPropagation()">
+        <span class="info-modal-close" onclick="closeInfoModal(event)">&times;</span>
+        <div class="info-modal-body">
+            <img id="info-modal-img" src="assets/imagen portada.png" alt="Detalle del Acabado">
+            <h2 id="info-modal-title">Cargando...</h2>
+            <ul id="info-modal-points" class="info-modal-points"></ul>
+            <p id="info-modal-legal" class="info-modal-legal"></p>
+            <button class="btn-primary-full" onclick="closeInfoModal(event)" style="margin-top: 20px; padding: 12px;">ENTENDIDO</button>
+        </div>
+    </div>
+</div>
+
 <hr class="section-divider">
 
 
@@ -692,21 +706,6 @@ y los detalles técnicos de tu sesión de élite.</p>
 
 
 
-<!-- MODAL INFORMATIVO DE ACABADOS -->
-<div id="info-modal" class="info-modal-overlay" onclick="closeInfoModal(event)">
-    <div id="info-modal-container" class="info-modal-content" onclick="event.stopPropagation()">
-        <span class="info-modal-close" onclick="closeInfoModal(event)">&times;</span>
-        <div class="info-modal-body">
-            <img id="info-modal-img" src="assets/imagen portada.png" alt="Detalle del Acabado">
-            <h2 id="info-modal-title">Cargando...</h2>
-            <ul id="info-modal-points" class="info-modal-points"></ul>
-            <p id="info-modal-legal" class="info-modal-legal"></p>
-            <button class="btn-primary-full" onclick="closeInfoModal(event)" style="margin-top: 20px; padding: 12px;">ENTENDIDO</button>
-        </div>
-    </div>
-</div>
-
-
 
 <hr class="section-divider">
 
@@ -747,7 +746,17 @@ y los detalles técnicos de tu sesión de élite.</p>
     </div>
 </section>
 
+<hr class="section-divider">
 
+
+  
+<section id="seccion-blog-home">
+    <div class="blog-home-container">
+        <h2>Historias que impulsan el talento</h2>
+        <p>Explora nuestro blog con contenido diseñado para acompañar el camino de cada atleta. Reflexiones y consejos prácticos para vivir el deporte con propósito y pasión.</p>
+        <a href="blog.html" class="btn-blog-home">Explorar el Blog</a>
+    </div>
+</section>
 
 <hr class="section-divider">
 

@@ -3339,3 +3339,79 @@ body {
 .verify-link:hover {
     color: var(--neon-green);
 }
+
+/* =========================================
+   SECCIÓN BLOG HOME (ESTILO TRAZO FUERTE)
+   ========================================= */
+#seccion-blog-home {
+    background-color: #fdfdfd; /* Gris casi blanco / Bone white */
+    padding: 80px 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid #000;
+    border-bottom: 3px solid #000;
+}
+
+#seccion-blog-home .blog-home-container {
+    max-width: 800px;
+    text-align: center;
+    color: #1a1a1a;
+    padding: 40px;
+    border: 3px solid #1a1a1a; /* Estética de trazo fuerte */
+    background-color: #ffffff;
+    box-shadow: 10px 10px 0px #000; /* Efecto offset tipo cómic/industrial */
+}
+
+#seccion-blog-home h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: #000;
+    letter-spacing: -1px;
+}
+
+#seccion-blog-home p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    color: #333;
+    font-weight: 400;
+}
+
+#seccion-blog-home .btn-blog-home {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 18px 45px;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 2px solid #000;
+    border-radius: 4px; /* Bordes redondeados mínimos */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#seccion-blog-home .btn-blog-home:hover {
+    background-color: #28a745; /* Verde vibrante */
+    border-color: #28a745;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px #000;
+}
+
+@media (max-width: 768px) {
+    #seccion-blog-home {
+        padding: 60px 20px;
+    }
+    #seccion-blog-home .blog-home-container {
+        padding: 30px 20px;
+        box-shadow: 6px 6px 0px #000;
+    }
+    #seccion-blog-home .btn-blog-home {
+        width: 100%;
+        padding: 18px 20px;
+    }
+}

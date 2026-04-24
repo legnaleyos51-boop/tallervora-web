@@ -28,7 +28,7 @@
     <header class="hero" style="position: relative;"> 
     <div style="position: absolute; top: 100px; left: 0; width: 100%; text-align: center; z-index: 10;">
         <p style="color: #ffffff !important; letter-spacing: 2px; font-size: 0.85rem; margin: 0; font-weight: 700; text-transform: uppercase; opacity: 0.9;">
-            Bienvenido al convenio exclusivo de tu institución
+            Bienvenido al convenio de institución
         </p>
     </div>
 
@@ -416,74 +416,17 @@
 
 <hr class="section-divider">
 
-<!-- BLOQUE DE CIERRE: ASIGNACIÓN DE GRUPO WHATSAPP -->
-<section id="cta-whatsapp" class="section-anchor" style="padding: 100px 20px; background-color: #000; text-align: center;">
-    <style>
-        .cta-final-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .cta-final-desc {
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 20px;
-            line-height: 1.6;
-            letter-spacing: 0.5px;
-            margin-bottom: 0;
-        }
-        .btn-whatsapp-conversion {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background-color: #25D366; /* Verde Oficial WhatsApp */
-            color: #000;
-            padding: 22px 50px;
-            font-size: 1.15rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-            animation: pulse-cta 2s infinite;
-        }
-        .btn-whatsapp-conversion i {
-            font-size: 2rem;
-        }
-        .btn-whatsapp-conversion:hover {
-            transform: scale(1.05);
-            background-color: #2cf371;
-            box-shadow: 0 15px 45px rgba(37, 211, 102, 0.5);
-        }
-        @keyframes pulse-cta {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        .scroll-hint-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 2rem;
-            opacity: 0.7;
-            animation: bounce-scroll 2s infinite ease-in-out;
-        }
-        @keyframes bounce-scroll {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-    </style>
-    <div class="cta-final-wrapper">
-        <p class="cta-final-desc">Aquí podrás coordinar tu horario de sesión y <br>asegurar tu beneficio de convenio.</p><br>
-        <a href="https://chat.whatsapp.com/KXVCZICQecmLVLKtdNB2WY" class="btn-whatsapp-conversion" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> ÚNETE AL GRUPO<br>DE TU ESCUELA <i class="fab fa-whatsapp"></i>
-        </a>
+<section id="buscador-convenios" class="search-convenio-section">
+    <div class="search-container">
+        <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 20px;">Busca tu Institución</h2>
+        <p style="color: #888; max-width: 500px; margin: 0 auto 30px;">Ingresa el nombre de tu club para verificar si ya cuentas con el beneficio de convenio activado.</p>
         
-        <div class="scroll-hint-container">
-            <svg style="width: 1.5rem; height: 1.5rem; color: #fff;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <div class="search-input-group">
+            <input type="text" id="club-search-input" class="search-input" placeholder="Escribe el nombre de tu escuela o club..." autocomplete="off">
+            <button id="btn-verify-club" class="btn-verify" onclick="verifyClub()">Verificar Convenio</button>
         </div>
+
+        <div id="search-results-container" class="search-results"></div>
     </div>
 </section>
 
@@ -853,76 +796,17 @@
 
 <hr class="section-divider">
 
-<!-- BLOQUE DE CIERRE: ASIGNACIÓN DE GRUPO WHATSAPP -->
-<section id="cta-whatsapp" class="section-anchor" style="padding: 100px 20px; background-color: #000; text-align: center;">
-    <style>
-        .cta-final-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .cta-final-desc {
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 20px;
-            line-height: 1.6;
-            letter-spacing: 0.5px;
-            margin-bottom: 0;
-        }
-        .btn-whatsapp-conversion {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background-color: #25D366; /* Verde Oficial WhatsApp */
-            color: #000;
-            padding: 22px 50px;
-            font-size: 1.15rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-            animation: pulse-cta 2s infinite;
-        }
-        .btn-whatsapp-conversion i {
-            font-size: 2rem;
-        }
-        .btn-whatsapp-conversion:hover {
-            transform: scale(1.05);
-            background-color: #2cf371;
-            box-shadow: 0 15px 45px rgba(37, 211, 102, 0.5);
-        }
-        @media (max-width: 480px) {
-            .btn-whatsapp-conversion {
-                padding: 18px 25px;
-                font-size: 0.95rem;
-                gap: 10px;
-            }
-        }
-        @keyframes pulse-cta {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        .scroll-hint-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 2rem;
-            opacity: 0.7;
-            animation: bounce-scroll 2s infinite ease-in-out;
-        }
-        @keyframes bounce-scroll {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-    </style>
-    <p class="cta-final-desc">Aquí podrás coordinar tu horario de sesión y <br>asegurar tu beneficio de convenio.</p><br>
-    <div class="cta-final-wrapper">
-        <a href="https://chat.whatsapp.com/KXVCZICQecmLVLKtdNB2WY" class="btn-whatsapp-conversion" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-whatsapp"></i> ÚNETE AL GRUPO<br>DE TU ESCUELA <i class="fab fa-whatsapp"></i>
-        </a>
+<section id="buscador-convenios" class="search-convenio-section">
+    <div class="search-container">
+        <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 20px;">Busca tu Institución</h2>
+        <p style="color: #888; max-width: 500px; margin: 0 auto 30px;">Ingresa el nombre de tu club para verificar si ya cuentas con el beneficio de convenio activado.</p>
+        
+        <div class="search-input-group">
+            <input type="text" id="club-search-input" class="search-input" placeholder="Escribe el nombre de tu escuela o club..." autocomplete="off">
+            <button id="btn-verify-club" class="btn-verify" onclick="verifyClub()">Verificar Convenio</button>
         </div>
+
+        <div id="search-results-container" class="search-results"></div>
     </div>
 </section>
 
