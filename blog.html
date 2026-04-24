@@ -229,20 +229,20 @@
 <body>
 
     <header>
-        <a href="blog.html"><img src="../assets/logo blog.png" alt="VORA" class="logo-vora"></a>
+        <a href="blog.html"><img src="assets/logo blog.png" alt="VORA" class="logo-vora"></a>
     </header>
 
     <main class="container">
         <!-- ARTÍCULO DESTACADO -->
-        <section class="featured-article">
-            <div class="featured-img-container">
-                <img src="../assets/imagen portada.png" alt="Psicología del Deporte">
+        <section class="featured-article" id="featured-article">
+            <div class="featured-img-container" id="featured-image-container">
+                <!-- Imagen dinámica -->
             </div>
             <div class="featured-content">
-                <span class="category-tag">Psicología</span>
-                <h1>El Retrato del Guerrero: Volumen IV</h1>
-                <p>Exploramos cómo la representación visual de alta gama influye en la autoeficacia y la mentalidad de élite en los atletas jóvenes.</p>
-                <a href="articulo004.html" class="btn-read">LEER ARTÍCULO</a>
+                <span class="category-tag">Lo más reciente</span>
+                <h1 id="featured-title">Cargando...</h1>
+                <p id="featured-excerpt">Buscando el contenido más reciente...</p>
+                <a href="#" class="btn-read" id="featured-link">LEER ARTÍCULO</a>
             </div>
         </section>
 
@@ -256,11 +256,11 @@
 
     <footer class="cta-banner">
         <div class="footer-samples">
-            <img src="../assets/imagen portada.png" alt="Muestra 1">
-            <img src="../assets/imagen portada.png" alt="Muestra 2">
-            <img src="../assets/imagen portada.png" alt="Muestra 3">
+            <img src="assets/imagen portada.png" alt="Muestra 1">
+            <img src="assets/imagen portada.png" alt="Muestra 2">
+            <img src="assets/imagen portada.png" alt="Muestra 3">
         </div>
-        <a href="../galeriadeportiva.html" class="btn-portafolio">VER GALERÍA</a>
+        <a href="galeriadeportiva.html" class="btn-portafolio">VER GALERÍA</a>
     </footer>
 
     <script>
@@ -271,7 +271,7 @@
             
             for (let i = 1; i <= 100; i++) {
                 const num = i.toString().padStart(3, '0');
-                const url = `articulo${num}.html`;
+                const url = `Blog/articulo${num}.html`;
                 
                 try {
                     const response = await fetch(url);
@@ -291,7 +291,21 @@
                 } catch (e) { break; }
             }
 
-            foundArticles.reverse().slice(0, 5).forEach(art => {
+            const sortedArticles = foundArticles.reverse();
+
+            // Configurar Artículo Destacado (el más reciente de la lista)
+            if (sortedArticles.length > 0) {
+                const latest = sortedArticles[0];
+                document.getElementById('featured-title').textContent = latest.title;
+                document.getElementById('featured-excerpt').textContent = latest.excerpt.substring(0, 180) + "...";
+                document.getElementById('featured-link').href = latest.url;
+                if (latest.imgSrc) {
+                    document.getElementById('featured-image-container').innerHTML = `<img src="${latest.imgSrc}" alt="${latest.title}">`;
+                }
+            }
+
+            // Listar los artículos restantes en la sección inferior (del 2do al 6to)
+            sortedArticles.slice(1, 6).forEach(art => {
                 const item = document.createElement('div');
                 item.className = 'sidebar-item';
                 item.innerHTML = `

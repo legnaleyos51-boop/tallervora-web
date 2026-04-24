@@ -228,14 +228,17 @@
 <body>
 
     <header>
-        <a href="blog.html">
+        <a href="../blog.html">
             <img src="../assets/logo blog.png" alt="VORA" class="logo-vora">
         </a>
     </header>
 
     <main class="main-content-wrapper">
         <article class="article-container">
-        <h1>Más que ganar: Cómo fomentar el amor por el deporte y fortalecer la confianza de tu hijo</h1>
+        <h1>Más que ganar</h1>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1.3rem; color: #666; margin-top: -30px; margin-bottom: 30px; font-weight: 400;">Cómo fomentar el amor por el deporte y fortalecer la confianza de tu hijo</p>
+
+
 
         <img src="../assets/fotos articulos/imgarticulo002.png" alt="Psicología y deporte" class="featured-image">
         
@@ -280,7 +283,7 @@
     <script>
         async function sincronizarFooter() {
             try {
-                const response = await fetch('Blog.html');
+                const response = await fetch('../blog.html');
                 const html = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');

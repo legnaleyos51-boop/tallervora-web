@@ -69,6 +69,7 @@ img {
     width: 100%; 
     z-index: 1000; 
     display: flex; 
+    justify-content: space-between;
     align-items: center; 
     border-bottom: 1px solid #1a1a1a;
     backdrop-filter: blur(10px);
@@ -84,6 +85,20 @@ img {
     height: 48px;
     width: auto;
     object-fit: contain;
+}
+
+.nav-blog-link {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s;
+}
+
+.nav-blog-link:hover {
+    color: #fff;
 }
 
 
@@ -2311,6 +2326,76 @@ body {
     
     .step-number {
         font-size: 2.5rem;
+    }
+}
+
+/* =========================================
+   BANNER PERSUASIVO (GALERÍA & LIGHTBOX)
+   ========================================= */
+.persuasive-banner {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+}
+
+.persuasive-banner p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #fff;
+    margin: 0;
+}
+
+.btn-inmortaliza {
+    background-color: #28a745; /* Verde vibrante solicitado */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-inmortaliza:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(40, 167, 69, 0.4);
+}
+
+/* Ajuste específico para el banner dentro del Lightbox */
+#lightbox .persuasive-banner {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    margin-top: 0;
+    z-index: 10005;
+}
+
+@media (max-width: 768px) {
+    #lightbox .persuasive-banner {
+        bottom: 100px; /* Evita solapamiento con controles en móvil */
+        padding: 20px 15px;
+    }
+    .persuasive-banner p {
+        font-size: 0.9rem;
+    }
+    .btn-inmortaliza {
+        font-size: 0.8rem;
     }
 }
 /* =========================================

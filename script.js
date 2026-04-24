@@ -32,7 +32,36 @@ document.addEventListener("DOMContentLoaded", function() {
             handleGesture();
         }, {passive: true});
     }
+
+    // --- INICIALIZACIÓN DE BANNER PERSUASIVO ---
+    if (window.location.pathname.includes('galeriadeportiva')) {
+        injectPersuasiveBanners();
+    }
 });
+
+/**
+ * Inyecta el banner persuasivo tanto en la página como en el Lightbox
+ */
+function injectPersuasiveBanners() {
+    const bannerHTML = `
+        <div class="persuasive-banner">
+            <p>El esfuerzo no solo se entrena, se inmortaliza.</p>
+            <a href="fotografiadeportiva.html" class="btn-inmortaliza">Inmortaliza tu juego</a>
+        </div>
+    `;
+
+    // 1. Inyectar al final de la sección de galería
+    const gallerySection = document.querySelector('.gallery-section');
+    if (gallerySection) {
+        gallerySection.insertAdjacentHTML('beforeend', bannerHTML);
+    }
+
+    // 2. Inyectar dentro del Lightbox (estará oculto hasta que se abra el lightbox)
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.insertAdjacentHTML('beforeend', bannerHTML);
+    }
+}
 
 // --- LÓGICA DE COMPARACIÓN DINÁMICA ---
 function handleComparisonScroll() {
