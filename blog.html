@@ -333,6 +333,13 @@
         @media (max-width: 480px) {
             .popup-content { padding: 30px 20px; }
         }
+
+        /* SECCIÓN COMENTARIOS CUSDIS */
+        .comentarios-container {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 3px solid #000;
+        }
     </style>
 </head>
 <body>
@@ -354,6 +361,26 @@
                 <a href="#" class="btn-read" id="featured-link">LEER ARTÍCULO</a>
             </div>
         </section>
+
+        <!-- SECCIÓN DE COMENTARIOS DINÁMICA -->
+        <div class="comentarios-container">
+            <div id="cusdis_thread"
+              data-host="https://cusdis.com"
+              data-app-id="9cb7e2bd-b550-4d09-9d09-52d18d716043"
+              data-page-id=""
+              data-page-url=""
+              data-page-title="">
+            </div>
+            <script>
+                (function() {
+                    const cusdisThread = document.getElementById('cusdis_thread');
+                    cusdisThread.setAttribute('data-page-id', window.location.pathname);
+                    cusdisThread.setAttribute('data-page-url', window.location.href);
+                    cusdisThread.setAttribute('data-page-title', document.title);
+                })();
+            </script>
+            <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+        </div>
 
         <!-- SECCIÓN DE ARTÍCULOS RECIENTES (AUTO-DETECTADOS) -->
         <section class="recent-articles-bottom">

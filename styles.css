@@ -3415,3 +3415,10 @@ body {
         padding: 18px 20px;
     }
 }
+
+/* SECCIÓN COMENTARIOS CUSDIS (ESTÉTICA VORA) */
+.comentarios-container {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 3px solid #000;
+}
