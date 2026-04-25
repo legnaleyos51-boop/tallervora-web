@@ -383,7 +383,7 @@
                 <input type="hidden" name="locale" value="es">
                 <input type="hidden" name="html_type" value="simple">
             </form>
-            <div id="popup-success-msg" class="popup-feedback">¡Gracias por unirte!</div>
+            <div id="popup-success-msg" class="popup-feedback"><strong>¡Gracias por suscribirte! Revisa tu correo pronto.</strong></div>
         </div>
     </div>
 
@@ -471,11 +471,11 @@
         const closeBtn = document.getElementById('close-popup-btn');
         const subForm = document.getElementById('sib-form');
 
-        // Mostrar tras 10 segundos
+        // Mostrar tras 3 segundos
         if (shouldShowPopup()) {
             setTimeout(() => {
                 overlay.style.display = 'flex';
-            }, 10000);
+            }, 3000);
         }
 
         closeBtn.onclick = () => {
@@ -483,9 +483,27 @@
             setPopupExpiration();
         };
         
-        // Al hacer clic en el botón, marcamos como cerrado para los próximos 30 días
-        subForm.addEventListener('submit', () => {
-            setPopupExpiration();
+        // Envío del formulario mediante Fetch para evitar recarga de página
+        subForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(subForm);
+            const actionUrl = subForm.getAttribute('action');
+
+            try {
+                await fetch(actionUrl, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' // Necesario para peticiones externas opacas
+                });
+
+                // Éxito: Ocultar formulario y mostrar mensaje de agradecimiento
+                subForm.style.display = 'none';
+                document.getElementById('popup-success-msg').style.display = 'block';
+                setPopupExpiration();
+            } catch (error) {
+                console.error('Error al suscribirse:', error);
+            }
         });
     </script>
 
