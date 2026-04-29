@@ -3421,4 +3421,16 @@ body {
     margin-top: 80px;
     padding-top: 40px;
     border-top: 3px solid #000;
+    overflow: visible; /* Elimina el scroll propio */
+    width: 100%;
+}
+
+/* Intento de eliminar el scroll interno del iframe de Cusdis */
+#cusdis_thread iframe {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+#cusdis_thread {
 }
