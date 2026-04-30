@@ -1,6 +1,6 @@
 /* Recuperar contador de likes y guías visuales */
 
-/* Mostrar solo el contador de likes */
+/* Mostrar solo el contador de likes y ocultar el selector de reacciones general si se desea */
 .giscus-main .gsc-reactions-count {
     display: inline-block !important;
     font-family: 'Inter', sans-serif;
@@ -8,54 +8,32 @@
     margin-left: 5px;
 }
 
-/* Ocultar todos los botones de reacción excepto el de "thumbs up" */
-.giscus-main .reaction-button:not([aria-label*="thumbs up"]) {
-    display: none !important;
-}
-
-/* Asegurar que el botón de "thumbs up" y su contador sean visibles */
-.giscus-main button[aria-label*="thumbs up"],
-.giscus-main button[aria-label*="thumbs up"] + .gsc-reactions-count {
-    display: flex !important; /* Usar flex para alinear el icono y el contador */
-    align-items: center;
-    opacity: 1 !important;
-}
-
-/* Darle estilo a los campos de texto (Nickname, Reply) */
+/* Darle estilo a los campos para que sepa donde escribir */
 .giscus-main .form-control {
     border: none !important;
-    border-bottom: 1px solid #000 !important; /* Borde inferior negro de 1px */
+    border-bottom: 1px solid #ccc !important;
     border-radius: 0 !important;
     background: transparent !important;
     transition: border-bottom 0.3s ease;
 }
 
 .giscus-main .form-control:focus {
-    border-bottom: 2px solid #000 !important; /* Borde inferior negro de 2px al hacer foco */
+    border-bottom: 2px solid #000 !important;
     box-shadow: none !important;
 }
 
-/* Ocultar botón de respuesta para evitar hilos anidados */
+/* Ocultar botón de respuesta y dejar solo el Like */
+.giscus-main .gsc-comment-reactions-count, 
 .giscus-main .gsc-comment-reply-button {
     display: none !important;
 }
 
-/* Estilo para el botón de "Comentar" */
-.giscus-main .gsc-comment-box-button-submit {
-    background-color: #4cd78f !important; /* Verde de la marca */
-    color: #000 !important; /* Texto negro para contraste */
-    border-radius: 0 !important; /* Bordes rectos */
-    border: none !important; /* Eliminar borde por defecto */
-    padding: 10px 20px !important; /* Hacerlo claramente visible */
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    cursor: pointer !important;
-    transition: background-color 0.3s ease, transform 0.3s ease !important;
-}
-
-.giscus-main .gsc-comment-box-button-submit:hover {
-    background-color: #59ffaa !important; /* Verde más claro en hover */
-    transform: translateY(-1px) !important;
+/* Rehabilitar el botón de Like en el encabezado del comentario */
+.giscus-main button[aria-label*="thumbs up"],
+.giscus-main button[aria-label*="thumbs up"] + .gsc-reactions-count {
+    display: flex !important;
+    align-items: center;
+    opacity: 1 !important;
 }
 
 /* Estilo de lujo para el CTA */
@@ -65,8 +43,5 @@
     text-align: center;
     letter-spacing: -0.02em;
     margin-top: 50px;
-    margin-bottom: 30px; /* Margen inferior para separar del widget */
     text-transform: uppercase;
-    font-size: 2rem; /* Tamaño de fuente para peso visual de lujo */
-    line-height: 1.2; /* Ajuste de interlineado */
 }

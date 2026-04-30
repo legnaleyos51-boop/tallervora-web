@@ -295,10 +295,20 @@
                     data-reactions-enabled="1"
                     data-emit-metadata="0"
                     data-input-position="bottom"
-                    data-theme="https://tallervora.com/css/giscus-custom.css?v=1.1"
+                    data-theme="light_minimal"
                     data-lang="es"
                     crossorigin="anonymous"
                     async>
+            </script>
+            <script>
+                // Intentar forzar el CSS personalizado una vez cargado el iframe
+                const intervalGiscus = setInterval(() => {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (iframe) {
+                        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'https://tallervora.com/css/giscus-custom.css' } } }, 'https://giscus.app');
+                        clearInterval(intervalGiscus);
+                    }
+                }, 1000);
             </script>
         </section>
         </article>

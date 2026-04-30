@@ -231,14 +231,12 @@
             border-top: 3px solid #000;
             width: 100%;
         }
-        #comments-section h2 {
-            font-family: 'Inter', Helvetica, sans-serif;
+        .cta-comentarios {
+            font-family: 'Inter', sans-serif;
             font-weight: 900;
-            font-size: 2rem;
             text-transform: uppercase;
             margin-bottom: 30px;
             color: #000;
-            letter-spacing: -1px;
         }
     </style>
 </head>
@@ -288,7 +286,7 @@
 
         <!-- SECCIÓN DE COMENTARIOS GISCUS -->
         <section id="comments-section">
-            <h2>DISCUSIÓN</h2>
+            <h3 class="cta-comentarios">¿QUÉ TÉCNICA TE GUSTARÍA QUE DESARROLLÁRAMOS EN EL PRÓXIMO ARTÍCULO?</h3>
             <script src="https://giscus.app/client.js"
                     data-repo="legnaleyos51-boop/tallervora-web"
                     data-repo-id="R_kgDORsRYLw"
@@ -299,10 +297,19 @@
                     data-reactions-enabled="1"
                     data-emit-metadata="0"
                     data-input-position="bottom"
-                    data-theme="light"
+                    data-theme="light_minimal"
                     data-lang="es"
                     crossorigin="anonymous"
                     async>
+            </script>
+            <script>
+                const intervalGiscus = setInterval(() => {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (iframe) {
+                        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'https://tallervora.com/css/giscus-custom.css' } } }, 'https://giscus.app');
+                        clearInterval(intervalGiscus);
+                    }
+                }, 1000);
             </script>
         </section>
         </article>
