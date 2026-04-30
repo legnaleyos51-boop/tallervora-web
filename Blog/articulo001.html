@@ -224,15 +224,21 @@
             }
         }
 
-        /* SECCIÓN COMENTARIOS CUSDIS */
-        .comentarios-container {
+        /* SECCIÓN COMENTARIOS GISCUS */
+        #comments-section {
             margin-top: 80px;
             padding-top: 40px;
             border-top: 3px solid #000;
-            overflow: visible; /* Elimina el scroll propio */
             width: 100%;
         }
-        #cusdis_thread {
+        #comments-section h2 {
+            font-family: 'Inter', Helvetica, sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: #000;
+            letter-spacing: -1px;
         }
     </style>
 </head>
@@ -264,6 +270,26 @@
 
         <h2>El Equilibrio Necesario: El Apoyo frente a la Presión</h2>
         <p>Para que esta potencia visual sea una herramienta de crecimiento y no una carga, es vital el rol del entorno adulto. Una imagen épica debe ser un homenaje al proceso y al disfrute actual, nunca el estándar de una expectativa futura inalcanzable. El apoyo parental debe centrarse en validar la pasión del joven, asegurando que la fotografía sea un motivo de orgullo personal y no una herramienta de presión externa. El éxito real se manifiesta cuando el atleta se siente poderoso en la imagen, pero profundamente feliz y escuchado en su realidad cotidiana.</p>
+
+        <!-- SECCIÓN DE COMENTARIOS GISCUS -->
+        <section id="comments-section">
+            <h2>DISCUSIÓN</h2>
+            <script src="https://giscus.app/client.js"
+                    data-repo="legnaleyos51-boop/tallervora-web"
+                    data-repo-id="R_kgDORsRYLw"
+                    data-category="General"
+                    data-category-id="DIC_kwDORsRYL84C7sC_"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="light"
+                    data-lang="es"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </section>
         </article>
 
         <aside class="sidebar">
@@ -336,6 +362,5 @@
         detectarArticulos();
         sincronizarFooter();
     </script>
-    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </body>
 </html>

@@ -343,6 +343,14 @@
             width: 100%;
         }
         #cusdis_thread {
+            min-height: 200px;
+            overflow: visible !important;
+        }
+        #cusdis_thread iframe {
+            width: 100% !important;
+            min-width: 100% !important;
+            border: none !important;
+            overflow: hidden !important;
         }
     </style>
 </head>
@@ -366,25 +374,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE COMENTARIOS DINÁMICA -->
-        <div class="comentarios-container">
-            <div id="cusdis_thread"
-              data-host="https://cusdis.com"
-              data-app-id="9cb7e2bd-b550-4d09-9d09-52d18d716043"
-              data-page-id=""
-              data-page-url=""
-              data-page-title="">
-            </div>
-            <script>
-                (function() {
-                    const cusdisThread = document.getElementById('cusdis_thread');
-                    cusdisThread.setAttribute('data-page-id', window.location.pathname);
-                    cusdisThread.setAttribute('data-page-url', window.location.href);
-                    cusdisThread.setAttribute('data-page-title', document.title);
-                })();
-            </script>
-            <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-        </div>
+   
 
         <!-- SECCIÓN DE ARTÍCULOS RECIENTES (AUTO-DETECTADOS) -->
         <section class="recent-articles-bottom">
