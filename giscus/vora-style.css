@@ -1,34 +1,31 @@
+/* Limpiar base */
 main {
-  /* Fondo y Estructura */
-  --color-canvas-default: transparent;
-  --color-canvas-subtle: transparent;
-  --color-border-default: #000000;
-  --color-border-muted: #000000;
-
-  /* Texto de los comentarios (Legibilidad total) */
-  --color-fg-default: #000000 !important; /* Texto principal en negro */
-  --color-fg-muted: #333333;               /* Texto secundario/fechas */
-  --color-fg-subtle: #666666;
-
-  /* Acentos y Nombres de Usuario */
-  --color-accent-fg: #00FF00;              /* Verde VORA para enlaces/nombres */
-  --color-accent-emphasis: #00FF00;
-  
-  /* Botones y Reacciones */
-  --color-btn-primary-bg: #00FF00;
-  --color-btn-primary-text: #000000;
-  --color-btn-primary-border: #000000;
-  --color-btn-bg: transparent;
-  --color-btn-text: #000000;
-  --color-btn-border: #000000;
-
-  /* Caja de entrada (Input) */
-  --color-input-bg: #FFFFFF;
-  --color-input-border: #000000;
-  --color-input-shadow: none;
+  --color-canvas-default: transparent !important;
+  --color-canvas-subtle: transparent !important;
+  --color-border-default: #000000 !important;
+  --color-border-muted: #000000 !important;
+  --color-fg-default: #000000 !important;
+  --color-fg-muted: #000000 !important;
+  --color-accent-fg: #00FF00 !important;
 }
 
-/* Forzar que el cuerpo del comentario sea siempre negro */
-.giscus-comment-body {
+/* Forzar legibilidad de comentarios y placeholders */
+.giscus-main, 
+.giscus-comment-body, 
+.form-control, 
+.color-text-primary {
   color: #000000 !important;
+}
+
+/* Caja de comentarios con borde sólido */
+.form-control {
+  background-color: #ffffff !important;
+  border: 1px solid #000000 !important;
+}
+
+/* Botón enviar */
+.btn-primary {
+  background-color: #00FF00 !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
 }
