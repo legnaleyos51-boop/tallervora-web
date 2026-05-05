@@ -297,7 +297,7 @@
                     data-reactions-enabled="1"
                     data-emit-metadata="0"
                     data-input-position="bottom"
-                    data-theme="https://cdn.jsdelivr.net/gh/legnaleyos51-boop/tallervora-web@main/giscus/vora-style.css"
+                    data-theme="https://cdn.jsdelivr.net/gh/legnaleyos51-boop/tallervora-web/giscus/vora-style.css"
                     data-lang="es"
                     crossorigin="anonymous"
                     async>
@@ -312,13 +312,18 @@
     </main>
 
     <footer class="cta-banner">
-        <!-- Este contenido se sincroniza automáticamente desde Blog.html -->
+        <div class="footer-samples">
+            <img src="../assets/imagen portada.png" alt="Muestra 1">
+            <img src="../assets/imagen portada.png" alt="Muestra 2">
+            <img src="../assets/imagen portada.png" alt="Muestra 3">
+        </div>
+        <a href="../galeriadeportiva.html" class="btn-portafolio">VER GALERÍA</a>
     </footer>
 
     <script>
         async function sincronizarFooter() {
             try {
-                const response = await fetch('Blog.html');
+                const response = await fetch('../blog.html');
                 const html = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
