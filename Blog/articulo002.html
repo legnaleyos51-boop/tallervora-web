@@ -224,19 +224,23 @@
             }
         }
 
-        /* SECCIÓN COMENTARIOS GISCUS */
-        #comments-section {
+        /* SECCIÓN COMENTARIOS CUSDIS */
+        .comentarios-container {
             margin-top: 80px;
             padding-top: 40px;
             border-top: 3px solid #000;
+            overflow: visible; /* Elimina el scroll propio */
             width: 100%;
         }
-        .cta-comentarios {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            color: #000;
+        #cusdis_thread {
+            min-height: 200px;
+            overflow: visible !important;
+        }
+        #cusdis_thread iframe {
+            width: 100% !important;
+            min-width: 100% !important;
+            border: none !important;
+            overflow: hidden !important;
         }
     </style>
 </head>
@@ -284,34 +288,25 @@
         <h2>Conclusión</h2>
         <p>Motivar de forma sana implica entender que el deporte es de ellos. Nuestra misión como padres es ser el puerto seguro al que regresan después de cada entrenamiento. Si logramos que el niño asocie el deporte con la felicidad y la superación personal, habremos ganado el trofeo más importante: un hijo con una estructura emocional sólida y resiliente frente a los desafíos del futuro.</p>
 
-        <!-- SECCIÓN DE COMENTARIOS GISCUS -->
-        <section id="comments-section">
-            <h3 class="cta-comentarios">¿QUÉ TÉCNICA TE GUSTARÍA QUE DESARROLLÁRAMOS EN EL PRÓXIMO ARTÍCULO?</h3>
-            <script src="https://giscus.app/client.js"
-                    data-repo="legnaleyos51-boop/tallervora-web"
-                    data-repo-id="R_kgDORsRYLw"
-                    data-category="General"
-                    data-category-id="DIC_kwDORsRYL84C7sC_"
-                    data-mapping="pathname"
-                    data-strict="0"
-                    data-reactions-enabled="1"
-                    data-emit-metadata="0"
-                    data-input-position="bottom"
-                    data-theme="light_minimal"
-                    data-lang="es"
-                    crossorigin="anonymous"
-                    async>
-            </script>
+        <!-- SECCIÓN DE COMENTARIOS DINÁMICA -->
+        <div class="comentarios-container">
+            <div id="cusdis_thread"
+              data-host="https://cusdis.com"
+              data-app-id="9cb7e2bd-b550-4d09-9d09-52d18d716043"
+              data-page-id=""
+              data-page-url=""
+              data-page-title="">
+            </div>
             <script>
-                const intervalGiscus = setInterval(() => {
-                    const iframe = document.querySelector('iframe.giscus-frame');
-                    if (iframe) {
-                        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'https://tallervora.com/css/giscus-custom.css' } } }, 'https://giscus.app');
-                        clearInterval(intervalGiscus);
-                    }
-                }, 1000);
+                (function() {
+                    const cusdisThread = document.getElementById('cusdis_thread');
+                    cusdisThread.setAttribute('data-page-id', window.location.pathname);
+                    cusdisThread.setAttribute('data-page-url', window.location.href);
+                    cusdisThread.setAttribute('data-page-title', document.title);
+                })();
             </script>
-        </section>
+            <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+        </div>
         </article>
 
         <aside class="sidebar">
@@ -381,5 +376,6 @@
         detectarArticulos();
         sincronizarFooter();
     </script>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
 </body>
 </html>
