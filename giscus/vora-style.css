@@ -6,7 +6,7 @@ main {
   --color-border-muted: #000000 !important;
   --color-fg-default: #000000 !important;
   --color-fg-muted: #000000 !important;
-  --color-accent-fg: #00FF00 !important;
+  --color-accent-fg: #4cd78f !important;
 }
 
 /* Forzar legibilidad de comentarios y placeholders */
@@ -25,7 +25,47 @@ main {
 
 /* Botón enviar */
 .btn-primary {
-  background-color: #00FF00 !important;
+  background-color: #4cd78f !important;
+  color: #000000 !important;
+  border: 1px solid #000000 !important;
+}
+
+/* Mantener base de colores */
+main {
+  --color-canvas-default: transparent !important;
+  --color-fg-default: #000000 !important;
+  --color-border-default: #000000 !important;
+  --color-accent-fg: #4cd78f !important;
+}
+
+/* 1. Quitar encabezado (X comentarios, desarrollado por giscus) */
+.giscus-results-summary {
+  display: none !important;
+}
+
+/* 2. Quitar botones de ordenamiento (Antiguo / Nuevo) */
+.giscus-results-header {
+  display: none !important;
+}
+
+/* 3. Quitar botón de 'Responder' y contador de respuestas */
+.giscus-comment-footer, 
+.giscus-replies {
+  display: none !important;
+}
+
+/* 4. Quitar la opción de añadir reacciones individuales a cada comentario */
+.giscus-comment-reactions {
+  display: none !important;
+}
+
+/* Estética de cajas y botones */
+.form-control, .giscus-comment {
+  border: 1px solid #000000 !important;
+}
+
+.btn-primary {
+  background-color: #4cd78f !important;
   color: #000000 !important;
   border: 1px solid #000000 !important;
 }
