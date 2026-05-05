@@ -1,21 +1,34 @@
 main {
-  /* Fondo y Bordes */
+  /* Fondo y Estructura */
   --color-canvas-default: transparent;
   --color-canvas-subtle: transparent;
-  --color-border-default: #000000; /* Borde negro para la caja */
+  --color-border-default: #000000;
   --color-border-muted: #000000;
+
+  /* Texto de los comentarios (Legibilidad total) */
+  --color-fg-default: #000000 !important; /* Texto principal en negro */
+  --color-fg-muted: #333333;               /* Texto secundario/fechas */
+  --color-fg-subtle: #666666;
+
+  /* Acentos y Nombres de Usuario */
+  --color-accent-fg: #00FF00;              /* Verde VORA para enlaces/nombres */
+  --color-accent-emphasis: #00FF00;
   
-  /* Texto */
-  --color-fg-default: #000000; /* Color del texto del comentario */
-  --color-fg-muted: #333333;
-  
-  /* Acentos y Botones */
-  --color-accent-fg: #4cd78f;
-  --color-btn-primary-bg: #4cd78f;
+  /* Botones y Reacciones */
+  --color-btn-primary-bg: #00FF00;
   --color-btn-primary-text: #000000;
   --color-btn-primary-border: #000000;
+  --color-btn-bg: transparent;
+  --color-btn-text: #000000;
+  --color-btn-border: #000000;
 
-  /* Inputs (Caja de escribir) */
+  /* Caja de entrada (Input) */
   --color-input-bg: #FFFFFF;
   --color-input-border: #000000;
+  --color-input-shadow: none;
+}
+
+/* Forzar que el cuerpo del comentario sea siempre negro */
+.giscus-comment-body {
+  color: #000000 !important;
 }
