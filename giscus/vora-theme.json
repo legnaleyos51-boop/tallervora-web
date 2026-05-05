@@ -4,10 +4,6 @@
     "border": "none",
     "primary": "#00FF00",
     "canvas-default": "transparent",
-    "canvas-subtle": "transparent",
-    "btn-primary-bg": "#00FF00",
-    "btn-primary-border": "#000000",
-    "btn-primary-text": "#000000",
-    "input-border": "#000000"
+    "canvas-subtle": "transparent"
   }
 }
