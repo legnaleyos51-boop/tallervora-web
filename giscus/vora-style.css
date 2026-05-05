@@ -1,0 +1,8 @@
+main {
+  --color-canvas-default: transparent;
+  --color-canvas-subtle: transparent;
+  --color-border-default: none;
+  --color-accent-fg: #00FF00;
+  --color-btn-primary-bg: #00FF00;
+  --color-btn-primary-text: #000000;
+}
