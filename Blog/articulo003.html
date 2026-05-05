@@ -311,16 +311,21 @@
         </aside>
     </main>
 
-    <footer class="cta-banner">
-        <div class="footer-samples">
-            <img src="../assets/imagen portada.png" alt="Muestra 1">
-            <img src="../assets/imagen portada.png" alt="Muestra 2">
-            <img src="../assets/imagen portada.png" alt="Muestra 3">
-        </div>
-        <a href="../galeriadeportiva.html" class="btn-portafolio">VER GALERÍA</a>
-    </footer>
+
 
     <script>
+        async function sincronizarFooter() {
+            try {
+                const response = await fetch('../blog.html');
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const nuevoFooter = doc.querySelector('.cta-banner');
+                if (nuevoFooter) {
+                    document.querySelector('.cta-banner').innerHTML = nuevoFooter.innerHTML;
+                }
+            } catch (e) { console.error("Error sincronizando footer"); }
+        }
 
         async function detectarArticulos() {
             const lista = document.getElementById('lista-recientes');
