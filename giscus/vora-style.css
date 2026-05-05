@@ -1,8 +1,21 @@
 main {
-  --color-canvas-default: #000000;
-  --color-canvas-subtle: #000000;
-  --color-border-default: #000000;
-  --color-accent-fg: #000000;
-  --color-btn-primary-bg: #000000;
+  /* Fondo y Bordes */
+  --color-canvas-default: transparent;
+  --color-canvas-subtle: transparent;
+  --color-border-default: #000000; /* Borde negro para la caja */
+  --color-border-muted: #000000;
+  
+  /* Texto */
+  --color-fg-default: #000000; /* Color del texto del comentario */
+  --color-fg-muted: #333333;
+  
+  /* Acentos y Botones */
+  --color-accent-fg: #00FF00;
+  --color-btn-primary-bg: #00FF00;
   --color-btn-primary-text: #000000;
+  --color-btn-primary-border: #000000;
+
+  /* Inputs (Caja de escribir) */
+  --color-input-bg: #FFFFFF;
+  --color-input-border: #000000;
 }
