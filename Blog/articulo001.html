@@ -3,194 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Retrato del Guerrero | Taller VORA</title>
+    <title>Más que ganar | Taller VORA</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bone-white: #fdfdfd;
-            --gray-dark: #333333;
-            --gray-light: #eeeeee;
-            --neon-green: #4cd78f;
-        }
-
-        body {
-            background-color: var(--bone-white);
-            color: var(--gray-dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        header {
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .logo-vora {
-            height: 60px;
-            transition: opacity 0.3s;
-        }
-
-        .logo-vora:hover { 
-            opacity: 0.7; 
-        }
-
-        .main-content-wrapper {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 60px;
-            padding: 40px 20px 80px;
-        }
-
-        .article-container {
-            flex: 1;
-            max-width: 800px;
-            text-align: left;
-        }
-
-        .featured-image {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 40px;
-            display: block;
-        }
-
-        .sidebar {
-            width: 30%;
-            border-left: 1px solid var(--gray-light);
-            padding-left: 40px;
-            text-align: left;
-        }
-
-        .sidebar h3 {
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            margin-bottom: 35px;
-            color: var(--neon-green);
-            font-weight: 900;
-            border-bottom: 2px solid var(--neon-green);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .sidebar-item {
-            border-bottom: 1px solid var(--gray-light);
-            padding-bottom: 25px;
-            margin-bottom: 25px;
-        }
-
-        .sidebar-item:last-child {
-            border-bottom: none;
-        }
-
-        .sidebar-item a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .sidebar-item img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            display: block;
-            background-color: var(--gray-light);
-        }
-
-        .sidebar-item h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin: 0 0 10px 0;
-            line-height: 1.2;
-            transition: color 0.3s;
-        }
-
-        .sidebar-item a:hover h4 {
-            color: var(--neon-green);
-        }
-
-        .sidebar-item p {
-            font-size: 0.8rem;
-            color: #666;
-            line-height: 1.5;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        h1, h2 {
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            color: #000;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 40px;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-top: 60px;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #444;
-        }
-
-        @media (max-width: 1024px) {
-            .main-content-wrapper {
-                flex-direction: column;
-                gap: 40px;
-            }
-            h1 { font-size: 1.8rem; }
-            .sidebar {
-                width: 100%;
-                border-left: none;
-                border-top: 1px solid var(--gray-light);
-                padding-left: 0;
-                padding-top: 40px;
-            }
-            .article-container {
-                max-width: 100%;
-            }
-        }
-
-        /* SECCIÓN COMENTARIOS GISCUS */
-        #comments-section {
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 3px solid #000;
-            width: 100%;
-        }
-        .cta-comentarios {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            color: #000;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../Blog/blog-styles.css">
 </head>
-<body>
+<body class="article-page">
 
-    <header>
+    <header class="article-header">
         <a href="../blog.html">
             <img src="../assets/logo blog.png" alt="VORA" class="logo-vora">
         </a>
@@ -198,6 +19,20 @@
 
     <main class="main-content-wrapper">
         <article class="article-container">
+            
+        <section class="banner-elite-hero">
+            <div class="banner-content">
+                <div class="banner-image">
+                    <img src="../assets/imagen portada.png" alt="Portafolio Élite VORA">
+                </div>
+                <div class="banner-text">
+                    <h2>Estética cinematográfica para inmortalizar la pasión</h2>
+                    <a href="../galeriadeportiva.html" class="btn-banner">Ver Portafolio</a>
+                </div>
+            </div>
+
+
+        </section>
         <h1>El Retrato del Guerrero:</h1>
         
         <p style="font-family: 'Inter', sans-serif; font-size: 1.3rem; color: #666; margin-top: -30px; margin-bottom: 30px; font-weight: 400;">La Psicología de la Imagen en el Deporte</p>
@@ -217,14 +52,30 @@
         <h2>El Equilibrio Necesario: El Apoyo frente a la Presión</h2>
         <p>Para que esta potencia visual sea una herramienta de crecimiento y no una carga, es vital el rol del entorno adulto. Una imagen épica debe ser un homenaje al proceso y al disfrute actual, nunca el estándar de una expectativa futura inalcanzable. El apoyo parental debe centrarse en validar la pasión del joven, asegurando que la fotografía sea un motivo de orgullo personal y no una herramienta de presión externa. El éxito real se manifiesta cuando el atleta se siente poderoso en la imagen, pero profundamente feliz y escuchado en su realidad cotidiana.</p>
 
+<!-- SECCIÓN COMPARTIR -->
+        <div class="share-section">
+                    <div class="share-btns-wrapper">
+                <button onclick="shareWA()" class="share-btn"><i class="fab fa-whatsapp"></i> ¡Comparte este artículo!</button>
+            </div>
+        </div>
 
-
+        <section class="banner-elite-footer">
+            <div class="banner-content">
+                <div class="banner-image">
+                    <img src="../assets/imagen portada.png" alt="Portafolio Élite VORA" >
+                </div>
+                <div class="banner-text">
+                    <h2>Estética cinematográfica para inmortalizar la pasión</h2>
+                    <a href="../galeriadeportiva.html" class="btn-banner">Ver Portafolio</a>
+                </div>
+            </div>
+        </section>
         
        <!-- SECCIÓN DE COMENTARIOS GISCUS -->
         <section id="comments-section">
-            <div class="cta-comentarios">
-    <h3>¿Qué te ha parecido este tema?</h3>
-    <p>Cuéntanos tu opinión o dinos qué otros temas te gustaría que tratáramos en el blog. ¡Te leemos!</p>
+            <div class="cta-comentarios" >
+    <h3 >¿Qué te ha parecido este tema?</h3>
+    <p >Cuéntanos tu opinión o dinos qué otros temas te gustaría que tratáramos en el blog. ¡Te leemos!</p>
 </div>
             <script src="https://giscus.app/client.js"
                     data-repo="legnaleyos51-boop/tallervora-web"
@@ -257,48 +108,7 @@
 
 
 
-    <script>
-        async function detectarArticulos() {
-            const lista = document.getElementById('lista-recientes');
-            const foundArticles = [];
-            const currentPath = window.location.pathname.split('/').pop() || 'articulo001.html';
-            
-            for (let i = 1; i <= 100; i++) {
-                const num = i.toString().padStart(3, '0');
-                const url = `articulo${num}.html`;
-                
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) break; 
+    <script src="/Blog/script-blog.js"></script>
 
-                    if (url === currentPath) continue;
-
-                    const html = await response.text();
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    
-                    const title = doc.querySelector('h1')?.textContent || `Volumen ${num}`;
-                    const imgSrc = doc.querySelector('.article-container img')?.getAttribute('src') || doc.querySelector('img:not(.logo-vora)')?.getAttribute('src');
-                    const excerpt = doc.querySelector('.article-container p')?.textContent || "";
-
-                    foundArticles.push({ url, title, imgSrc, excerpt });
-                } catch (e) { break; }
-            }
-
-            foundArticles.reverse().slice(0, 5).forEach(art => {
-                const item = document.createElement('div');
-                item.className = 'sidebar-item';
-                item.innerHTML = `
-                    <a href="${art.url}">
-                        ${art.imgSrc ? `<img src="${art.imgSrc}" alt="${art.title}">` : ''}
-                        <h4>${art.title}</h4>
-                    </a>
-                    <p>${art.excerpt.substring(0, 90)}...</p>
-                `;
-                lista.appendChild(item);
-            });
-        }
-        detectarArticulos();
-    </script>
 </body>
 </html>

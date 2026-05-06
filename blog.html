@@ -46,13 +46,13 @@
 
         /* --- HEADER --- */
         header {
-            padding: 40px 5%;
+            padding: 15px 5% 0;
             text-align: center;
             border-bottom: 1px solid var(--gray-light);
         }
 
         .logo-vora {
-            height: 60px;
+            height: 40px;
          
             transition: opacity 0.3s;
         }
@@ -352,6 +352,62 @@
             border: none !important;
             overflow: hidden !important;
         }
+
+        /* BANNERS PROMOCIONALES ÉLITE */
+        .banner-elite-hero {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            max-height: 200px;
+            overflow: hidden;
+            width: 100%;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+        .banner-content {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .banner-image {
+            flex: 1;
+            height: 300px;
+        }
+        .banner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .banner-text {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+        }
+        .banner-text h2 {
+            color: #ffffff !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1.4rem !important;
+            font-weight: 900 !important;
+            margin: 0 0 15px 0 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            line-height: 1.2 !important;
+        }
+        @media (max-width: 768px) {
+            .banner-elite-hero {
+                flex-direction: column;
+                max-height: none;
+            }
+            .banner-image { width: 100%; height: 150px; }
+            .banner-text { padding: 20px; align-items: center; text-align: center; }
+            .banner-text h2 { font-size: 1.1rem !important; }
+        }
     </style>
 </head>
 <body>
@@ -371,6 +427,18 @@
                 <h1 id="featured-title">Cargando...</h1>
                 <p id="featured-excerpt">Buscando el contenido más reciente...</p>
                 <a href="#" class="btn-read" id="featured-link">LEER ARTÍCULO</a>
+            </div>
+        </section>
+
+        <section class="banner-elite-hero">
+            <div class="banner-content">
+                <div class="banner-image">
+                    <img src="assets/imagen portada.png" alt="Portafolio Élite VORA" >
+                </div>
+                <div class="banner-text">
+                    <h2>Estética cinematográfica para inmortalizar la pasión</h2>
+                    <a href="galeriadeportiva.html" class="btn-banner">Ver Portafolio</a>
+                </div>
             </div>
         </section>
 
@@ -408,118 +476,7 @@
         </div>
     </div>
 
- 
-
-    <script>
-        async function detectarArticulos() {
-            const lista = document.getElementById('lista-recientes');
-            const foundArticles = [];
-            const currentPath = window.location.pathname.split('/').pop() || 'blog.html';
-            
-            for (let i = 1; i <= 100; i++) {
-                const num = i.toString().padStart(3, '0');
-                const url = `Blog/articulo${num}.html`;
-                
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) break; 
-
-                    if (url === currentPath) continue;
-
-                    const html = await response.text();
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    
-                    const title = doc.querySelector('h1')?.textContent || `Volumen ${num}`;
-                    const imgSrc = doc.querySelector('.article-container img')?.getAttribute('src') || doc.querySelector('img:not(.logo-vora)')?.getAttribute('src');
-                    const excerpt = doc.querySelector('.article-container p')?.textContent || "";
-
-                    foundArticles.push({ url, title, imgSrc, excerpt });
-                } catch (e) { break; }
-            }
-
-            const sortedArticles = foundArticles.reverse();
-
-            // Configurar Artículo Destacado (el más reciente de la lista)
-            if (sortedArticles.length > 0) {
-                const latest = sortedArticles[0];
-                document.getElementById('featured-title').textContent = latest.title;
-                document.getElementById('featured-excerpt').textContent = latest.excerpt.substring(0, 180) + "...";
-                document.getElementById('featured-link').href = latest.url;
-                if (latest.imgSrc) {
-                    document.getElementById('featured-image-container').innerHTML = `<img src="${latest.imgSrc}" alt="${latest.title}">`;
-                }
-            }
-
-            // Listar los artículos restantes en la sección inferior (del 2do al 6to)
-            sortedArticles.slice(1, 6).forEach(art => {
-                const item = document.createElement('div');
-                item.className = 'sidebar-item';
-                item.innerHTML = `
-                    <a href="${art.url}">
-                        ${art.imgSrc ? `<img src="${art.imgSrc}" alt="${art.title}">` : ''}
-                        <h4>${art.title}</h4>
-                    </a>
-                    <p>${art.excerpt.substring(0, 90)}...</p>
-                `;
-                lista.appendChild(item);
-            });
-        }
-        detectarArticulos();
-
-        // --- LÓGICA DEL POPUP Y BREVO ---
-       const POPUP_ID = 'vora_blog_popup_closed';
-
-        function setPopupExpiration() {
-            localStorage.setItem(POPUP_ID, new Date().getTime());
-        }
-
-        function shouldShowPopup() {
-            const lastShown = localStorage.getItem(POPUP_ID);
-            if (!lastShown) return true;
-            const thirtyDays = 30 * 24 * 60 * 60 * 1000;
-            return (new Date().getTime() - lastShown) > thirtyDays;
-        }
-
-        const overlay = document.getElementById('blog-popup-overlay');
-        const closeBtn = document.getElementById('close-popup-btn');
-        const subForm = document.getElementById('sib-form');
-
-        // Mostrar tras 3 segundos
-        if (shouldShowPopup()) {
-            setTimeout(() => {
-                overlay.style.display = 'flex';
-            }, 3000);
-        }
-
-        closeBtn.onclick = () => {
-            overlay.style.display = 'none';
-            setPopupExpiration();
-        };
-        
-        // Envío del formulario mediante Fetch para evitar recarga de página
-        subForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const formData = new FormData(subForm);
-            const actionUrl = subForm.getAttribute('action');
-
-            try {
-                await fetch(actionUrl, {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors' // Necesario para peticiones externas opacas
-                });
-
-                // Éxito: Ocultar formulario y mostrar mensaje de agradecimiento
-                subForm.style.display = 'none';
-                document.getElementById('popup-success-msg').style.display = 'block';
-                setPopupExpiration();
-            } catch (error) {
-                console.error('Error al suscribirse:', error);
-            }
-        });
-    </script>
+    <script src="/Blog/script-blog.js"></script>
 
     <!-- SCRIPTS DE VALIDACIÓN DE BREVO -->
     <script>

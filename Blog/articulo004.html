@@ -5,204 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>93:20 - El final que marcó el inicio | Taller VORA</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bone-white: #fdfdfd;
-            --gray-dark: #333333;
-            --gray-light: #eeeeee;
-            --neon-green: #4cd78f;
-        }
-
-        body {
-            background-color: var(--bone-white);
-            color: var(--gray-dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        header {
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .logo-vora {
-            height: 60px;
-            transition: opacity 0.3s;
-        }
-
-        .logo-vora:hover { 
-            opacity: 0.7; 
-        }
-
-        .main-content-wrapper {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 60px;
-            padding: 40px 20px 80px;
-        }
-
-        .article-container {
-            flex: 1;
-            max-width: 800px;
-            text-align: left;
-        }
-
-        .featured-image {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .sidebar {
-            width: 30%;
-            border-left: 1px solid var(--gray-light);
-            padding-left: 40px;
-            text-align: left;
-        }
-
-        .sidebar h3 {
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            margin-bottom: 35px;
-            color: var(--neon-green);
-            font-weight: 900;
-            border-bottom: 2px solid var(--neon-green);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .sidebar-item {
-            border-bottom: 1px solid var(--gray-light);
-            padding-bottom: 25px;
-            margin-bottom: 25px;
-        }
-
-        .sidebar-item:last-child {
-            border-bottom: none;
-        }
-
-        .sidebar-item a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .sidebar-item img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 15px;
-            display: block;
-            background-color: var(--gray-light);
-        }
-
-        .sidebar-item h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin: 0 0 10px 0;
-            line-height: 1.2;
-            transition: color 0.3s;
-        }
-
-        .sidebar-item a:hover h4 {
-            color: var(--neon-green);
-        }
-
-        .sidebar-item p {
-            font-size: 0.8rem;
-            color: #666;
-            line-height: 1.5;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        h1, h2 {
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            color: #000;
-        }
-
-        h1 {
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 40px;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-top: 60px;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #444;
-        }
-
-        @media (max-width: 1024px) {
-            .main-content-wrapper {
-                flex-direction: column;
-                gap: 40px;
-            }
-            h1 { font-size: 1.8rem; }
-            .sidebar {
-                width: 100%;
-                border-left: none;
-                border-top: 1px solid var(--gray-light);
-                padding-left: 0;
-                padding-top: 40px;
-            }
-            .article-container {
-                max-width: 100%;
-            }
-        }
-
-        /* SECCIÓN COMENTARIOS GISCUS */
-        #comments-section {
-            margin-top: 80px;
-            padding-top: 40px;
-            border-top: 3px solid #000;
-            width: 100%;
-        }
-        .cta-comentarios {
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            color: #000;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../Blog/blog-styles.css">
 </head>
-<body>
+<body class="article-page">
 
-    <header>
+    <header class="article-header">
         <a href="../blog.html">
             <img src="../assets/logo blog.png" alt="VORA" class="logo-vora">
         </a>
     </header>
 
     <main class="main-content-wrapper">
-        <article class="article-container">
+        <article class="article-container articulo004">
+        <section class="banner-elite-hero">
+            <div class="banner-content">
+                <div class="banner-image">
+                    <img src="../assets/imagen portada.png" alt="Portafolio Élite VORA" >
+                </div>
+                <div class="banner-text">
+                    <h2>Estética cinematográfica para inmortalizar la pasión</h2>
+                    <a href="../galeriadeportiva.html" class="btn-banner">Ver Portafolio</a>
+                </div>
+            </div>
+        </section>
         <h1>NOVENTA Y TRES VEINTE 93:20</h1>
         
-        <p style="font-family: 'Inter', sans-serif; font-size: 1.3rem; color: #666; margin-top: -30px; margin-bottom: 30px; font-weight: 400;">El final que marcó el inicio del Manchester City</p>
+        <p class="intro-text">El final que marcó el inicio del Manchester City</p>
         <img src="../assets/fotos articulos/imgarticulo004.jpg" alt="Sergio Agüero celebrando el gol al minuto 93:20" class="featured-image">
-        <p style="font-size: 0.9rem; color: #777; font-style: italic; margin-top: -15px; margin-bottom: 40px;">Sergio Agüero celebrando el gol al minuto 93:20 que consagraría al Manchester City campeón temporada 2011-2012 de la Premier League. (Imagen tomada diario Ole argentina)</p>
+        <p class="image-caption">Sergio Agüero celebrando el gol al minuto 93:20 que consagraría al Manchester City campeón temporada 2011-2012 de la Premier League. (Imagen tomada diario Ole argentina)</p>
         
      
         <p>La real academia de la lengua (RAE) no la concibe entre sus palabras, la Triscaidecafobia o miedo irracional al número trece, sufriría de este ausentismo al final de aquella tarde de domingo 13 de mayo de 2012, día en el cual Sergio Leonel Agüero del Castillo más conocido como el Kun Agüero anotó en el minuto 93:20 el gol que daría la primera liga inglesa “Premier League” en 44 años al Manchester City, frente a una multitud de 48.000 personas que se reunieron en el Etihad Stadium para ver el último encuentro de la temporada 2011-2012 y, una audiencia de más de tres millones de espectadores en Sky Sports.</p>
@@ -210,11 +42,11 @@
        
         <p>En la narración para sudamérica en Espn, el cronista del encuentro Juan Manuel Pons también conocido como el Bambino Pons, registraría a más de 11.314 kilómetros de distancia del Etihad Stadium el icónico 
            
-                    <p style="font-style: italic; color: #555; border-left: 3px solid var(--neon-green); padding-left: 20px; margin: 40px 0;">“Agüero vos Kun una …Balotelli….Balotelli….AGÜERO…AGÜERO! GOOOOOL GOOOOL” (por más de veinticuatro segundos se sostuvo en el grito de gol) seguido de la frase, “milagro para el City que le dio vuelta en cuatro minutos” <br></p>
+                    <p class="quote-text large-margin">“Agüero vos Kun una …Balotelli….Balotelli….AGÜERO…AGÜERO! GOOOOOL GOOOOL” (por más de veinticuatro segundos se sostuvo en el grito de gol) seguido de la frase, “milagro para el City que le dio vuelta en cuatro minutos” <br></p>
 
             para ser exactos fueron dos minutos y seis segundos. Asimismo, Diego Latorre comentarista que acompañaba al Bambino terminaría el final de la narración del gol diciendo 
             
-                                <p style="font-style: italic; color: #555; border-left: 3px solid var(--neon-green); padding-left: 20px; margin: 40px 0;">“Es el deporte mas lindo del mundo... tragedia, comedia, alegría, llanto y tristeza” <br></p>
+                                <p class="quote-text large-margin">“Es el deporte mas lindo del mundo... tragedia, comedia, alegría, llanto y tristeza” <br></p>
 
              y esto solo se explicaba al remitirse al resultado antes del minuto 91:13 cuando el Manchester City perdía por 1-2 frente al Queens Park Rangers, consagrando hasta ese momento a su eterno rival de ciudad, el Manchester United como el campeón de la Premier League, pero en no más de ciento veintiséis segundos cambiaría la historia para siempre de los Sky Blues.</p>
 
@@ -224,14 +56,33 @@
 
         <p>Y fue aquel domingo 13 de mayo de 2012 pasadas las 11 de la mañana que, nació ese amor, que no parte de la idea del concepto de sentimiento, que se describe como el deseo de unión y alegría entre dos seres, parte de esa relación de conexión que solo se puede definir como pasión, en la cual, dispones de tu tiempo en el calendario para ver a “tu equipo” que se encuentra a trece horas y veinte minutos de distancia de tu ciudad en avión y que, deseas en algún momento estar al lado de la estatua del Kun Agüero situada a las afueras del Etihad Stadium la cual proclamó y quedó en la historia del Manchester City, rememorando el gol del minuto 93:20 y el primer título en primera división, que cambiaría la historia del club para siempre.</p>
 
-        <p style="font-style: italic; color: #555; border-left: 3px solid var(--neon-green); padding-left: 20px; margin: 40px 0;">La pasión que atesoro por el Manchester City se describe en la emoción que se manifiesta físicamente, al sentir un profundo sentimiento intenso hacia la idea de sentir … </p>
-        <p style="text-align: right;"><strong>Emmanuel Niño</strong></p>
+        <p class="quote-text large-margin">La pasión que atesoro por el Manchester City se describe en la emoción que se manifiesta físicamente, al sentir un profundo sentimiento intenso hacia la idea de sentir … </p>
+        <p class="author-signature"><strong>Emmanuel Niño</strong></p>
+
+        <!-- SECCIÓN COMPARTIR -->
+        <div class="share-section">
+                    <div class="share-btns-wrapper">
+                <button onclick="shareWA()" class="share-btn"><i class="fab fa-whatsapp"></i> ¡Comparte este artículo!</button>
+            </div>
+        </div>
+
+        <section class="banner-elite-footer">
+            <div class="banner-content">
+                <div class="banner-image">
+                    <img src="../assets/imagen portada.png" alt="Portafolio Élite VORA" >
+                </div>
+                <div class="banner-text">
+                    <h2>Estética cinematográfica para inmortalizar la pasión</h2>
+                    <a href="../galeriadeportiva.html" class="btn-banner">Ver Portafolio</a>
+                </div>
+            </div>
+        </section>
 
        <!-- SECCIÓN DE COMENTARIOS GISCUS -->
         <section id="comments-section">
-            <div class="cta-comentarios">
-    <h3>¿Qué te ha parecido este tema?</h3>
-    <p>Cuéntanos tu opinión o dinos qué otros temas te gustaría que tratáramos en el blog. ¡Te leemos!</p>
+            <div class="cta-comentarios" >
+    <h3 >¿Qué te ha parecido este tema?</h3>
+    <p >Cuéntanos tu opinión o dinos qué otros temas te gustaría que tratáramos en el blog. ¡Te leemos!</p>
 </div>
             <script src="https://giscus.app/client.js"
                     data-repo="legnaleyos51-boop/tallervora-web"
@@ -257,48 +108,6 @@
         </aside>
     </main>
 
-    <script>
-        async function detectarArticulos() {
-            const lista = document.getElementById('lista-recientes');
-            const foundArticles = [];
-            const currentPath = window.location.pathname.split('/').pop() || 'articulo004.html';
-            
-            for (let i = 1; i <= 100; i++) {
-                const num = i.toString().padStart(3, '0');
-                const url = `articulo${num}.html`;
-                
-                try {
-                    const response = await fetch(url);
-                    if (!response.ok) break; 
-
-                    if (url === currentPath) continue;
-
-                    const html = await response.text();
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    
-                    const title = doc.querySelector('h1')?.textContent || `Volumen ${num}`;
-                    const imgSrc = doc.querySelector('.article-container img')?.getAttribute('src') || doc.querySelector('img:not(.logo-vora)')?.getAttribute('src');
-                    const excerpt = doc.querySelector('.article-container p')?.textContent || "";
-
-                    foundArticles.push({ url, title, imgSrc, excerpt });
-                } catch (e) { break; }
-            }
-
-            foundArticles.reverse().slice(0, 5).forEach(art => {
-                const item = document.createElement('div');
-                item.className = 'sidebar-item';
-                item.innerHTML = `
-                    <a href="${art.url}">
-                        ${art.imgSrc ? `<img src="${art.imgSrc}" alt="${art.title}">` : ''}
-                        <h4>${art.title}</h4>
-                    </a>
-                    <p>${art.excerpt.substring(0, 90)}...</p>
-                `;
-                lista.appendChild(item);
-            });
-        }
-        detectarArticulos();
-    </script>
+    <script src="/Blog/script-blog.js"></script>
 </body>
 </html>
