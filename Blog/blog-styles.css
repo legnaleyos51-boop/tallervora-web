@@ -129,14 +129,12 @@ header.article-header {
 
 .btn-read {
     text-decoration: none;
-    color: #000;
+    color: var(--neon-green);
     font-weight: 700;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid var(--neon-green);
     padding-bottom: 5px;
     transition: all 0.3s;
 }
-
-.btn-read:hover { color: var(--neon-green); border-color: var(--neon-green); }
 
 @media (max-width: 900px) {
     .featured-article { grid-template-columns: 1fr; padding: 40px 0; }
@@ -375,19 +373,24 @@ p {
 
 /* --- SECCIÓN ARTÍCULOS RECIENTES (INFERIOR blog.html) --- */
 .recent-articles-bottom {
-    margin-top: 80px;
-    border-top: 1px solid var(--gray-light);
-    padding-top: 60px;
+    margin-top: 20px;
+    padding-top: 20px;
     padding-bottom: 100px;
+}
+
+/* SEPARADOR */
+.blog-separator {
+    border: none;
+    height: 1px;
+    background-color: var(--gray-light);
+    margin: 0 auto;
 }
 
 /* --- FILTROS DE CATEGORÍAS --- */
 .filter-container {
     text-align: center;
-    margin-bottom: 40px;
-    padding: 20px 0;
-    border-top: 1px solid var(--gray-light);
-    border-bottom: 1px solid var(--gray-light);
+    margin-bottom: 20px;
+    padding: 0;
 }
 
 .filter-buttons {
@@ -399,7 +402,11 @@ p {
 
 .filter-btn {
     background: transparent;
-    border: 2px solid #000;
+    border: none;
+    text-decoration: underline;
+    text-decoration-color: #000;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
     padding: 10px 25px;
     font-family: 'Inter', sans-serif;
     font-weight: 900;
@@ -410,9 +417,16 @@ p {
     letter-spacing: 1px;
 }
 
-.filter-btn.active, .filter-btn:hover {
+.filter-btn:hover {
+    text-decoration-color: var(--neon-green);
+    color: var(--neon-green);
+}
+
+.filter-btn.active {
     background-color: #000;
     color: var(--neon-green);
+    text-decoration: none; /* Elimina el subrayado para el botón activo */
+    /* text-decoration-color: var(--neon-green);  Esta línea ya no es necesaria si text-decoration es 'none' */
 }
 
 .recent-articles-bottom h3 {
