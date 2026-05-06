@@ -237,9 +237,12 @@
         <p>Motivar de forma sana implica entender que el deporte es de ellos. Nuestra misión como padres es ser el puerto seguro al que regresan después de cada entrenamiento. Si logramos que el niño asocie el deporte con la felicidad y la superación personal, habremos ganado el trofeo más importante: un hijo con una estructura emocional sólida y resiliente frente a los desafíos del futuro.</p>
 
    
-<!-- SECCIÓN DE COMENTARIOS GISCUS -->
+       <!-- SECCIÓN DE COMENTARIOS GISCUS -->
         <section id="comments-section">
-            <h2>DISCUSIÓN</h2>
+            <div class="cta-comentarios">
+    <h3>¿Qué te ha parecido este tema?</h3>
+    <p>Cuéntanos tu opinión o dinos qué otros temas te gustaría que tratáramos en el blog. ¡Te leemos!</p>
+</div>
             <script src="https://giscus.app/client.js"
                     data-repo="legnaleyos51-boop/tallervora-web"
                     data-repo-id="R_kgDORsRYLw"
@@ -255,18 +258,10 @@
                     crossorigin="anonymous"
                     async>
             </script>
-            <script>
-                const intervalGiscus = setInterval(() => {
-                    const iframe = document.querySelector('iframe.giscus-frame');
-                    if (iframe) {
-                        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'https://tallervora.com/css/giscus-custom.css' } } }, 'https://giscus.app');
-                        clearInterval(intervalGiscus);
-                    }
-                }, 1000);
-            </script>
+        </section>
 
-
-
+         
+        </section>
         </article>
 
         <aside class="sidebar">
@@ -275,11 +270,15 @@
         </aside>
     </main>
 
+
+
+
+
     <script>
         async function detectarArticulos() {
             const lista = document.getElementById('lista-recientes');
             const foundArticles = [];
-            const currentPath = window.location.pathname.split('/').pop() || 'articulo002.html';
+            const currentPath = window.location.pathname.split('/').pop() || 'articulo001.html';
             
             for (let i = 1; i <= 100; i++) {
                 const num = i.toString().padStart(3, '0');
@@ -318,6 +317,5 @@
         }
         detectarArticulos();
     </script>
- 
 </body>
 </html>

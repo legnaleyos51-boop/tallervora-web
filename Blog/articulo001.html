@@ -217,9 +217,15 @@
         <h2>El Equilibrio Necesario: El Apoyo frente a la Presión</h2>
         <p>Para que esta potencia visual sea una herramienta de crecimiento y no una carga, es vital el rol del entorno adulto. Una imagen épica debe ser un homenaje al proceso y al disfrute actual, nunca el estándar de una expectativa futura inalcanzable. El apoyo parental debe centrarse en validar la pasión del joven, asegurando que la fotografía sea un motivo de orgullo personal y no una herramienta de presión externa. El éxito real se manifiesta cuando el atleta se siente poderoso en la imagen, pero profundamente feliz y escuchado en su realidad cotidiana.</p>
 
-<!-- SECCIÓN DE COMENTARIOS GISCUS -->
+
+
+        
+       <!-- SECCIÓN DE COMENTARIOS GISCUS -->
         <section id="comments-section">
-            <h2>DISCUSIÓN</h2>
+            <div class="cta-comentarios">
+    <h3>¿Qué te ha parecido este tema?</h3>
+    <p>Cuéntanos tu opinión o dinos qué otros temas te gustaría que tratáramos en el blog. ¡Te leemos!</p>
+</div>
             <script src="https://giscus.app/client.js"
                     data-repo="legnaleyos51-boop/tallervora-web"
                     data-repo-id="R_kgDORsRYLw"
@@ -235,15 +241,9 @@
                     crossorigin="anonymous"
                     async>
             </script>
-            <script>
-                const intervalGiscus = setInterval(() => {
-                    const iframe = document.querySelector('iframe.giscus-frame');
-                    if (iframe) {
-                        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'https://tallervora.com/css/giscus-custom.css' } } }, 'https://giscus.app');
-                        clearInterval(intervalGiscus);
-                    }
-                }, 1000);
-            </script>
+        </section>
+
+         
         </section>
         </article>
 

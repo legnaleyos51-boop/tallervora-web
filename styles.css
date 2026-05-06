@@ -3437,3 +3437,31 @@ body {
     overflow: hidden !important;
     height: auto; /* Permite que el JS controle la altura */
 }
+
+
+
+
+
+
+
+
+.cta-comentarios {
+    border: 2px solid #000000;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.cta-comentarios h3 {
+    color: #4cd78f; /* El verde que estás usando */
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-comentarios p {
+    color: #000000;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
