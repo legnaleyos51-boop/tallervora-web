@@ -71,7 +71,7 @@ async function detectarArticulos() {
             // Categorización dinámica solicitada
             let category = 'otros';
             if (['001', '002', '003'].includes(num)) category = 'fundamentos';
-            else if (num === '004') category = 'perspectivas';
+            else if (num === '004') category = 'cronicas';
 
             foundArticles.push({ url, title, imgSrc, excerpt, category });
         } catch (e) { break; }
