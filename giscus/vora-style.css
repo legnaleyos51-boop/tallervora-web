@@ -1,45 +1,44 @@
-/* Variables base */
 main {
+  /* Fondo y colores base */
   --color-canvas-default: transparent !important;
+  --color-canvas-subtle: transparent !important;
   --color-fg-default: #000000 !important;
   --color-border-default: #000000 !important;
   --color-accent-fg: #4cd78f !important;
+
+  /* OCULTAR ELEMENTOS (Usando variables de escala 0) */
+  --giscus-results-summary-display: none;
+  --giscus-footer-display: none;
 }
 
-/* OCULTAR ELEMENTOS SOLICITADOS */
-
-/* 1. Quitar encabezado (Cantidad de comentarios y "Desarrollado por") */
+/* Forzar ocultación de los contenedores específicos */
 .giscus-results-summary, 
-.giscus-footer {
+.giscus-results-header, 
+.giscus-comment-footer, 
+.giscus-replies, 
+.giscus-footer,
+.giscus-comment-reactions {
   display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden !important;
 }
 
-/* 2. Quitar botones de ordenamiento (Antiguo / Nuevo) */
-.giscus-results-header {
-  display: none !important;
-}
-
-/* 3. Quitar botón de 'Responder' y la sección de respuestas */
-.giscus-comment-footer,
-.giscus-replies {
-  display: none !important;
-}
-
-/* 4. Estética de la caja de comentarios */
-.form-control {
-  background-color: #ffffff !important;
+/* Estética de la caja de texto y comentarios */
+.form-control, .giscus-comment {
   border: 1px solid #000000 !important;
-  color: #000000 !important;
+  background-color: #ffffff !important;
 }
 
-/* 5. Botón de enviar */
-.btn-primary {
+/* Botón de Iniciar sesión / Comentar */
+.btn-primary, .color-bg-accent-emphasis {
   background-color: #4cd78f !important;
   color: #000000 !important;
   border: 1px solid #000000 !important;
 }
 
-/* Forzar que el texto del comentario sea negro */
-.giscus-comment-body {
+/* Ajuste de texto negro */
+.giscus-comment-body, .color-text-primary {
   color: #000000 !important;
 }
