@@ -402,6 +402,7 @@ p {
 
 .filter-btn {
     background: transparent;
+    color: #000000 !important;
     border: none;
     text-decoration: underline;
     text-decoration-color: #000;
@@ -417,16 +418,22 @@ p {
     letter-spacing: 1px;
 }
 
-.filter-btn:hover {
-    text-decoration-color: var(--neon-green);
-    color: var(--neon-green);
+.filter-btn:link,
+.filter-btn:visited {
+    color: #000000 !important;
+    text-decoration-color: #000000 !important;
+}
+
+.filter-btn:hover,
+.filter-btn:active,
+.filter-btn.active {
+    color: var(--neon-green) !important;
+    text-decoration-color: var(--neon-green) !important;
 }
 
 .filter-btn.active {
-    background-color: #000;
-    color: var(--neon-green);
-    text-decoration: none; /* Elimina el subrayado para el botón activo */
-    /* text-decoration-color: var(--neon-green);  Esta línea ya no es necesaria si text-decoration es 'none' */
+    background-color: #000 !important;
+    text-decoration: none !important;
 }
 
 .recent-articles-bottom h3 {
