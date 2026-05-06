@@ -154,58 +154,6 @@
             color: #444;
         }
 
-        .cta-banner {
-            background-color: #000;
-            color: #fff;
-            padding: 100px 20px;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .footer-samples {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-
-        .footer-samples img {
-            width: 280px;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            border-radius: 4px;
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-        }
-
-        .footer-samples img:hover {
-            transform: translateY(-5px);
-            border-color: var(--neon-green);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        .btn-portafolio {
-            background-color: var(--neon-green);
-            color: #000;
-            padding: 20px 40px;
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .btn-portafolio:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(76, 215, 143, 0.4);
-            background-color: #59ffaa;
-        }
-
         @media (max-width: 1024px) {
             .main-content-wrapper {
                 flex-direction: column;
@@ -288,25 +236,37 @@
         <h2>Conclusión</h2>
         <p>Motivar de forma sana implica entender que el deporte es de ellos. Nuestra misión como padres es ser el puerto seguro al que regresan después de cada entrenamiento. Si logramos que el niño asocie el deporte con la felicidad y la superación personal, habremos ganado el trofeo más importante: un hijo con una estructura emocional sólida y resiliente frente a los desafíos del futuro.</p>
 
-        <!-- SECCIÓN DE COMENTARIOS DINÁMICA -->
-        <div class="comentarios-container">
-            <div id="cusdis_thread"
-              data-host="https://cusdis.com"
-              data-app-id="9cb7e2bd-b550-4d09-9d09-52d18d716043"
-              data-page-id=""
-              data-page-url=""
-              data-page-title="">
-            </div>
-            <script>
-                (function() {
-                    const cusdisThread = document.getElementById('cusdis_thread');
-                    cusdisThread.setAttribute('data-page-id', window.location.pathname);
-                    cusdisThread.setAttribute('data-page-url', window.location.href);
-                    cusdisThread.setAttribute('data-page-title', document.title);
-                })();
+   
+<!-- SECCIÓN DE COMENTARIOS GISCUS -->
+        <section id="comments-section">
+            <h2>DISCUSIÓN</h2>
+            <script src="https://giscus.app/client.js"
+                    data-repo="legnaleyos51-boop/tallervora-web"
+                    data-repo-id="R_kgDORsRYLw"
+                    data-category="General"
+                    data-category-id="DIC_kwDORsRYL84C7sC_"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="https://tallervora.com/giscus/vora-style.css?v=6.0"
+                    data-lang="es"
+                    crossorigin="anonymous"
+                    async>
             </script>
-            <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-        </div>
+            <script>
+                const intervalGiscus = setInterval(() => {
+                    const iframe = document.querySelector('iframe.giscus-frame');
+                    if (iframe) {
+                        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: 'https://tallervora.com/css/giscus-custom.css' } } }, 'https://giscus.app');
+                        clearInterval(intervalGiscus);
+                    }
+                }, 1000);
+            </script>
+
+
+
         </article>
 
         <aside class="sidebar">
@@ -314,15 +274,6 @@
             <div id="lista-recientes"></div>
         </aside>
     </main>
-
-    <footer class="cta-banner">
-        <div class="footer-samples">
-            <img src="../assets/imagen%20portada.png" alt="Muestra 1">
-            <img src="../assets/imagen%20portada.png" alt="Muestra 2">
-            <img src="../assets/imagen%20portada.png" alt="Muestra 3">
-        </div>
-        <a href="../galeriadeportiva.html" class="btn-portafolio">VER GALERÍA</a>
-    </footer>
 
     <script>
         async function detectarArticulos() {
@@ -367,6 +318,6 @@
         }
         detectarArticulos();
     </script>
-    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+ 
 </body>
 </html>
