@@ -3,6 +3,28 @@
  * Incluye: Lightbox con Carrusel de Puntos y Comparación de fotos dinámica.
  */
 
+/**
+ * PARÁMETROS DE CONFIGURACIÓN DE LA GALERÍA
+ * Modifica estos valores para controlar el diseño del mosaico y el encuadre de las fotos.
+ */
+const GALLERY_SETTINGS = {
+    maxImages: 50, // Cuántas fotos intentar cargar (poster_001... poster_050)
+    // Patrón repetitivo para el diseño Bento: 'large' (2x2), 'tall' (1x2), 'wide' (2x1), '' (1x1)
+    layoutPattern: ['large', 'tall', '', '', 'wide', 'tall', ''],
+    // Ajustes manuales de TAMAÑO por ID de imagen (número de poster)
+    specificLayouts: {
+        '001': 'large', 
+    },
+    // Ajustes manuales de ENCUADRE (object-position) por ID de imagen
+    // Útil si una foto sale "decapitada" o mal centrada en el mosaico.
+    specificPositions: {
+        '001': 'center 20%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+        '002': '20% center', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+        '003': 'center 20%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+        '005': 'center 35%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+    }
+};
+
 let currentIndex = 0;
 let galleryImages = [];
 let touchStartX = 0;
@@ -96,12 +118,11 @@ async function cargarGaleriaDinamica() {
     const galleryContainer = document.getElementById('gallery');
     if (!galleryContainer) return;
 
-    const layoutClasses = ['large', 'tall', '', '', 'wide', 'tall', '']; // Patrón de diseño Bento
     const imagesFound = [];
     
     galleryContainer.innerHTML = '<p style="grid-column: 1/-1; color: #4cd78f;">Cargando Galería Élite...</p>';
 
-    for (let i = 1; i <= 50; i++) {
+    for (let i = 1; i <= GALLERY_SETTINGS.maxImages; i++) {
         const num = i.toString().padStart(3, '0');
         const url = `assets/Galeria/poster_${num}.webp`;
 
@@ -109,10 +130,16 @@ async function cargarGaleriaDinamica() {
             const response = await fetch(url, { method: 'HEAD' });
             if (!response.ok) break;
 
-            const itemClass = layoutClasses[(i - 1) % layoutClasses.length];
+            // Determinar clase de tamaño (Bento)
+            const itemClass = GALLERY_SETTINGS.specificLayouts[num] || 
+                              GALLERY_SETTINGS.layoutPattern[(i - 1) % GALLERY_SETTINGS.layoutPattern.length];
+            
+            // Determinar posición de encuadre (Object Position)
+            const objectPos = GALLERY_SETTINGS.specificPositions[num] || 'center';
+
             const itemHTML = `
                 <div class="gallery-item ${itemClass}" onclick="openLightbox(this)">
-                    <img src="${url}" alt="Trabajo VORA ${num}">
+                    <img src="${url}" alt="Trabajo VORA ${num}" style="object-position: ${objectPos}">
                     <div class="overlay"><i class="expand-icon">+</i></div>
                 </div>
             `;
