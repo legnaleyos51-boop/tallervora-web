@@ -214,7 +214,12 @@ function openLightbox(element) {
     const lightbox = document.getElementById('lightbox');
     const img = element.querySelector('img');
     if (lightbox && img) {
-        currentIndex = galleryImages.indexOf(img.src);
+        // Usamos getAttribute('src') para obtener la ruta relativa exacta
+        // y que coincida con lo guardado en el arreglo galleryImages
+        const src = img.getAttribute('src');
+        currentIndex = galleryImages.indexOf(src);
+        if (currentIndex === -1) currentIndex = 0; // Fallback al primero si no hay coincidencia
+        
         updateLightbox();
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
@@ -475,7 +480,7 @@ function openAficheGallery() {
     const aficheItems = document.querySelectorAll('#afiche-gallery-items .gallery-item img');
     if (aficheItems.length > 0) {
         // Poblar el array global galleryImages con las rutas de los afiches
-        galleryImages = Array.from(aficheItems).map(img => img.src);
+        galleryImages = Array.from(aficheItems).map(img => img.getAttribute('src'));
         
         // Actualizar los puntos de navegación para que coincidan con la cantidad de afiches
         createDots();
