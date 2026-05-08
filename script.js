@@ -21,7 +21,7 @@ const GALLERY_SETTINGS = {
         '001': 'center 20%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
         '002': '20% center', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
         '003': 'center 20%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
-        '005': 'center 35%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+        '005': 'center 39%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
     }
 };
 
