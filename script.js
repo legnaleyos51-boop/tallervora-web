@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /**
- * Escanea la carpeta assets/galeria/ en busca de poster_NNN.webp
+ * Escanea la carpeta assets/Galeria/ en busca de poster_NNN.webp
  * y construye el bento-grid dinámicamente.
  */
 async function cargarGaleriaDinamica() {
@@ -103,7 +103,7 @@ async function cargarGaleriaDinamica() {
 
     for (let i = 1; i <= 50; i++) {
         const num = i.toString().padStart(3, '0');
-        const url = `assets/galeria/poster_${num}.webp`;
+        const url = `assets/Galeria/poster_${num}.webp`;
 
         try {
             const response = await fetch(url, { method: 'HEAD' });
