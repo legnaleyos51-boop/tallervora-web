@@ -8,6 +8,65 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
+    <style>
+        :root {
+            /* Variables para ajustar la posición de la foto principal (Hero) */
+            --hero-img-x: center;
+            --hero-img-y: center;
+            
+            /* Variables para ajustar la posición de la foto del Squad/Convenios */
+            --squad-img-x: center;
+            --squad-img-y: center;
+        }
+
+        /* Centrado de la sección Hero para que coincida con Fotografía Deportiva */
+        .hero-split {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding-top: 150px !important;
+            gap: 50px !important;
+        }
+
+        .hero-text {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero-btns {
+            justify-content: center !important;
+        }
+
+        /* Ajuste de marcos y encuadre de fotos como en la página principal */
+        .image-frame-orange {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .image-frame-orange img {
+            width: 100% !important;
+            height: 500px !important; /* Altura fija para permitir el re-encuadre */
+            object-fit: cover !important;
+            object-position: var(--hero-img-x) var(--hero-img-y) !important;
+            border-radius: 15px !important;
+        }
+
+        /* Control para cualquier otra sección de fotos (.img-neon-frame) */
+        .img-neon-frame {
+            width: 100% !important;
+            height: 400px !important;
+            object-fit: cover !important;
+            object-position: var(--squad-img-x) var(--squad-img-y) !important;
+        }
+
+        @media (max-width: 768px) {
+            .image-frame-orange img { height: 350px !important; }
+            .hero-split { padding-top: 100px !important; }
+        }
+    </style>
+
 
     
 </head>
@@ -33,7 +92,14 @@
     </nav>
 
     <main class="b2b-main">
-        
+
+        <!-- Etiqueta superior centrada (Igual que en Fotografía Deportiva) -->
+        <div style="width: 100%; text-align: center; margin-bottom: -110px; position: relative; z-index: 10; padding-top: 30px;">
+            <p style="color: #ffffff !important; letter-spacing: 6px; font-size: 1.1rem; margin: 0; font-weight: 300; text-transform: uppercase; opacity: 0.5;">
+                CONVENIOS INSTITUCIONALES
+            </p>
+        </div>
+
         <section class="hero-split section-anchor">
             <div class="hero-text">
                 <span class="label-orange">MARKETING DEPORTIVO DE ÉLITE</span>
@@ -47,7 +113,7 @@
             </div>
             <div class="hero-visual">
                 <div class="image-frame-orange">
-                    <img src="assets/imagen portada.png" alt="Producción Taller VORA">
+                    <img src="assets/Galeria/poster_003.webp" alt="Producción Taller VORA">
                 </div>
             </div>
         </section>

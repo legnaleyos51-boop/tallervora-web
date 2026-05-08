@@ -9,18 +9,14 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
-    // --- INICIALIZACIÓN DE GALERÍA ---
-    const imagesInGallery = document.querySelectorAll('.gallery-item img');
-    galleryImages = Array.from(imagesInGallery).map(img => img.src);
+    // 1. INICIALIZACIÓN DE GALERÍA
+    cargarGaleriaDinamica();
     
-    // Crear la pista de puntos si existe el contenedor
-    const dotsInner = document.getElementById('dots-inner');
-    if (dotsInner) createDots();
 
-    // --- EVENTOS DE SCROLL (COMPARACIÓN) ---
+    // 2. EVENTOS DE SCROLL (COMPARACIÓN)
     window.addEventListener('scroll', handleComparisonScroll);
 
-    // --- EVENTOS DE LIGHTBOX ---
+    // 3. EVENTOS DE LIGHTBOX
     const lightboxElement = document.getElementById('lightbox');
     if (lightboxElement) {
         lightboxElement.addEventListener('touchstart', e => {
@@ -33,11 +29,102 @@ document.addEventListener("DOMContentLoaded", function() {
         }, {passive: true});
     }
 
-    // --- INICIALIZACIÓN DE BANNER PERSUASIVO ---
+    // 4. INICIALIZACIÓN DE BANNER PERSUASIVO
     if (window.location.pathname.includes('galeriadeportiva')) {
         injectPersuasiveBanners();
     }
+
+    // 5. INICIALIZACIÓN DE BÚSQUEDA DE CONVENIOS
+    const searchBtn = document.getElementById('btn-verify-club');
+    const searchInput = document.getElementById('club-search-input');
+    
+    if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', verifyClub);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                verifyClub();
+            }
+        });
+    }
+
+    // 6. LÓGICA DEL SLIDER (RETOQUE)
+    const inputRetoque = document.getElementById('retoque-input');
+    const imgAntes = document.getElementById('img-retoque-antes');
+    const handle = document.getElementById('retoque-handle');
+
+    if (inputRetoque) {
+        inputRetoque.addEventListener('input', (e) => {
+            let val = e.target.value;
+            imgAntes.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+            handle.style.left = `${val}%`;
+        });
+    }
+
+    // 7. LÓGICA DE MODALES (BIFURCACIÓN)
+    const modalBif = document.getElementById('modal-bifurcacion');
+    const btnAbrirBif = document.getElementById('btn-abrir-modal');
+    const btnCerrarBif = document.getElementById('btn-cerrar-modal');
+
+    if (btnAbrirBif && modalBif && btnCerrarBif) {
+        btnAbrirBif.addEventListener('click', () => {
+            modalBif.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+
+        btnCerrarBif.addEventListener('click', () => {
+            modalBif.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modalBif) {
+                modalBif.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+    }
+
+    // 8. LÓGICA DE TIMELINE (PROGRESO)
+    window.addEventListener('scroll', handleTimelineScroll);
 });
+
+/**
+ * Escanea la carpeta assets/galeria/ en busca de poster_NNN.webp
+ * y construye el bento-grid dinámicamente.
+ */
+async function cargarGaleriaDinamica() {
+    const galleryContainer = document.getElementById('gallery');
+    if (!galleryContainer) return;
+
+    const layoutClasses = ['large', 'tall', '', '', 'wide', 'tall', '']; // Patrón de diseño Bento
+    const imagesFound = [];
+    
+    galleryContainer.innerHTML = '<p style="grid-column: 1/-1; color: #4cd78f;">Cargando Galería Élite...</p>';
+
+    for (let i = 1; i <= 50; i++) {
+        const num = i.toString().padStart(3, '0');
+        const url = `assets/galeria/poster_${num}.webp`;
+
+        try {
+            const response = await fetch(url, { method: 'HEAD' });
+            if (!response.ok) break;
+
+            const itemClass = layoutClasses[(i - 1) % layoutClasses.length];
+            const itemHTML = `
+                <div class="gallery-item ${itemClass}" onclick="openLightbox(this)">
+                    <img src="${url}" alt="Trabajo VORA ${num}">
+                    <div class="overlay"><i class="expand-icon">+</i></div>
+                </div>
+            `;
+            imagesFound.push(url);
+            if (i === 1) galleryContainer.innerHTML = ''; // Limpiar mensaje de carga al hallar la primera
+            galleryContainer.insertAdjacentHTML('beforeend', itemHTML);
+        } catch (e) { break; }
+    }
+
+    galleryImages = imagesFound;
+    if (document.getElementById('dots-inner')) createDots();
+}
 
 /**
  * Inyecta el banner persuasivo tanto en la página como en el Lightbox
@@ -232,91 +319,26 @@ document.addEventListener('keydown', (e) => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Lógica del Slider
-    const inputRetoque = document.getElementById('retoque-input');
-    const imgAntes = document.getElementById('img-retoque-antes');
-    const handle = document.getElementById('retoque-handle');
-
-    if (inputRetoque) {
-        inputRetoque.addEventListener('input', (e) => {
-            let val = e.target.value;
-            imgAntes.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
-            handle.style.left = `${val}%`;
-        });
-    }
-
-    // 2. Lógica de Scroll (Línea y Puntos)
+function handleTimelineScroll() {
     const path = document.getElementById('path-progreso');
     const container = document.querySelector('.timeline-container');
     const puntos = document.querySelectorAll('.etapa-punto');
     const dashArray = 1000;
+    const winH = window.innerHeight;
+    const trigger = winH / 2;
 
-    const handleScroll = () => {
-        const winH = window.innerHeight;
-        const trigger = winH / 2;
+    puntos.forEach(p => {
+        if (p.getBoundingClientRect().top < trigger) p.classList.add('active');
+        else p.classList.remove('active');
+    });
 
-        puntos.forEach(p => {
-            if (p.getBoundingClientRect().top < trigger) {
-                p.classList.add('active');
-            } else {
-                p.classList.remove('active');
-            }
-        });
-
-        if (container && path) {
-            const rect = container.getBoundingClientRect();
-            let progress = (trigger - rect.top) / rect.height;
-            progress = Math.max(0, Math.min(1, progress));
-            path.style.strokeDashoffset = dashArray - (progress * dashArray);
-        }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-});
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Captura de elementos
-    const modal = document.getElementById('modal-bifurcacion');
-    const btnAbrir = document.getElementById('btn-abrir-modal');
-    const btnCerrar = document.getElementById('btn-cerrar-modal');
-
-    // 2. Verificación de existencia para evitar errores en consola
-    if (btnAbrir && modal && btnCerrar) {
-        
-        // Función para abrir el modal
-        btnAbrir.addEventListener('click', function() {
-            modal.style.display = "flex";
-            // Bloquea el scroll del cuerpo para mejorar la UX
-            document.body.style.overflow = "hidden";
-        });
-
-        // Función para cerrar el modal desde la (X)
-        btnCerrar.addEventListener('click', function() {
-            modal.style.display = "none";
-            // Devuelve el scroll al cuerpo
-            document.body.style.overflow = "auto";
-        });
-
-        // Función para cerrar el modal al hacer clic fuera del contenido
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        });
+    if (container && path) {
+        const rect = container.getBoundingClientRect();
+        let progress = (trigger - rect.top) / rect.height;
+        progress = Math.max(0, Math.min(1, progress));
+        path.style.strokeDashoffset = dashArray - (progress * dashArray);
     }
-
-    // Lógica para iluminar pasos en la Guía del Director
-    // Eliminado: Lógica de la línea de tiempo dinámica y activación de pasos por scroll.
-    // Los estilos para .guide-step.active .step-number-large se mantendrán en CSS
-    // para permitir activación manual o por otra lógica si se desea.
-});
+}
 
 /**
  * LÓGICA MODAL INFORMATIVO ACABADOS
@@ -450,9 +472,17 @@ function copyPortalLink(btn) {
 }
 
 function openAficheGallery() {
-    // Busca el primer item de la galería de afiches para abrir el lightbox
-    const firstAfiche = document.querySelector('#afiche-gallery-items .gallery-item');
-    if (firstAfiche) openLightbox(firstAfiche);
+    const aficheItems = document.querySelectorAll('#afiche-gallery-items .gallery-item img');
+    if (aficheItems.length > 0) {
+        // Poblar el array global galleryImages con las rutas de los afiches
+        galleryImages = Array.from(aficheItems).map(img => img.src);
+        
+        // Actualizar los puntos de navegación para que coincidan con la cantidad de afiches
+        createDots();
+
+        const firstAfiche = document.querySelector('#afiche-gallery-items .gallery-item');
+        if (firstAfiche) openLightbox(firstAfiche);
+    }
 }
 
 /**
@@ -484,7 +514,12 @@ function verifyClub() {
     const input = document.getElementById('club-search-input');
     const resultsContainer = document.getElementById('search-results-container');
     
-    if (!input || !resultsContainer || !input.value.trim()) return;
+    if (!input || !resultsContainer) return;
+
+    if (!input.value.trim()) {
+        resultsContainer.innerHTML = '<p style="color: #ff5500; font-weight: 700;">POR FAVOR, INGRESA EL NOMBRE DE TU CLUB.</p>';
+        return;
+    }
     
     const query = normalizeString(input.value);
 
@@ -495,7 +530,7 @@ function verifyClub() {
     `;
 
     setTimeout(() => {
-        const match = conveniosActivos.find(c => normalizeString(c.nombre) === query);
+        const match = conveniosActivos.find(c => normalizeString(c.nombre).includes(query));
 
         if (match) {
             resultsContainer.innerHTML = `

@@ -16,6 +16,11 @@ html {
     --white: #ffffff;
     --gray: #888888;
     --gray-light: #cccccc;
+    /* Variables para la comparación */
+    --hero-x-pos: center;
+    --bad-text-color: #ff5e00;
+    --image-pro: url('assets/Galeria/poster_001.webp');
+    --image-bad: url('assets/foto_celu.webp');
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -159,8 +164,9 @@ img {
     position: relative;
     height: 100vh;
     width: 100%;
+    margin-top: 50px;
     /* Revisa que la ruta de la imagen sea correcta */
-    background: url('../assets/imagen portada.png') no-repeat center center / cover;
+    background: url('../assets/foto portada.png') no-repeat var(--hero-x-pos) center / cover;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -189,9 +195,9 @@ img {
     /* Degradado lineal: Negro sólido abajo para legibilidad, transparente arriba */
     background: linear-gradient(
         to top, 
-        rgb(0, 0, 0) 0%,    /* Negro casi total en la base */
-        rgba(0, 0, 0, 0.492) 30%,   /* Sombra media sobre el texto */
-        transparent 50%           /* Totalmente claro en la parte superior */
+        rgb(0, 0, 0) 15%,    /* Negro casi total en la base */
+        rgba(0, 0, 0, 0.492) 50%,   /* Sombra media sobre el texto */
+        transparent 100%           /* Totalmente claro en la parte superior */
     );
     z-index: 2;
 }
@@ -794,22 +800,64 @@ header.hero .hero-content p {
     border: 1px solid var(--neon-green);
     border-radius: 8px;
     overflow: hidden;
+
+    /* VARIABLES PARA SUBIR/BAJAR LOS CORTES */
+    --c1-izq: 40%;  /* Corte 1: Altura Izquierda */
+    --c1-der: 25%;  /* Corte 1: Altura Derecha */
+    --c2-izq: 75%;  /* Corte 2: Altura Izquierda */
+    --c2-der: 60%;  /* Corte 2: Altura Derecha */
 }
 
 .comparativa-visual .layer {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('assets/imagen portada.png');
     background-size: cover;
     background-position: center;
 }
 
-.layer-papel { z-index: 1; clip-path: polygon(0 0, 100% 0, 100% 30%, 0 45%); filter: saturate(0.6) brightness(0.9); }
-.layer-alucobond { z-index: 2; clip-path: polygon(0 45%, 100% 30%, 100% 65%, 0 80%); }
-.layer-chromaluxe { z-index: 3; clip-path: polygon(0 80%, 100% 65%, 100% 100%, 0 100%); filter: saturate(1.4) brightness(1.1); }
+/* Líneas divisoras verdes (igual al marco) */
+.comparativa-visual::before,
+.comparativa-visual::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--neon-green);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.comparativa-visual::before {
+    clip-path: polygon(0 var(--c1-izq), 100% var(--c1-der), 100% calc(var(--c1-der) + 1px), 0 calc(var(--c1-izq) + 1px));
+}
+
+.comparativa-visual::after {
+    clip-path: polygon(0 var(--c2-izq), 100% var(--c2-der), 100% calc(var(--c2-der) + 1px), 0 calc(var(--c2-izq) + 1px));
+}
+
+.comparativa-visual .layer-papel { 
+    z-index: 1; 
+    clip-path: polygon(0 0, 100% 0, 100% var(--c1-der), 0 var(--c1-izq)); 
+    background-image: url('assets/poster_papel.webp');
+    background-size: 100%; 
+    background-position: 0px -20%; 
+}
+.comparativa-visual .layer-alucobond { 
+    z-index: 2; 
+    clip-path: polygon(0 var(--c1-izq), 100% var(--c1-der), 100% var(--c2-der), 0 var(--c2-izq)); 
+    background-image: url('assets/poster_acrilico.webp');
+    background-size: 110%;
+    background-position: 0px 60%; 
+}
+.comparativa-visual .layer-chromaluxe { 
+    z-index: 3; 
+    clip-path: polygon(0 var(--c2-izq), 100% var(--c2-der), 100% 100%, 0 100%); 
+    background-image: url('assets/poster_metal.webp');
+       background-size: 110%;
+    background-position: 0px 0%; 
+}
 
 /* Slider */
-.slider-comparativo { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; border: 1px solid #4cd78f; }
+.slider-comparativo { position: relative; width: 100%; aspect-ratio: 4/4; overflow: hidden; border: 1px solid #4cd78f; }
 .img-antes { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 5; clip-path: inset(0 50% 0 0); }
 .img-despues { width: 100%; height: 100%; object-fit: cover; }
 .slider-handle { position: absolute; left: 50%; top: 0; height: 100%; z-index: 15; transform: translateX(-50%); pointer-events: none; }

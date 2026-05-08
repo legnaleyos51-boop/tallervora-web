@@ -25,7 +25,7 @@
         <a href="blog.html" class="nav-blog-link">blog</a>
     </nav>
 
-    <header class="hero" style="position: relative;"> <div style="position: absolute; top: 100px; left: 0; width: 100%; text-align: center; z-index: 10;">
+    <header class="hero" style="position: relative;"> <div style="position: absolute; top: 50px; left: 0; width: 100%; text-align: center; z-index: 10;">
         <p style="color: #ffffff !important; letter-spacing: 6px; font-size: 1.5rem; margin: 0; font-weight: 300; text-transform: uppercase;">
             FOTOGRAFÍA DE ÉLITE
         </p>
@@ -172,7 +172,7 @@
         <div class="etapa-item item-1">
             <div class="punto-anclaje"><div class="etapa-punto">1</div></div>
             <div class="etapa-contenido">
-                <div class="etapa-visual"><img src="assets/imagen portada.png"></div>
+                <div class="etapa-visual"><img src="assets/mesacreativa.webp"></div>
                 <div class="etapa-texto">
                     <h3 class="verde">DISEÑO CONCEPTUAL</h3>
                     <p>No improvisamos. Antes de la sesión, definimos una estética personalizada basada en la energía de la disciplina y seleccionando una paleta de colores diseñada para complementar y potenciar los tonos de su uniforme.</p>
@@ -188,7 +188,7 @@
         <div class="etapa-item item-2">
             <div class="punto-anclaje"><div class="etapa-punto">2</div></div>
             <div class="etapa-contenido">
-                <div class="etapa-visual"><img src="assets/imagen portada.png"></div>
+                <div class="etapa-visual"><img src="assets/btspark.webp"></div>
                 <div class="etapa-texto">
                     <h3 class="verde">PRODUCCIÓN EN SET</h3>
                     <p>Llevamos iluminación profesional de alta potencia a la locación para detener el tiempo. Capturamos el máximo esfuerzo con una nitidez y dramatismo imposibles de lograr con luz natural.</p>
@@ -206,8 +206,8 @@
             <div class="etapa-contenido">
                 <div class="etapa-visual">
                     <div class="slider-comparativo">
-                        <img src="assets/imagen portada.png" class="img-despues">
-                        <img src="assets/foto mala.png" class="img-antes" id="img-retoque-antes">
+                        <img src="assets/Galeria/poster_001.webp" class="img-despues">
+                        <img src="assets/poster 001 antes.webp" class="img-antes" id="img-retoque-antes">
                         <div class="slider-handle" id="retoque-handle">
                             <div class="handle-linea"></div>
                             <div class="handle-bala"></div>
@@ -274,9 +274,11 @@
     
     /* REEMPLAZO: En lugar de 70deg, usamos esto */
     --scroll-pos: 50%; 
+    --image-pro-x: 27%;
+    --image-bad-x: center;
     
-    --image-pro: url('assets/imagen portada.png');
-    --image-bad: url('assets/foto mala.png');
+    --image-pro: url('assets/galeria/poster_002.webp');
+    --image-bad: url('assets/foto_celu.webp');
 }
 
         .vora-comparison {
@@ -304,17 +306,17 @@
             border: 1px solid #222;
         }
 
-        .side {
+        .vora-comparison .side {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background-size: cover;
-            background-position: center;
         }
 
-        .bad-side-base { z-index: 1; background-image: var(--image-bad); }
+        .bad-side-base { z-index: 1; background-image: var(--image-bad); background-position: var(--image-bad-x) center !important; }
         .pro-side-top {
             z-index: 2;
             background-image: var(--image-pro);
+            background-position: var(--image-pro-x) center !important;
             -webkit-mask-image: linear-gradient(calc(90deg + var(--split-angle)), transparent 50%, black 50.1%);
             mask-image: linear-gradient(calc(90deg + var(--split-angle)), transparent 50%, black 50.1%);
         }
@@ -393,30 +395,7 @@
     <h2 class="section-title">Muestra </h2>
     
     <div class="bento-grid" id="gallery">
-        <div class="gallery-item large" onclick="openLightbox(this)">
-            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 1">
-            <div class="overlay"><i class="expand-icon">+</i></div>
-        </div>
-
-        <div class="gallery-item tall" onclick="openLightbox(this)">
-            <img src="assets/foto mala.png" alt="Comparativa Vora Mala 1">
-            <div class="overlay"><i class="expand-icon">+</i></div>
-        </div>
-
-        <div class="gallery-item" onclick="openLightbox(this)">
-            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 2">
-            <div class="overlay"><i class="expand-icon">+</i></div>
-        </div>
-
-        <div class="gallery-item" onclick="openLightbox(this)">
-            <img src="assets/foto mala.png" alt="Comparativa Vora Mala 2">
-            <div class="overlay"><i class="expand-icon">+</i></div>
-        </div>
-
-        <div class="gallery-item wide" onclick="openLightbox(this)">
-            <img src="assets/imagen portada.png" alt="Comparativa Vora Pro 3">
-            <div class="overlay"><i class="expand-icon">+</i></div>
-        </div>
+        <!-- Se puebla dinámicamente desde script.js -->
     </div>
 </section>
 
@@ -696,7 +675,7 @@ y los detalles técnicos de tu sesión de élite.</p>
         
         <div class="search-input-group">
             <input type="text" id="club-search-input" class="search-input" placeholder="Escribe el nombre de tu escuela o club..." autocomplete="off">
-            <button id="btn-verify-club" class="btn-verify" onclick="verifyClub()">Verificar Convenio</button>
+            <button id="btn-verify-club" class="btn-verify">Verificar Convenio</button>
         </div>
 
         <div id="search-results-container" class="search-results"></div>
