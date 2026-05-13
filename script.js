@@ -385,7 +385,8 @@ const finishData = {
             "<strong>Resolución Extrema:</strong> Máximo detalle en texturas y fidelidad de color en cada impresión."
         ],
         legal: "Papel de grado de archivo impreso en laboratorio profesional.",
-        variantClass: "papel-variant"
+        variantClass: "papel-variant",
+        imgSrc: "assets/poster_papel.webp"
     },
     alucobond: {
         title: "Elegancia minimalista <br> para capturar su historia.",
@@ -396,7 +397,8 @@ const finishData = {
             "<strong>Efecto de Montaje:</strong> Incluye bastidor posterior de madera para un sistema de colgado 'flotante'."
         ],
         legal: "Materiales suministrados por Graphyco Colombia bajo especificaciones de fábrica.",
-        variantClass: "alucobond-variant"
+        variantClass: "alucobond-variant",
+        imgSrc: "assets/poster_acrilico.webp"
     },
     chromaluxe: {
         title: "Un legado visual <br>diseñado para ser inmortal.",
@@ -407,7 +409,8 @@ const finishData = {
             "<strong>Longevidad de Archivo:</strong> Colores estables y vibrantes <span class='highlight-orange'>garantizados por más de 65 años en interiores.</span>"
         ],
         legal: "Pruebas de resistencia realizadas bajo estándares de Wilhelm Imaging Research. Materiales bajo especificaciones originales de ChromaLuxe.",
-        variantClass: "chromaluxe-variant"
+        variantClass: "chromaluxe-variant",
+        imgSrc: "assets/poster_metal.webp"
     }
 };
 
@@ -417,6 +420,7 @@ function openInfoModal(type) {
     const title = document.getElementById('info-modal-title');
     const pointsList = document.getElementById('info-modal-points');
     const legal = document.getElementById('info-modal-legal');
+    const modalImg = document.getElementById('info-modal-img');
     
     const data = finishData[type];
 
@@ -424,6 +428,7 @@ function openInfoModal(type) {
         title.innerHTML = data.title;
         legal.innerHTML = data.legal;
         pointsList.innerHTML = data.points.map(p => `<li>${p}</li>`).join('');
+        if (modalImg && data.imgSrc) modalImg.src = data.imgSrc;
         
         container.className = 'info-modal-content ' + data.variantClass;
         modal.style.display = 'flex';
