@@ -3513,3 +3513,21 @@ body {
     margin-bottom: 0;
     font-size: 1.1rem;
 }
+
+.discreet-footer-link {
+    text-align: center;
+    padding: 10px 0 40px;
+    background-color: var(--dark-bg);
+}
+
+.discreet-footer-link a {
+    color: #222; /* Gris muy oscuro sobre fondo negro */
+    font-size: 0.65rem;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.discreet-footer-link a:hover {
+    color: #444;
+}
