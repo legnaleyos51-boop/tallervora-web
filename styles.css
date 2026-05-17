@@ -841,19 +841,19 @@ header.hero .hero-content p {
     background-size: 100%; 
     background-position: 0px -20%; 
 }
-.comparativa-visual .layer-alucobond { 
+.comparativa-visual .layer-poliestireno { 
     z-index: 2; 
     clip-path: polygon(0 var(--c1-izq), 100% var(--c1-der), 100% var(--c2-der), 0 var(--c2-izq)); 
-    background-image: url('assets/poster_acrilico.webp');
-    background-size: 110%;
-    background-position: 0px 60%; 
+    background-image: url('assets/poster_poliestireno.webp');
+    background-size: 100%;
+    background-position: 0px 50%; 
 }
-.comparativa-visual .layer-chromaluxe { 
+.comparativa-visual .layer-alucobond { 
     z-index: 3; 
     clip-path: polygon(0 var(--c2-izq), 100% var(--c2-der), 100% 100%, 0 100%); 
-    background-image: url('assets/poster_metal.webp');
-       background-size: 110%;
-    background-position: 0px 0%; 
+    background-image: url('assets/poster_alucobond.webp');
+    background-size: 100%;
+    background-position: 0px 10%; 
 }
 
 /* Slider */

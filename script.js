@@ -384,33 +384,29 @@ const finishData = {
             "<strong>Versatilidad:</strong> Ideal para ser montado en marcos con vidrio o sobre bastidores rígidos.",
             "<strong>Resolución Extrema:</strong> Máximo detalle en texturas y fidelidad de color en cada impresión."
         ],
-        legal: "Papel de grado de archivo impreso en laboratorio profesional.",
         variantClass: "papel-variant",
         imgSrc: "assets/poster_papel.webp"
     },
-    alucobond: {
+    poliestireno: {
         title: "Elegancia minimalista <br> para capturar su historia.",
         points: [
+            "<strong>Estructura ultraligera y resistente::</strong> Su composición técnica ofrece una base rígida de alta durabilidad con un peso mínimo, ideal para instalar fácilmente en cualquier tipo de pared sin necesidad de soportes complejos.",
+            "<strong>Perfil moderno con canto negro mate:</strong> El núcleo de poliestireno expone un borde negro pulido y minimalista que enmarca el arte cinemático, logrando un acabado limpio de estilo galería contemporánea.",
+            "<strong>Efecto de Montaje:</strong> Incluye bastidor posterior de madera para un sistema de colgado 'flotante'."
+        ],
+        variantClass: "alucobond-variant",
+        imgSrc: "assets/poster_poliestireno.webp"
+    },
+    alucobond: {
+        title: "Un legado visual <br>diseñado para ser inmortal.",
+       points: [
             "<strong>Composición Estructural:</strong> Núcleo de polietileno de baja densidad acoplado entre dos láminas de aluminio de 0.3 mm.",
             "<strong>Acabado Visual:</strong> Impresión fotográfica profesional con laminado protector UV que elimina reflejos molestos.",
             "<strong>Estabilidad:</strong> Panel de alta rigidez que garantiza una superficie 100% plana, inmune a deformaciones por humedad.",
             "<strong>Efecto de Montaje:</strong> Incluye bastidor posterior de madera para un sistema de colgado 'flotante'."
         ],
-        legal: "Materiales suministrados por Graphyco Colombia bajo especificaciones de fábrica.",
-        variantClass: "alucobond-variant",
-        imgSrc: "assets/poster_acrilico.webp"
-    },
-    chromaluxe: {
-        title: "Un legado visual <br>diseñado para ser inmortal.",
-        points: [
-            "<strong>Tecnología de Infusión:</strong> Panel de aluminio sólido de 1.1 mm. Pigmentos integrados dentro del recubrimiento del metal mediante sublimación térmica (sin papel ni adhesivos).",
-            "<strong>Impacto Visual:</strong> Nitidez de ultra-alta definición (HD) con profundidad de color y contraste superiores a soportes tradicionales.",
-            "<strong>Resistencia Certificada:</strong> Superficie con escudo polimérico resistente a rayones, calor, humedad y agentes químicos.",
-            "<strong>Longevidad de Archivo:</strong> Colores estables y vibrantes <span class='highlight-orange'>garantizados por más de 65 años en interiores.</span>"
-        ],
-        legal: "Pruebas de resistencia realizadas bajo estándares de Wilhelm Imaging Research. Materiales bajo especificaciones originales de ChromaLuxe.",
         variantClass: "chromaluxe-variant",
-        imgSrc: "assets/poster_metal.webp"
+        imgSrc: "assets/poster_alucobond.webp"
     }
 };
 
@@ -419,14 +415,12 @@ function openInfoModal(type) {
     const container = document.getElementById('info-modal-container');
     const title = document.getElementById('info-modal-title');
     const pointsList = document.getElementById('info-modal-points');
-    const legal = document.getElementById('info-modal-legal');
     const modalImg = document.getElementById('info-modal-img');
     
     const data = finishData[type];
 
     if (modal && data) {
         title.innerHTML = data.title;
-        legal.innerHTML = data.legal;
         pointsList.innerHTML = data.points.map(p => `<li>${p}</li>`).join('');
         if (modalImg && data.imgSrc) modalImg.src = data.imgSrc;
         
