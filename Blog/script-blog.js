@@ -80,18 +80,6 @@ async function detectarArticulos() {
 
     allArticles = foundArticles.reverse();
     
-    // Configurar Artículo Destacado (siempre el último publicado)
-    const featuredTitle = document.getElementById('featured-title');
-    if (featuredTitle && allArticles.length > 0) {
-        const latest = allArticles[0];
-        featuredTitle.textContent = latest.title;
-        if (document.getElementById('featured-excerpt')) document.getElementById('featured-excerpt').textContent = latest.excerpt.substring(0, 180) + "...";
-        if (document.getElementById('featured-link')) document.getElementById('featured-link').href = latest.url;
-        if (document.getElementById('featured-image-container') && latest.imgSrc) {
-            document.getElementById('featured-image-container').innerHTML = `<img src="${latest.imgSrc}" alt="${latest.title}">`;
-        }
-    }
-
     // Renderizar lista inicial
     renderArticlesList('all');
 }
@@ -120,7 +108,7 @@ function renderArticlesList(category) {
 function renderArticleItem(art, container) {
     const item = document.createElement('div');
     item.className = 'sidebar-item';
-    item.innerHTML = `<a href="${art.url}">${art.imgSrc ? `<img src="${art.imgSrc}" alt="${art.title}">` : ''}<h4>${art.title}</h4></a><p>${art.excerpt.substring(0, 90)}...</p>`;
+    item.innerHTML = `<a href="${art.url}" class="item-link-img">${art.imgSrc ? `<img src="${art.imgSrc}" alt="${art.title}">` : ''}</a><div class="item-text-content"><a href="${art.url}"><h4>${art.title}</h4></a><p>${art.excerpt.substring(0, 160)}...</p></div>`;
     container.appendChild(item);
 }
 

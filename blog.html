@@ -10,27 +10,17 @@
     <link rel="stylesheet" href="../Blog/blog-styles.css">
 </head>
 
-<body>
+<body class="blog-home-page">
 
     <header>
         <a href="blog.html"><img src="assets/logo blog.png" alt="VORA" class="logo-vora"></a>
     </header>
 
     <main class="container">
-        <!-- ARTÍCULO DESTACADO -->
-        <section class="featured-article" id="featured-article">
-            <div class="featured-img-container" id="featured-image-container">
-                <!-- Imagen dinámica -->
-            </div>
-            <div class="featured-content">
-                <span class="category-tag"></span>
-                <h1 id="featured-title">Cargando...</h1>
-                <p id="featured-excerpt">Buscando el contenido más reciente...</p>
-                <a href="#" class="btn-read" id="featured-link">LEER ARTÍCULO</a>
-            </div>
+        <!-- INTRODUCCIÓN DEL BLOG -->
+        <section class="blog-intro">
+            <p>Aquí analizamos el deporte como una herramienta fundamental para la vida. <br>Compartimos contenido que busca potenciar la resiliencia, la disciplina y el crecimiento personal de los deportistas y su entorno.</p>
         </section>
-
-        <hr class="blog-separator">
 
         <!-- FILTROS DE CATEGORÍAS -->
         <section class="filter-container">
@@ -71,23 +61,20 @@
     <div id="blog-popup-overlay" class="popup-overlay">
         <div class="popup-content">
             <span class="popup-close" id="close-popup-btn">&times;</span>
-            <h2>Historias que impulsan el talento</h2>
-            <p>Recibe reflexiones y consejos prácticos para vivir el deporte con propósito en tu correo.</p>
+            <h2>Historias que impulsan el talento</h2> <!-- Título del Popup -->
+            <p>Puedes estar al día con los articulos de nuestro blog, <br> solo dejanos tu mail.</p> <!-- Descripción -->
             <form id="sib-form" class="popup-form" method="POST" action="https://3bd7e61d.sibforms.com/serve/MUIFAHD21TxO9nQ45-reOHZytFn6D5NibvJtZeOv4lp87RFHmgJQF-QI9-udZJL3jF8mjhamlOPWUYNDFj_tVp0v3bvfFzOr2tEaqmMSTat66aYrEteam2V0pmpISDe_xIFTjf3mzgGAqrKSUrloZfOZdIUXVeM4AB86PaGhA6a-Qxfi3xxX5cHueIb9T6lAIydZIKwk9j-UiX1UNw==">
                 <div class="sib-input">
-                    <input class="popup-input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Tu mejor email..." data-required="true" required />
+                    <input class="popup-input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Tu email..." data-required="true" required /> <!-- Placeholder del campo -->
                 </div>
                 <button class="sib-form-block__button sib-form-block__button-with-loader btn-submit-popup" form="sib-form" type="submit">
-                    <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="width: 20px; height: 20px; margin-right: 10px; vertical-align: middle; fill: currentColor;">
-                        <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
-                    </svg>
-                    UNIRME AHORA
+                                     UNIRME AHORA <!-- Texto del botón -->
                 </button>
                 <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none !important">
                 <input type="hidden" name="locale" value="es">
                 <input type="hidden" name="html_type" value="simple">
             </form>
-            <div id="popup-success-msg" class="popup-feedback"><strong>¡Gracias por suscribirte! Revisa tu correo pronto.</strong></div>
+            <div id="popup-success-msg" class="popup-feedback"><strong>¡Gracias por suscribirte! Revisa tu correo pronto.</strong></div> <!-- Mensaje de éxito -->
         </div>
     </div>
 
