@@ -5,6 +5,12 @@
     --gray-light: #eeeeee;
     --neon-green: #4cd78f;
     --text-muted: #666;
+
+    /* PARÁMETROS DE LA FIRMA DEL AUTOR */
+    --author-photo-size: 100px;         /* Tamaño del círculo */
+    --author-sig-alignment: center;  /* flex-start (izq), center (centro), flex-end (der) */
+    --author-img-scale: 2.1;             /* Zoom de la imagen (ej: 1.2) */
+    --author-img-object-pos: center -50%;   /* Encuadre de la foto (ej: center 20%) */
 }
 
 /* FUENTES PARA BREVO (si aplica) */
@@ -328,8 +334,105 @@ p {
     margin-bottom: 40px;
 }
 
+/* Estilos para la lista de logros con puntos verdes */
+.article-container .green-bullets {
+    list-style: none; /* Elimina el bullet por defecto del navegador */
+    padding-left: 20px; /* Espacio para el bullet personalizado */
+    margin-top: 15px; /* Espacio superior para separar del párrafo anterior */
+    margin-bottom: 30px; /* Espacio inferior para separar del párrafo siguiente */
+}
+
+.article-container .green-bullets li {
+    position: relative;
+    margin-bottom: 10px; /* Espacio entre cada elemento de la lista */
+    color: #444; /* Color de texto, similar al de los párrafos */
+    font-size: 1.2rem; /* Tamaño de fuente, similar al de los párrafos */
+    line-height: 1.8; /* Interlineado, similar al de los párrafos */
+}
+
+.article-container .green-bullets li::before {
+    content: '•'; /* Carácter del bullet */
+    color: var(--neon-green); /* Color verde neón para el bullet */
+    font-size: 1.5em; /* Tamaño del bullet, más grande que el texto */
+    position: absolute;
+    left: -20px; /* Posiciona el bullet fuera del texto del li */
+    top: 0;
+    line-height: 1; /* Alineación vertical del bullet */
+    font-weight: 900; /* Hace el bullet más grueso */
+}
+
+.author-signature-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: var(--author-sig-alignment);
+    gap: 15px;
+    margin-top: 50px;
+}
+
+.author-photo-container {
+    width: var(--author-photo-size);
+    height: var(--author-photo-size);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--neon-green);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.author-photo-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(76, 215, 143, 0.4);
+}
+
+/* LIGHTBOX PARA FOTO DE AUTOR */
+.author-lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    backdrop-filter: blur(5px);
+}
+
+.author-lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: 200;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.author-lightbox-close:hover {
+    color: var(--neon-green);
+}
+
+.author-lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+    cursor: default;
+    border: 2px solid var(--neon-green);
+}
+
+.author-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--author-img-object-pos);
+    transform: scale(var(--author-img-scale));
+}
+
 .article-container p.author-signature {
-    text-align: right;
+    margin-bottom: 0;
 }
 
 
