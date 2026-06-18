@@ -131,7 +131,7 @@ function initSubscriptionPopup() {
     const lastShown = localStorage.getItem(POPUP_ID);
     const shouldShow = !lastShown || (new Date().getTime() - lastShown) > (30 * 24 * 60 * 60 * 1000);
 
-    if (shouldShow) setTimeout(() => { overlay.style.display = 'flex'; }, 3000);
+    if (shouldShow) setTimeout(() => { overlay.style.display = 'flex'; }, 15000);
 
     document.getElementById('close-popup-btn')?.addEventListener('click', () => { overlay.style.display = 'none'; localStorage.setItem(POPUP_ID, new Date().getTime()); });
     
