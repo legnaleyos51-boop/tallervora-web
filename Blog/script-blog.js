@@ -66,8 +66,8 @@ async function detectarArticulos() {
         const url = `${baseUrl}${fileName}`;
         
         try {
-            const response = await fetch(url);
-            if (!response.ok) break; 
+    const response = await fetch(url);
+    if (!response.ok) continue; // Salta el archivo inexistente y pasa al siguiente número
 
             if (fileName === currentFile) continue;
 
@@ -89,12 +89,15 @@ async function detectarArticulos() {
 
             const excerpt = doc.querySelector('.article-container p')?.textContent || "";
 
-            // Categorización dinámica solicitada
-            let category = 'otros';
-            if (['001', '002', '003'].includes(num)) category = 'fundamentos';
-            else if (num === '004') category = 'cronicas';
-            else if (num === '005') category = 'recomendaciones';
-            else if (num === '006') category = 'cronicas';
+// Categorización dinámica solicitada
+let category = 'otros';
+if (['001', '002', '003'].includes(num)) category = 'fundamentos';
+else if (num === '004') category = 'cronicas';
+else if (num === '005') category = 'recomendaciones';
+else if (num === '006') category = 'cronicas';
+else if (num === '007') category = 'opinion';
+else if (num === '008') category = 'cronicas';
+
 
             foundArticles.push({ url, title, imgSrc, excerpt, category });
         } catch (e) { break; }
@@ -153,7 +156,7 @@ function initSubscriptionPopup() {
     const lastShown = localStorage.getItem(POPUP_ID);
     const shouldShow = !lastShown || (new Date().getTime() - lastShown) > (30 * 24 * 60 * 60 * 1000);
 
-    if (shouldShow) setTimeout(() => { overlay.style.display = 'flex'; }, 3000);
+    if (shouldShow) setTimeout(() => { overlay.style.display = 'flex'; }, 15000);
 
     document.getElementById('close-popup-btn')?.addEventListener('click', () => { overlay.style.display = 'none'; localStorage.setItem(POPUP_ID, new Date().getTime()); });
     

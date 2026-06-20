@@ -25,6 +25,27 @@ function shareWA() {
 }
 
 /**
+ * Abre la foto del autor en tamaño completo
+ */
+function openAuthorPhoto(src) {
+    let lightbox = document.getElementById('author-photo-lightbox');
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.id = 'author-photo-lightbox';
+        lightbox.className = 'author-lightbox';
+        lightbox.innerHTML = '<span class="author-lightbox-close">&times;</span><img src="" alt="Author Photo">';
+        lightbox.onclick = function() { 
+            this.style.display = 'none'; 
+            document.body.style.overflow = 'auto';
+        };
+        document.body.appendChild(lightbox);
+    }
+    lightbox.querySelector('img').src = src;
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+/**
  * Escanea la carpeta Blog en busca de artículos y puebla las listas de forma dinámica
  */
 async function detectarArticulos() {
@@ -45,8 +66,8 @@ async function detectarArticulos() {
         const url = `${baseUrl}${fileName}`;
         
         try {
-            const response = await fetch(url);
-            if (!response.ok) break; 
+    const response = await fetch(url);
+    if (!response.ok) continue; // Salta el archivo inexistente y pasa al siguiente número
 
             if (fileName === currentFile) continue;
 
@@ -68,14 +89,14 @@ async function detectarArticulos() {
 
             const excerpt = doc.querySelector('.article-container p')?.textContent || "";
 
-            // Categorización dinámica solicitada
-            let category = 'otros';
-            if (['001', '002', '003'].includes(num)) category = 'fundamentos';
-            else if (num === '004') category = 'cronicas';
-            else if (num === '005') category = 'recomendaciones';
-            else if (num === '006') category = 'cronicas';
-            else if (num === '007') category = 'OPINIÓN';
-            else if (num === '008') category = 'cronicas';
+// Categorización dinámica solicitada
+let category = 'otros';
+if (['001', '002', '003'].includes(num)) category = 'fundamentos';
+else if (num === '004') category = 'cronicas';
+else if (num === '005') category = 'recomendaciones';
+else if (num === '006') category = 'cronicas';
+else if (num === '007') category = 'opinion';
+else if (num === '008') category = 'cronicas';
 
 
             foundArticles.push({ url, title, imgSrc, excerpt, category });
