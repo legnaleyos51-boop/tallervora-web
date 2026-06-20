@@ -521,20 +521,10 @@ function openAficheGallery() {
  */
 const conveniosActivos = [
     { 
-        nombre: "Club Deportivo Elites", 
-        whatsappUrl: "https://chat.whatsapp.com/KXVCZICQecmLVLKtdNB2WY",
-        mensajePersonalizado: "¡Convenio Detectado!"
+        nombre: "future stars", 
+        whatsappUrl: "https://chat.whatsapp.com/Evau04tArf24ibZFsjDAOS?s=sh&p=a&ilr=0",
+        mensajePersonalizado: "¡Convenio Detectado!" // Se puede mantener o ignorar si usas el nuevo mensaje dinámico
     },
-    { 
-        nombre: "Academia Real Bogota", 
-        whatsappUrl: "https://chat.whatsapp.com/KXVCZICQecmLVLKtdNB2WY",
-        mensajePersonalizado: "¡Convenio Detectado!"
-    },
-    { 
-        nombre: "test 01", 
-        whatsappUrl: "https://chat.whatsapp.com/KXVCZICQecmLVLKtdNB2WY",
-        mensajePersonalizado: "¡Convenio Detectado!"
-    }
 ];
 
 function normalizeString(str) {
@@ -547,12 +537,13 @@ function verifyClub() {
     
     if (!input || !resultsContainer) return;
 
-    if (!input.value.trim()) {
+    const rawInput = input.value.trim();
+    if (!rawInput) {
         resultsContainer.innerHTML = '<p style="color: #ff5500; font-weight: 700;">POR FAVOR, INGRESA EL NOMBRE DE TU CLUB.</p>';
         return;
     }
     
-    const query = normalizeString(input.value);
+    const query = normalizeString(rawInput);
 
     // Efecto de carga
     resultsContainer.innerHTML = `
@@ -561,16 +552,31 @@ function verifyClub() {
     `;
 
     setTimeout(() => {
-        const match = conveniosActivos.find(c => normalizeString(c.nombre).includes(query));
+        // Nueva lógica: Divide el input en palabras y busca si alguna palabra completa coincide exactamente
+        const queryWords = query.split(/\s+/);
+        
+        const match = conveniosActivos.find(c => {
+            const nombreNormalizado = normalizeString(c.nombre);
+            const nombreWords = nombreNormalizado.split(/\s+/);
+            
+            // Verifica que al menos una palabra del input coincida exactamente con una palabra del nombre del club
+            return queryWords.some(word => word.length > 1 && nombreWords.includes(word));
+        });
 
-        if (match) {
+if (match) {
+            // Mensaje dinámico con el nombre del club formateado
+            const nombreFormateado = match.nombre.replace(/\b\w/g, l => l.toUpperCase());
+            
             resultsContainer.innerHTML = `
-                <p class="status-msg" style="color: var(--neon-orange); font-size: 1.5rem; font-weight: 900; margin-bottom: 25px;">${match.mensajePersonalizado}</p>
+                <p class="status-msg" style="color: #fff; font-size: 1.5rem; font-weight: 900; margin-bottom: 25px;">
+                    Encontramos un convenio con el club <span style="color: var(--neon-orange);">${nombreFormateado}</span>
+                </p>
                 <a href="${match.whatsappUrl}" class="btn-orange-search" target="_blank">
                     <i class="fab fa-whatsapp"></i> UNIRSE AL GRUPO VIP
                 </a>
             `;
-        } else {
+        }
+        else {
             resultsContainer.innerHTML = `
                 <p class="status-msg" style="color: #fff; font-size: 1.2rem; margin-bottom: 25px;">Tu escuela aún no cuenta con los beneficios de VORA</p>
                 <a href="padres-a-escuelas.html" class="btn-ambassador">
