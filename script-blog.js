@@ -74,7 +74,7 @@ async function detectarArticulos() {
             else if (num === '004') category = 'cronicas';
             else if (num === '005') category = 'recomendaciones';
             else if (num === '006') category = 'cronicas';
-            else if (num === '007') category = 'cronicas';
+            else if (num === '007') category = 'OPINIÓN';
             else if (num === '008') category = 'cronicas';
 
 
