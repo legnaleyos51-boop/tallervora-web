@@ -73,6 +73,10 @@ async function detectarArticulos() {
             if (['001', '002', '003'].includes(num)) category = 'fundamentos';
             else if (num === '004') category = 'cronicas';
             else if (num === '005') category = 'recomendaciones';
+            else if (num === '006') category = 'cronicas';
+            else if (num === '007') category = 'cronicas';
+            else if (num === '008') category = 'cronicas';
+
 
             foundArticles.push({ url, title, imgSrc, excerpt, category });
         } catch (e) { break; }
