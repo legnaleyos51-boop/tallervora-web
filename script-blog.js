@@ -52,7 +52,6 @@ async function detectarArticulos() {
     const lista = document.getElementById('lista-recientes');
     if (!lista) return;
 
-    const foundArticles = [];
     const pathParts = window.location.pathname.split('/');
     const currentFile = pathParts.pop() || 'blog.html';
     // Detecta si estamos dentro de la subcarpeta /Blog/ para ajustar rutas relativas
@@ -60,22 +59,34 @@ async function detectarArticulos() {
     
     const baseUrl = isInsideBlogFolder ? '' : 'Blog/';
 
-    for (let i = 1; i <= 100; i++) {
-        const num = i.toString().padStart(3, '0');
-        const fileName = `articulo${num}.html`;
+    // Configuración centralizada de artículos existentes y sus categorías
+    const ARTICLES_CONFIG = [
+        { num: '001', category: 'fundamentos' },
+        { num: '002', category: 'fundamentos' },
+        { num: '003', category: 'fundamentos' },
+        { num: '004', category: 'cronicas' },
+        { num: '005', category: 'recomendaciones' },
+        { num: '006', category: 'cronicas' },
+        { num: '007', category: 'opinion' },
+        { num: '008', category: 'cronicas' }
+    ];
+
+    // Realizar fetch en paralelo para todos los artículos configurados
+    const promises = ARTICLES_CONFIG.map(async (art) => {
+        const fileName = `articulo${art.num}.html`;
         const url = `${baseUrl}${fileName}`;
         
+        if (fileName === currentFile) return null;
+        
         try {
-    const response = await fetch(url);
-    if (!response.ok) continue; // Salta el archivo inexistente y pasa al siguiente número
-
-            if (fileName === currentFile) continue;
+            const response = await fetch(url);
+            if (!response.ok) return null;
 
             const html = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(html, 'text/html');
             
-            const title = doc.querySelector('h1')?.textContent || `Volumen ${num}`;
+            const title = doc.querySelector('h1')?.textContent || `Volumen ${art.num}`;
             
             const imgSrcAttr = doc.querySelector('.featured-image')?.getAttribute('src') || 
                                Array.from(doc.querySelectorAll('.article-container img')).find(img => !img.closest('.banner-elite-hero') && !img.closest('.banner-elite-footer'))?.getAttribute('src') || 
@@ -89,20 +100,19 @@ async function detectarArticulos() {
 
             const excerpt = doc.querySelector('.article-container p')?.textContent || "";
 
-// Categorización dinámica solicitada
-let category = 'otros';
-if (['001', '002', '003'].includes(num)) category = 'fundamentos';
-else if (num === '004') category = 'cronicas';
-else if (num === '005') category = 'recomendaciones';
-else if (num === '006') category = 'cronicas';
-else if (num === '007') category = 'opinion';
-else if (num === '008') category = 'cronicas';
+            return { url, title, imgSrc, excerpt, category: art.category };
+        } catch (e) {
+            console.error(`Error al cargar el artículo ${art.num}:`, e);
+            return null;
+        }
+    });
 
+    const results = await Promise.all(promises);
+    // Filtrar los nulos (artículo actual o errores de carga)
+    const foundArticles = results.filter(art => art !== null);
 
-            foundArticles.push({ url, title, imgSrc, excerpt, category });
-        } catch (e) { break; }
-    }
-
+    // Los artículos vienen en orden ascendente (001 a 008). Al hacer reverse()
+    // logramos que los más recientes (008, 007...) aparezcan primero.
     allArticles = foundArticles.reverse();
     
     // Renderizar lista inicial
