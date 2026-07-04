@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteo Lanzamiento | Taller VORA</title>
+    
+    <!-- Meta etiquetas SEO -->
+    <meta name="description" content="Registra tu correo electrónico y participa en el sorteo de una sesión fotográfica deportiva de élite en Bogotá con Taller VORA. Inmortaliza tu pasión.">
+    <meta name="author" content="Taller VORA">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Urbanist:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#faf7f2',
+                            200: '#f3ede2',
+                            300: '#e5dacf',
+                        },
+                        voraGreen: {
+                            light: '#e6f4ed',
+                            DEFAULT: '#097939', // Verde esmeralda deportivo / cancha
+                            dark: '#054e24',
+                        },
+                        voraOrange: {
+                            DEFAULT: '#ff5e00', // Naranja vibrante para acciones importantes
+                            dark: '#d64f00',
+                        },
+                        voraBlack: '#0a0a0a', // Negro profundo
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Urbanist', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-cream-50 text-voraBlack font-sans antialiased selection:bg-voraGreen selection:text-white;
+            }
+        }
+        
+        /* Textura de papel / lienzo de arte mediante ruido SVG */
+        .paper-texture {
+            position: relative;
+        }
+        .paper-texture::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.025;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="paper-texture min-h-screen flex flex-col">
+
+    <!-- Header con Logotipo -->
+    <header class="w-full max-w-7xl mx-auto px-6 py-6 md:py-8 flex justify-between items-center relative z-20">
+        <a href="../blog.html" class="block transition-opacity duration-300 hover:opacity-80">
+            <img src="../assets/logo blog.png" alt="Taller VORA" class="h-10 md:h-12 w-auto object-contain">
+        </a>
+        <a href="../blog.html" class="text-xs md:text-sm font-display font-bold uppercase tracking-widest text-voraBlack border-b-2 border-voraBlack/20 hover:border-voraBlack pb-1 transition-all duration-300">
+            Volver al Blog
+        </a>
+    </header>
+
+    <!-- Contenedor Principal (Split Layout) -->
+    <main class="flex-1 max-w-7xl mx-auto w-full px-6 pb-16 md:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
+        
+        <!-- Columna Izquierda: Copiado, Formulario y Condiciones (60% en desktop) -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+            
+            <!-- Etiqueta / Pill -->
+            <div class="inline-flex items-center gap-2 text-[10px] md:text-xs font-display font-black tracking-[0.2em] text-voraGreen uppercase bg-voraGreen-light px-4 py-2 rounded-full w-fit mb-6 md:mb-8">
+                <span class="w-2 h-2 rounded-full bg-voraGreen animate-pulse"></span>
+                Sorteo de Lanzamiento
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-black uppercase tracking-tight text-voraBlack leading-none mb-6">
+                Gana una <span class="text-transparent bg-clip-text bg-gradient-to-r from-voraGreen to-voraGreen/80">Sesión Fotográfica</span> de Élite en Bogotá
+            </h1>
+
+            <!-- Subtítulo Persuasivo -->
+            <p class="text-base md:text-lg text-neutral-600 font-sans font-light leading-relaxed mb-8 md:mb-10 max-w-2xl">
+                Registra tu correo en nuestro blog oficial y asegura tu oportunidad de inmortalizar tu pasión o la disciplina de tu hijo con nivel cinematográfico.
+            </p>
+
+            <!-- Contenedor del Formulario / Éxito -->
+            <div class="bg-white border-2 border-voraBlack p-6 md:p-8 shadow-[8px_8px_0px_#0a0a0a] rounded-none mb-12 relative overflow-hidden transition-all duration-300">
+                
+                <!-- 1. Estado de Formulario -->
+                <div id="form-container" class="transition-all duration-300">
+                    <!-- Formulario dirigido al iframe oculto para evitar redirección de Brevo -->
+                    <form id="sib-form" method="POST" target="hidden_iframe" action="https://3bd7e61d.sibforms.com/serve/MUIFAHD21TxO9nQ45-reOHZytFn6D5NibvJtZeOv4lp87RFHmgJQF-QI9-udZJL3jF8mjhamlOPWUYNDFj_tVp0v3bvfFzOr2tEaqmMSTat66aYrEteam2V0pmpISDe_xIFTjf3mzgGAqrKSUrloZfOZdIUXVeM4AB86PaGhA6a-Qxfi3xxX5cHueIb9T6lAIydZIKwk9j-UiX1UNw==" class="space-y-6">
+                        
+                        <div>
+                            <label for="EMAIL" class="block text-xs font-display font-black uppercase tracking-widest text-voraBlack mb-2">
+                                Dirección de Correo Electrónico
+                            </label>
+                            <input 
+                                type="email" 
+                                id="EMAIL" 
+                                name="EMAIL" 
+                                autocomplete="email" 
+                                placeholder="Tu correo electrónico principal..." 
+                                required 
+                                class="w-full px-5 py-4 border-2 border-voraBlack bg-cream-50 text-base focus:bg-white focus:outline-none focus:ring-2 focus:ring-voraGreen font-sans transition-all placeholder:text-neutral-400 placeholder:font-light"
+                            >
+                        </div>
+
+                        <!-- Campos ocultos requeridos por Brevo -->
+                        <input type="text" name="email_address_check" value="" class="hidden" style="display:none !important">
+                        <input type="hidden" name="locale" value="es">
+                        <input type="hidden" name="html_type" value="simple">
+
+                        <!-- Botón de Envío -->
+                        <button 
+                            type="submit" 
+                            id="submit-btn" 
+                            class="w-full px-6 py-4 bg-voraOrange hover:bg-voraOrange-dark text-white border-2 border-voraBlack font-display font-black uppercase tracking-widest text-sm transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 shadow-[4px_4px_0px_#0a0a0a] hover:shadow-[6px_6px_0px_#0a0a0a] active:shadow-[2px_2px_0px_#0a0a0a] flex items-center justify-center gap-3 cursor-pointer"
+                        >
+                            <span id="btn-text">Registrarme y Participar</span>
+                            <!-- Spinner de carga oculto por defecto -->
+                            <svg id="btn-loader" class="animate-spin h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- 2. Estado de Éxito (Oculto inicialmente) -->
+                <div id="success-container" class="hidden opacity-0 scale-95 transition-all duration-500 flex flex-col items-center text-center py-6">
+                    <div class="w-16 h-16 bg-voraGreen-light rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-voraGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-black uppercase tracking-tight text-voraBlack mb-3">
+                        ¡Registro Completado!
+                    </h3>
+                    <p class="text-neutral-600 font-sans text-sm md:text-base max-w-md leading-relaxed mb-8">
+                        ¡Ya estás participando! No olvides suscribirte también a nuestro canal de YouTube para duplicar tus opciones.
+                    </p>
+                    <a 
+                        href="https://www.youtube.com/@voranocionesdeportivas" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="px-6 py-3.5 bg-red-600 hover:bg-red-700 text-white border-2 border-voraBlack font-display font-bold uppercase tracking-widest text-xs transition-all duration-300 transform hover:-translate-y-0.5 shadow-[4px_4px_0px_#0a0a0a] hover:shadow-[5px_5px_0px_#0a0a0a] inline-flex items-center gap-2"
+                    >
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.498 6.163c-.272-1.022-1.074-1.826-2.099-2.099C19.544 3.5 12 3.5 12 3.5s-7.544 0-9.4.564c-1.025.272-1.826 1.077-2.099 2.099C0 8.016 0 12 0 12s0 3.984.5 5.837c.272 1.022 1.074 1.826 2.099 2.099 1.856.563 9.4.563 9.4.563s7.544 0 9.4-.563c1.025-.272 1.826-1.077 2.1-2.099.497-1.853.497-5.837.497-5.837s0-3.984-.5-5.837zm-14.19 8.52V9.317l6.19 3.366-6.19 3.0z"/>
+                        </svg>
+                        Suscribirse en YouTube
+                    </a>
+                </div>
+            </div>
+
+            <!-- Iframe Oculto para procesar el envío sin recargar -->
+            <iframe name="hidden_iframe" id="hidden_iframe" class="hidden" style="display:none;"></iframe>
+
+            <!-- Sección de Términos y Condiciones (Acordeón elegante) -->
+            <div class="border-t-2 border-voraBlack/10 pt-4">
+                <details class="group select-none">
+                    <summary class="flex justify-between items-center py-4 text-voraBlack font-display font-bold uppercase tracking-wider text-xs md:text-sm cursor-pointer list-none">
+                        <span>Condiciones del Sorteo</span>
+                        <span class="transition-transform duration-300 group-open:rotate-180 bg-cream-200 p-1 md:p-1.5 rounded-full border border-voraBlack/10">
+                            <svg class="w-4 h-4 text-voraBlack" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="pt-2 pb-6 text-neutral-600 font-sans text-xs md:text-sm leading-relaxed space-y-4 max-w-2xl">
+                        <ul class="space-y-3 pl-4 list-decimal marker:font-bold marker:text-voraGreen">
+                            <li>
+                                <strong>Dinámica de Activación:</strong> El sorteo se ejecutará de forma automática e irrevocable una vez que el blog de Taller VORA alcance los primeros 100 suscriptores registrados por correo electrónico.
+                            </li>
+                            <li>
+                                <strong>Premio:</strong> Se sorteará una (1) Sesión Fotográfica Deportiva correspondiente al "Paquete Esencial" de la marca.
+                            </li>
+                            <li>
+                                <strong>Restricción Geográfica:</strong> La sesión fotográfica se realizará exclusivamente dentro del perímetro urbano de la ciudad de Bogotá, Colombia.
+                            </li>
+                            <li>
+                                <strong>Logística y Locación:</strong> El lugar específico, la fecha y la hora de la producción serán determinados única y exclusivamente por el fotógrafo asignado de Taller VORA, buscando garantizar los estándares de iluminación y estética del producto final. El ganador deberá coordinar su asistencia según la disponibilidad del set o locación elegida.
+                            </li>
+                            <li>
+                                <strong>Redención:</strong> El premio es intransferible, no es canjeable por dinero en efectivo ni por otros servicios de la marca, y debe ser redimido en la fecha acordada por la organización.
+                            </li>
+                            <li>
+                                <strong>Doble Oportunidad:</strong> Este sorteo es independiente al sorteo paralelo ejecutado en nuestro canal de YouTube. Registrarse en el blog otorga una (1) oportunidad para la base de datos de correos electrónicos.
+                            </li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+        </div>
+
+        <!-- Columna Derecha: Imagen editorial / Portafolio de autor (40% en desktop) -->
+        <div class="lg:col-span-5 h-[400px] lg:h-[650px] relative overflow-hidden bg-voraBlack border-2 border-voraBlack shadow-[12px_12px_0px_#0a0a0a] group">
+            <img 
+                src="../assets/Galeria/poster_001.webp" 
+                alt="Fotografía Deportiva Taller VORA" 
+                class="w-full h-full object-cover transition-transform duration-1000 scale-100 group-hover:scale-105"
+            >
+            <!-- Overlay con etiqueta editorial -->
+            <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md border border-voraBlack p-4 z-10 select-none shadow-[4px_4px_0px_rgba(10,10,10,0.15)]">
+                <div class="flex justify-between items-start gap-4">
+                    <div>
+                        <h4 class="text-xs font-display font-black tracking-widest text-voraGreen uppercase mb-0.5">Captura Real</h4>
+                        <p class="text-[10px] font-sans font-light text-neutral-500">Composición Digital &amp; Iluminación Pro</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] font-display font-black uppercase text-voraBlack">Taller VORA</p>
+                        <p class="text-[9px] font-sans font-medium text-neutral-600">Bogotá, COL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Discreto -->
+    <footer class="w-full border-t border-voraBlack/10 py-6 mt-12 bg-cream-100/50">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p class="text-xs text-neutral-500 font-sans">
+                © 2026 Taller VORA. Fotografía Deportiva de Autor. Bogotá, Colombia.
+            </p>
+            <div class="flex gap-6">
+                <a href="https://wa.me/573239135052" target="_blank" rel="noopener noreferrer" class="text-xs text-neutral-600 hover:text-voraGreen transition-colors font-display font-semibold uppercase tracking-wider">
+                    WhatsApp
+                </a>
+                <a href="https://www.instagram.com/tallervora/" target="_blank" rel="noopener noreferrer" class="text-xs text-neutral-600 hover:text-voraOrange transition-colors font-display font-semibold uppercase tracking-wider">
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lógica de Formulario e Interacciones -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('sib-form');
+            const formContainer = document.getElementById('form-container');
+            const successContainer = document.getElementById('success-container');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = document.getElementById('btn-text');
+            const btnLoader = document.getElementById('btn-loader');
+            const emailInput = document.getElementById('EMAIL');
+
+            form.addEventListener('submit', (e) => {
+                // Validación básica del lado del cliente
+                if (!emailInput.value.trim()) {
+                    e.preventDefault();
+                    alert('Por favor, ingresa un correo electrónico válido.');
+                    return;
+                }
+
+                // Deshabilitar botón y activar spinner de carga para simular feedback visual
+                submitBtn.disabled = true;
+                btnText.textContent = 'Procesando...';
+                btnLoader.classList.remove('hidden');
+
+                // Dado que el formulario envía los datos mediante target a un iframe oculto,
+                // podemos realizar la transición visual después de un breve delay.
+                setTimeout(() => {
+                    // Animación de salida del formulario
+                    formContainer.classList.add('opacity-0', 'scale-95');
+                    
+                    setTimeout(() => {
+                        formContainer.classList.add('hidden');
+                        successContainer.classList.remove('hidden');
+                        
+                        // Animación de entrada de la confirmación de éxito
+                        setTimeout(() => {
+                            successContainer.classList.remove('opacity-0', 'scale-95');
+                            successContainer.classList.add('opacity-100', 'scale-100');
+                        }, 50);
+                    }, 300);
+                }, 1200);
+            });
+        });
+    </script>
+</body>
+</html>
