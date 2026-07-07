@@ -68,7 +68,8 @@ async function detectarArticulos() {
         { num: '005', category: 'recomendaciones' },
         { num: '006', category: 'cronicas' },
         { num: '007', category: 'opinion' },
-        { num: '008', category: 'cronicas' }
+        { num: '008', category: 'cronicas' },
+        { num: '009', category: 'opinion' }
     ];
 
     // Realizar fetch en paralelo para todos los artículos configurados

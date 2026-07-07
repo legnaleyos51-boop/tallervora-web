@@ -219,8 +219,9 @@ body.article-page .main-content-wrapper {
     display: block;
 }
 
-/* Specific margin for articulo004.html */
-.article-container.articulo004 .featured-image {
+/* Specific margin for articulo004.html and articulo009.html */
+.article-container.articulo004 .featured-image,
+.article-container.articulo009 .featured-image {
     margin-bottom: 20px;
 }
 
