@@ -60,17 +60,28 @@ async function detectarArticulos() {
     const baseUrl = isInsideBlogFolder ? '' : 'Blog/';
 
     // Configuración centralizada de artículos existentes y sus categorías
-    const ARTICLES_CONFIG = [
-        { num: '001', category: 'fundamentos' },
-        { num: '002', category: 'fundamentos' },
-        { num: '003', category: 'fundamentos' },
-        { num: '004', category: 'cronicas' },
-        { num: '005', category: 'recomendaciones' },
-        { num: '006', category: 'cronicas' },
-        { num: '007', category: 'opinion' },
-        { num: '008', category: 'cronicas' },
-        { num: '009', category: 'opinion' }
-    ];
+    const MAX_ARTICLES = 30; // Adjust as needed for future articles
+const CATEGORY_MAP = {
+    '001': 'fundamentos',
+    '002': 'fundamentos',
+    '003': 'fundamentos',
+    '004': 'cronicas',
+    '005': 'recomendaciones',
+    '006': 'cronicas',
+    '007': 'opinion',
+    '008': 'cronicas',
+    '009': 'opinion'
+    // No entry for 010 onward; they will receive the default category.
+};
+const DEFAULT_CATEGORY = 'opinion';
+
+const ARTICLES_CONFIG = Array.from({ length: MAX_ARTICLES }, (_, i) => {
+    const num = String(i + 1).padStart(3, '0');
+    return {
+        num,
+        category: CATEGORY_MAP[num] || DEFAULT_CATEGORY
+    };
+});
 
     // Realizar fetch en paralelo para todos los artículos configurados
     const promises = ARTICLES_CONFIG.map(async (art) => {
