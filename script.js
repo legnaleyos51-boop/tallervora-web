@@ -443,8 +443,8 @@ function executeCopy(text, btn) {
     const successCallback = () => {
         const originalContent = btn.innerHTML;
         btn.innerHTML = '<span class="material-icons" style="font-size: 1.2rem;">check</span> ¡COPIADO!';
-        btn.style.color = "var(--neon-green)";
-        btn.style.borderColor = "var(--neon-green)";
+        btn.style.color = "var(--white)";
+        btn.style.borderColor = "var(--white)";
         setTimeout(() => {
             btn.innerHTML = originalContent;
             btn.style.color = "";
@@ -479,7 +479,7 @@ function fallbackCopy(text, callback) {
 }
 
 function copyBaseProposal(btn) {
-    const text = "¡Hola a todos! 🏆 Como parte de nuestro compromiso con el crecimiento de nuestros atletas, hemos concretado una alianza con Taller VORA para elevar su imagen deportiva.";
+    const text = "¡Hola a todos! 🏆 Como parte de nuestro compromiso con el desarrollo de nuestros atletas, hemos concretado una alianza con Taller VORA, un proyecto liderado por uno de los padres de nuestra comunidad, para acompañar e inmortalizar esta etapa deportiva de los chicos.";
     executeCopy(text, btn);
 }
 
@@ -498,7 +498,12 @@ function shareViaWhatsApp() {
 }
 
 function copyPortalLink(btn) {
-    const text = "https://www.tallervora.com/alianzas_padres.html";
+    const text = `🔎 Revisa la galería de fotos, los paquetes y el descuento especial de club en la página oficial: https://www.tallervora.com/alianzas_padres.html`;
+    executeCopy(text, btn);
+}
+
+function copyGroupCreationRequest(btn) {
+    const text = "💬 ¿Tienen dudas o quieren más información? Contáctalos directamente sin compromiso en el siguiente enlace: https://api.whatsapp.com/send/?phone=573239135052&text&type=phone_number&app_absent=0";
     executeCopy(text, btn);
 }
 
