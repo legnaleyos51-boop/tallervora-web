@@ -245,7 +245,6 @@ src="https://www.facebook.com/tr?id=2454984681677080&ev=PageView&noscript=1"
                         <p class="squad-intro">Eleve la imagen de su academia con nuestro Convenio Institucional a costo cero:</p>
                         <ul class="squad-benefits-list">
                             <li><strong>Tarifas Preferenciales:</strong> Beneficios exclusivos para los padres de su club.</li>
-                            <li><strong>Fondo de Apoyo:</strong> Retorno económico directo para la institución por cada sesión gestionada.</li>
                             <li><strong>Marketing de Élite:</strong> Material visual de alta gama (fotos de los atletas) para potenciar sus redes sociales.</li>
                         </ul>
 
@@ -253,47 +252,179 @@ src="https://www.facebook.com/tr?id=2454984681677080&ev=PageView&noscript=1"
                             <div class="step-item">
                                 <div class="step-number">01</div>
                                 <h4>JORNADA DE CAPTURA</h4>
-                                <p>Dividimos la producción en bloques de 4 atletas. Cada bloque toma aproximadamente 4 horas de sesión profesional.</p>
+                                <p>Dividimos la producción en bloques de 20 atletas. Cada bloque toma aproximadamente 4 horas de sesión profesional.</p>
                             </div>
                             <div class="step-item">
                                 <div class="step-number">02</div>
                                 <h4>GESTIÓN INSTITUCIONAL</h4>
                                 <p>El club centraliza la convocatoria. Nosotros entregamos las piezas gráficas para que la academia las comparta en sus canales internos.</p>
                             </div>
-                            <div class="step-item">
-                                <div class="step-number">03</div>
-                                <h4>ENTREGA Y LIQUIDACIÓN</h4>
-                                <p>Las piezas de arte se entregan en los tiempos acordados y las comisiones o beneficios institucionales se liquidan al finalizar cada jornada de producción.</p>
-                            </div>
+                         
                         </div>
 
-                        <div class="table-responsive">
-                            <table class="minimal-benefits-table">
-                                <thead>
-                                    <tr>
-                                        <th>Escala del Grupo</th>
-                                        <th>Beneficio Club</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Grupo de<br>4 Atletas <span class="parent-discount-sub">5% OFF Padres</span></td>
-                                        <td>5% Comisión Club</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Grupo de <br> 8 Atletas <span class="parent-discount-sub">10% OFF Padres</span></td>
-                                        <td>5% Comisión Club</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Grupo de <br> 16 o más Atletas <span class="parent-discount-sub">15% OFF Padres</span></td>
-                                        <td>5% Comisión Club</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+<section class="group-benefits-table">
+    <style>
+        .group-benefits-table {
+            padding: 80px 5%;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+        .benefits-grid-wrapper {
+            overflow-x: auto;
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            /* Scrollbar personalizada sutil */
+            scrollbar-width: thin;
+            scrollbar-color: var(--neon-green) #111;
+        }
+        .benefits-grid-wrapper::-webkit-scrollbar {
+            height: 4px;
+        }
+        .benefits-grid-wrapper::-webkit-scrollbar-thumb {
+            background: var(--neon-green);
+            border-radius: 10px;
+        }
+        .custom-benefits-table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-benefits-table th, .custom-benefits-table td {
+            padding: 20px;
+            border: 1px solid #222;
+        }
+        .custom-benefits-table thead th {
+            background-color: #0a0a0a;
+            color: var(--neon-green);
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        .package-name-cell { display: block; font-size: 1.1rem; }
+        .base-price-striked { 
+            display: block; 
+            text-decoration: line-through; 
+            color: #666; 
+            font-size: 0.85rem; 
+            font-weight: 400;
+            margin-top: 5px;
+            text-transform: none;
+        }
+        .discount-badge {
+            color: var(--neon-orange);
+            font-weight: 800;
+            margin-left: 5px;
+        }
+        .max-saving-row {
+            background-color: rgba(76, 215, 143, 0.05);
+            outline: 2px solid var(--neon-green);
+            position: relative;
+            z-index: 1;
+        }
+        .highlight-val {
+            color: var(--neon-green);
+            font-weight: 900;
+            font-size: 1.3rem;
+        }
+        .saving-label {
+            font-size: 0.65rem;
+            background: var(--neon-green);
+            color: #000;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+        .table-footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 30px;
+            font-style: italic;
+        }
+        /* Nuevo indicador de scroll */
+        .scroll-indicator {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--neon-green);
+            margin: 10px 0 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.5s ease;
+        }
+        .scroll-indicator.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @media (max-width: 768px) {
+            .scroll-indicator {
+                display: flex;
+                animation: swipeHint 2s infinite;
+            }
+            .custom-benefits-table {
+                min-width: 600px; /* Fuerza el scroll para pista visual */
+            }
+        }
+        @keyframes swipeHint {
+            0% { transform: translateX(5px); opacity: 0.3; }
+            50% { transform: translateX(-5px); opacity: 1; }
+            100% { transform: translateX(5px); opacity: 0.3; }
+        }
+    </style>
+    <div class="container">
+        <h2 class="section-title">TARIFAS PREFERENCIALES DE CONVENIO</h2>
+        
+        <div class="benefits-grid-wrapper">
+            <table class="custom-benefits-table">
+                <thead>
+                    <tr>
+                        <th>TIPO DE PAQUETE</th>
+                        <th>
+                            <span class="package-name-cell">ESENCIAL</span>
+                            <span class="base-price-striked">$340.000</span>
+                        </th>
+                        <th>
+                            <span class="package-name-cell">ÉLITE</span>
+                            <span class="base-price-striked">$580.000</span>
+                        </th>
+                        <th>
+                            <span class="package-name-cell">BLACK</span>
+                            <span class="base-price-striked">$1.150.000</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="max-saving-row">
+                        <td><strong>TARIFA CONVENIO CLUB</strong></td>
+                        <td class="highlight-val">$180.000</td>
+                        <td class="highlight-val">$380.000</td>
+                        <td class="highlight-val">$680.000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ahorro por Atleta</strong> </td>
+                        <td>$160.000 DTO</td>
+                        <td>$200.000 DTO</td>
+                        <td>$470.000 DTO</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="scroll-indicator" id="table-scroll-hint">
+            <span class="material-icons">swipe_left</span>
+            <span>Desliza para ver más</span>
+        </div>
 
                         <p class="table-footer-legal">
-                            <strong>*</strong> Si quieres que tu comisión se convierta en un beneficio directo para los padres, puedes hacerlo. Te garantizamos que comunicaremos tu gesto a la comunidad, fortaleciendo el vínculo y la fidelidad con tu academia.
                             <br><strong>*</strong> Tramitamos el consentimiento legal de cada deportista y entregamos el material digital listo para su uso institucional, eliminando la necesidad de solicitar archivos o permisos a los padres.
 
                         </p>
