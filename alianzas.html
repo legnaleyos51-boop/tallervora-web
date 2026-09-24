@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alianzas para Clubes Deportivos | Taller VORA</title>
-    <meta name="description" content="Eleva el prestigio de tu club deportivo y atrae nuevos talentos sin gastar horas en marketing. Programa de alianzas estratégicas y colaborativas de Vora.">
-    
+    <meta name="description"
+        content="Eleva el prestigio de tu club deportivo y atrae nuevos talentos sin gastar horas en marketing. Programa de alianzas estratégicas y colaborativas de Vora.">
+
     <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -393,14 +396,9 @@
             background: #080808;
             border: 1px solid #222;
             border-radius: 24px;
-            padding: 55px 40px;
-            margin: 40px auto 0;
-            max-width: 620px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding: 50px 45px;
+            margin-top: 40px;
+            text-align: left;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
             position: relative;
         }
@@ -415,26 +413,71 @@
             background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
         }
 
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input {
+            background: #111;
+            border: 1px solid #2b2b2b;
+            padding: 16px 20px;
+            border-radius: 10px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.98rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--neon-green);
+            background: #141414;
+            box-shadow: 0 0 12px rgba(76, 215, 143, 0.25);
+        }
+
+        .form-input::placeholder {
+            color: #555;
+        }
+
         .btn-submit-alliance {
-            display: inline-flex;
-            width: auto;
-            min-width: 320px;
-            max-width: 100%;
-            text-decoration: none;
+            width: 100%;
             background: var(--neon-green);
             color: #000;
             border: none;
-            padding: 20px 40px;
-            border-radius: 12px;
+            padding: 20px 30px;
+            border-radius: 10px;
             font-weight: 900;
-            font-size: 1.15rem;
+            font-size: 1rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            margin-top: 10px;
             box-shadow: 0 0 25px rgba(76, 215, 143, 0.35);
         }
 
@@ -442,7 +485,6 @@
             background: #59ffaa;
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(76, 215, 143, 0.5);
-            color: #000;
         }
 
         .form-security-note {
@@ -527,19 +569,23 @@
 
     <!-- NAVBAR VORA -->
     <nav class="navbar-vora">
-        <div class="navbar-vora-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;">
+        <div class="navbar-vora-content"
+            style="display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 1200px; margin: 0 auto;">
             <a href="fotografiadeportiva.html" aria-label="Ir al inicio de Taller VORA">
                 <img src="assets/logo-header-vora.png" alt="Logo Taller VORA" class="logo-nav">
             </a>
             <div style="display: flex; align-items: center; gap: 20px;">
-                <a href="blog.html" class="nav-blog-link" style="color: #aaa; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; transition: color 0.3s;">BLOG</a>
-                <a href="#formulario-alianza" class="btn-primary-neon" style="padding: 10px 22px; font-size: 0.8rem;">POSTULAR CLUB</a>
+                <a href="blog.html" class="nav-blog-link"
+                    style="color: #aaa; text-decoration: none; text-transform: uppercase; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; transition: color 0.3s;">BLOG</a>
+                <a href="#formulario-alianza" class="btn-primary-neon"
+                    style="padding: 10px 22px; font-size: 0.8rem;">POSTULAR CLUB</a>
             </div>
         </div>
     </nav>
 
     <!-- FLOATING WHATSAPP BUTTON -->
-    <a href="https://wa.me/573239135052?text=Hola%20VORA,%20soy%20director/entrenador%20de%20un%20club%20deportivo%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20el%20programa%20de%20alianzas." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contacto directo por WhatsApp">
+    <a href="https://wa.me/573239135052?text=Hola%20VORA,%20soy%20director/entrenador%20de%20un%20club%20deportivo%20y%20me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20el%20programa%20de%20alianzas."
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contacto directo por WhatsApp">
         <img src="assets/icono wapp.png" alt="WhatsApp" class="whatsapp-icon">
     </a>
 
@@ -547,8 +593,10 @@
     <main class="b2b-main">
 
         <!-- Top Pill Tagline -->
-        <div style="width: 100%; text-align: center; margin-bottom: -110px; position: relative; z-index: 10; padding-top: 30px;">
-            <p style="color: #ffffff !important; letter-spacing: 6px; font-size: 0.95rem; margin: 0; font-weight: 500; text-transform: uppercase; opacity: 0.6;">
+        <div
+            style="width: 100%; text-align: center; margin-bottom: -110px; position: relative; z-index: 10; padding-top: 30px;">
+            <p
+                style="color: #ffffff !important; letter-spacing: 6px; font-size: 0.95rem; margin: 0; font-weight: 500; text-transform: uppercase; opacity: 0.6;">
                 PROGRAMA INSTITUCIONAL DE ALIANZAS
             </p>
         </div>
@@ -559,9 +607,12 @@
         <section class="hero-split section-anchor" id="hero">
             <div class="hero-text">
                 <span class="label-orange">MARKETING DEPORTIVO COLABORATIVO</span>
-                <h1>Eleva el prestigio de tu club deportivo y atrae nuevos talentos <span class="text-neon-green">sin gastar horas en marketing.</span></h1>
+                <h1>Eleva el prestigio de tu club deportivo y atrae nuevos talentos <span class="text-neon-green">sin
+                        gastar horas en marketing.</span></h1>
                 <p class="hero-subtitle">
-                    Únete al programa de aliados de Vora. Creamos una alianza audiovisual colaborativa para potenciar la autoridad de tu escuela, conectar con las familias y dinamizar inscripciones, impulsada por una relación de beneficio mutuo.
+                    Únete al programa de aliados de Vora. Creamos una alianza audiovisual colaborativa para potenciar la
+                    autoridad de tu escuela, conectar con las familias y dinamizar inscripciones, impulsada por una
+                    relación de beneficio mutuo.
                 </p>
                 <div class="hero-cta-wrapper">
                     <a href="#formulario-alianza" class="btn-primary-neon">
@@ -575,7 +626,7 @@
             </div>
             <div class="hero-visual">
                 <div class="image-frame-orange">
-                    <img src="assets/Galeria/poster_002.webp" alt="Producción Audiovisual Deportiva Taller VORA">
+                    <img src="assets/Galeria/poster_003.webp" alt="Producción Audiovisual Deportiva Taller VORA">
                 </div>
             </div>
         </section>
@@ -588,14 +639,20 @@
         <section class="section-anchor" style="padding: 40px 20px;" id="dolor-empatia">
             <div class="pain-section-box">
                 <div class="section-header" style="margin-bottom: 25px;">
-                    <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">EL RETO DE LOS DIRECTORES</span>
+                    <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">EL RETO DE LOS
+                        DIRECTORES</span>
                     <h2 style="font-size: clamp(1.8rem, 4vw, 2.7rem); font-weight: 900; line-height: 1.2;">
-                        Sabemos lo difícil que es destacar en un <span class="text-neon-orange">mercado saturado</span> de academias deportivas.
+                        Sabemos lo difícil que es destacar en un <span class="text-neon-orange">mercado saturado</span>
+                        de academias deportivas.
                     </h2>
                 </div>
 
                 <p class="pain-statement">
-                    Como director, pasas el 100% de tu tiempo enfocándote en el rendimiento técnico, la disciplina y la gestión del club. ¿De dónde sacar tiempo para producir contenido profesional de alto nivel, redactar artículos de psicología deportiva y mantener activas las redes sociales que atraen nuevos deportistas? Intentar hacerlo todo por tu cuenta frena el crecimiento de tu escuela. No tienes que cargar con todo el peso del marketing solo.
+                    Como director, pasas el 100% de tu tiempo enfocándote en el rendimiento técnico, la disciplina y la
+                    gestión del club. ¿De dónde sacar tiempo para producir contenido profesional de alto nivel, redactar
+                    artículos de psicología deportiva y mantener activas las redes sociales que atraen nuevos
+                    deportistas? Intentar hacerlo todo por tu cuenta frena el crecimiento de tu escuela. No tienes que
+                    cargar con todo el peso del marketing solo.
                 </p>
 
                 <div class="pain-pillars-grid">
@@ -612,7 +669,8 @@
                     <div class="pain-pillar-card">
                         <span class="material-icons">handshake</span>
                         <h4>Alianza Estratégica</h4>
-                        <p>Te respaldamos con producción de alto nivel sin desviar tu foco deportivo ni sobrecargar tu día.</p>
+                        <p>Te respaldamos con producción de alto nivel sin desviar tu foco deportivo ni sobrecargar tu
+                            día.</p>
                     </div>
                 </div>
             </div>
@@ -625,9 +683,11 @@
              ========================================= -->
         <section class="value-prop section-anchor" id="propuesta-valor" style="padding: 40px 20px;">
             <div class="value-header">
-                <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">LOS 3 PILARES DE LA ALIANZA VORA</span>
+                <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">LOS 3 PILARES DE LA
+                    ALIANZA VORA</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.7rem); font-weight: 900; line-height: 1.2;">
-                    Una alianza estratégica diseñada para <span class="text-neon-green">nutrir tu comunidad</span> y proyectar autoridad.
+                    Una alianza estratégica diseñada para <span class="text-neon-green">nutrir tu comunidad</span> y
+                    proyectar autoridad.
                 </h2>
             </div>
 
@@ -638,7 +698,9 @@
                     <span class="material-icons text-neon-green">podcasts</span>
                     <h3>Visibilidad y Autoridad en Nuestro Podcast</h3>
                     <p>
-                        Te invitamos a nuestro espacio digital para que cuentes tu historia, tu metodología de entrenamiento y tus metas. Un altavoz de alto impacto para darle difusión institucional a tu escuela y posicionarte como referente.
+                        Te invitamos a nuestro espacio digital para que cuentes tu historia, tu metodología de
+                        entrenamiento y tus metas. Un altavoz de alto impacto para darle difusión institucional a tu
+                        escuela y posicionarte como referente.
                     </p>
                 </article>
 
@@ -648,7 +710,9 @@
                     <span class="material-icons text-neon-green">movie</span>
                     <h3>Contenido Audiovisual Colaborativo</h3>
                     <p>
-                        Producimos y grabamos contenido audiovisual profesional publicado en conjunto. Nutre las expectativas de padres y deportistas con material visual de categoría internacional que dinamiza la inscripción de nuevos talentos.
+                        Producimos y grabamos contenido audiovisual profesional publicado en conjunto. Nutre las
+                        expectativas de padres y deportistas con material visual de categoría internacional que dinamiza
+                        la inscripción de nuevos talentos.
                     </p>
                 </article>
 
@@ -658,7 +722,9 @@
                     <span class="material-icons text-neon-orange">photo_camera</span>
                     <h3>Activación Exclusiva: Sesión de Fotos Gratuita para el Club</h3>
                     <p>
-                        Tres semanas después de consolidar nuestra alianza, activamos una sesión fotográfica profesional gratuita para un máximo de 5 integrantes de tu club, dándoles material de primer nivel para sus perfiles y redes.
+                        Tres semanas después de consolidar nuestra alianza, activamos una sesión fotográfica profesional
+                        gratuita para un máximo de 5 integrantes de tu club, dándoles material de primer nivel para sus
+                        perfiles y redes.
                     </p>
                 </article>
             </div>
@@ -671,12 +737,14 @@
              ========================================= -->
         <section class="section-anchor bg-grid-v2" id="mecanica" style="padding: 60px 20px;">
             <div class="channel-header" style="text-align: center;">
-                <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">COLABORACIÓN SIMPLE Y ORGÁNICA</span>
+                <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">COLABORACIÓN SIMPLE Y
+                    ORGÁNICA</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.7rem); font-weight: 900;">
                     ¿Cómo funciona nuestra <span class="text-neon-green">alianza colaborativa?</span>
                 </h2>
                 <p class="mecanica-intro">
-                    Creemos en las relaciones basadas en el valor real, no en la letra pequeña. A cambio de los beneficios de producción y difusión para tu club, te pedimos una colaboración simple y orgánica:
+                    Creemos en las relaciones basadas en el valor real, no en la letra pequeña. A cambio de los
+                    beneficios de producción y difusión para tu club, te pedimos una colaboración simple y orgánica:
                 </p>
             </div>
 
@@ -691,7 +759,9 @@
                             <span class="text-neon-orange">1.</span> Comparte valor
                         </h3>
                         <p>
-                            Difunde artículos selectos del blog de Vora (gestión de emociones, psicología deportiva, episodios del podcast) en tus canales internos y grupos de WhatsApp para educar a tu comunidad.
+                            Difunde artículos selectos del blog de Vora (gestión de emociones, psicología deportiva,
+                            episodios del podcast) en tus canales internos y grupos de WhatsApp para educar a tu
+                            comunidad.
                         </p>
                     </div>
                 </div>
@@ -706,7 +776,8 @@
                             <span class="text-neon-orange">2.</span> Crezcamos juntos
                         </h3>
                         <p>
-                            Utiliza las fotografías individuales de tus deportistas en el Instagram de tu club, etiquetando y co-creando junto a Vora para potenciar el alcance de ambas marcas.
+                            Utiliza las fotografías individuales de tus deportistas en el Instagram de tu club,
+                            etiquetando y co-creando junto a Vora para potenciar el alcance de ambas marcas.
                         </p>
                     </div>
                 </div>
@@ -720,9 +791,11 @@
              ========================================= -->
         <section class="section-anchor" style="padding: 60px 20px;" id="prueba-social">
             <div class="testimonial-section">
-                <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">IMPACTO REAL EN CLUBES</span>
+                <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">IMPACTO REAL EN
+                    CLUBES</span>
                 <h2 style="font-size: clamp(1.8rem, 4vw, 2.7rem); font-weight: 900; line-height: 1.2;">
-                    El rendimiento de tus deportistas merece una <span class="text-neon-green">vitrina visual</span> de categoría profesional.
+                    El rendimiento de tus deportistas merece una <span class="text-neon-green">vitrina visual</span> de
+                    categoría profesional.
                 </h2>
 
                 <div class="testimonial-card">
@@ -734,7 +807,9 @@
                         <i class="fas fa-star"></i>
                     </div>
                     <blockquote class="testimonial-quote">
-                        “Desde que nos asociamos con Vora, la percepción de profesionalismo de nuestro club escaló a otro nivel. Los padres notan el cambio de inmediato y las inscripciones en nuestra categoría junior aumentaron orgánicamente.”
+                        “Desde que nos asociamos con Vora, la percepción de profesionalismo de nuestro club escaló a
+                        otro nivel. Los padres notan el cambio de inmediato y las inscripciones en nuestra categoría
+                        junior aumentaron orgánicamente.”
                     </blockquote>
                     <div class="testimonial-author">
                         <div class="author-badge-icon">
@@ -742,7 +817,6 @@
                         </div>
                         <div class="author-details">
                             <p class="author-title">Director de Club Deportivo</p>
-                            <p class="author-ref">(Testimonio de referencia)</p>
                         </div>
                     </div>
                 </div>
@@ -756,28 +830,61 @@
              ========================================= -->
         <section class="section-anchor" style="padding: 70px 20px 100px;" id="formulario-alianza">
             <div class="contact-section">
-                <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">POSTULACIONES ABIERTAS</span>
+                <span class="label-orange" style="display: inline-block; margin-bottom: 12px;">POSTULACIONES
+                    ABIERTAS</span>
                 <h2 style="font-size: clamp(1.8rem, 4.5vw, 2.7rem); font-weight: 900; line-height: 1.2;">
-                    Las plazas para nuestra siguiente temporada de alianzas con clubes son <span class="text-neon-orange">estrictamente limitadas.</span>
+                    Las plazas para nuestra siguiente temporada de alianzas con clubes son <span
+                        class="text-neon-orange">estrictamente limitadas.</span>
                 </h2>
                 <p class="section-subtitle" style="margin-top: 15px;">
-                    Asegura un espacio para tu escuela y comencemos a potenciar la imagen de tus deportistas este mismo mes.
+                    Asegura un espacio para tu escuela y comencemos a potenciar la imagen de tus deportistas este mismo
+                    mes.
                 </p>
 
                 <div class="contact-form-card">
-                    <a href="https://wa.me/573239135052?text=Hola%20Taller%20VORA,%20quiero%20solicitar%20la%20alianza%20para%20mi%20club%20deportivo." 
-                       class="btn-submit-alliance" 
-                       target="_blank" 
-                       rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp" style="font-size: 1.4rem;"></i>
-                        SOLICITAR ALIANZA
-                    </a>
+                    <form id="alliance-form" onsubmit="handleAllianceFormSubmit(event)">
+                        <div class="form-grid">
+                            <!-- Campo 1 -->
+                            <div class="form-group">
+                                <label for="director-name" class="form-label">Nombre del Director / Líder *</label>
+                                <input type="text" id="director-name" name="director_name" class="form-input"
+                                    placeholder="Ej. Carlos Martínez" required autocomplete="name">
+                            </div>
 
-                    <!-- Disclaimer territorial -->
-                    <p class="form-security-note">
-                        <span class="material-icons" style="font-size: 1.1rem; color: var(--neon-orange);">location_on</span>
-                        Válido solo para la ciudad de Bogotá, Colombia.
-                    </p>
+                            <!-- Campo 2 -->
+                            <div class="form-group">
+                                <label for="club-name" class="form-label">Nombre del Club Deportivo *</label>
+                                <input type="text" id="club-name" name="club_name" class="form-input"
+                                    placeholder="Ej. Club Deportivo Titanes" required autocomplete="organization">
+                            </div>
+
+                            <!-- Campo 3 -->
+                            <div class="form-group">
+                                <label for="city-discipline" class="form-label">Ciudad y Disciplina Principal *</label>
+                                <input type="text" id="city-discipline" name="city_discipline" class="form-input"
+                                    placeholder="Ej. Bogotá - Fútbol Base" required>
+                            </div>
+
+                            <!-- Campo 4 -->
+                            <div class="form-group">
+                                <label for="whatsapp-contact" class="form-label">WhatsApp de Contacto *</label>
+                                <input type="tel" id="whatsapp-contact" name="whatsapp" class="form-input"
+                                    placeholder="Ej. +57 300 123 4567" required autocomplete="tel">
+                            </div>
+                        </div>
+
+                        <!-- CTA del Botón Final -->
+                        <button type="submit" class="btn-submit-alliance" id="btn-submit">
+                            <span class="material-icons">how_to_reg</span>
+                            Solicitar Evaluación de Alianza para Mi Club
+                        </button>
+
+                        <!-- Microcopy de seguridad -->
+                        <p class="form-security-note">
+                            <span class="material-icons">shield</span>
+                            Sin compromisos económicos. Nos pondremos en contacto en menos de 24 horas.
+                        </p>
+                    </form>
                 </div>
             </div>
         </section>
@@ -799,8 +906,10 @@
                 </div>
                 <div class="footer-column">
                     <h4>SOCIAL</h4>
-                    <a href="https://www.instagram.com/tallervora/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                    <a href="https://www.facebook.com/profile.php?id=61589345946335&sk=about" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href="https://www.instagram.com/tallervora/" target="_blank"
+                        rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61589345946335&sk=about" target="_blank"
+                        rel="noopener noreferrer">Facebook</a>
                 </div>
                 <div class="footer-column">
                     <h4>LEGAL</h4>
@@ -815,7 +924,45 @@
         </div>
     </footer>
 
+    <!-- INTERACTION LOGIC -->
+    <script>
+        function handleAllianceFormSubmit(e) {
+            e.preventDefault();
+
+            const director = document.getElementById('director-name').value.trim();
+            const club = document.getElementById('club-name').value.trim();
+            const discipline = document.getElementById('city-discipline').value.trim();
+            const whatsapp = document.getElementById('whatsapp-contact').value.trim();
+
+            if (!director || !club || !discipline || !whatsapp) {
+                alert('Por favor completa todos los campos requeridos para evaluar la alianza.');
+                return;
+            }
+
+            const message = `👋 ¡Hola Taller VORA! Quiero solicitar la evaluación de alianza para mi club deportivo:%0A%0A` +
+                `👤 *Director / Líder:* ${encodeURIComponent(director)}%0A` +
+                `🏆 *Club Deportivo:* ${encodeURIComponent(club)}%0A` +
+                `📍 *Ciudad y Disciplina:* ${encodeURIComponent(discipline)}%0A` +
+                `📱 *WhatsApp de Contacto:* ${encodeURIComponent(whatsapp)}%0A%0A` +
+                `Quedo atento a su contacto para conocer los detalles del programa.`;
+
+            const waUrl = `https://wa.me/573239135052?text=${message}`;
+
+            // Feedback en el botón antes de redirigir
+            const btn = document.getElementById('btn-submit');
+            const originalHtml = btn.innerHTML;
+            btn.innerHTML = '<span class="material-icons">check_circle</span> Solicitud Enviada... Conectando';
+            btn.style.background = '#59ffaa';
+
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+                btn.innerHTML = originalHtml;
+                btn.style.background = '';
+            }, 800);
+        }
+    </script>
     <script src="script.js"></script>
 
 </body>
+
 </html>
