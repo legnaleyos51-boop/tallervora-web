@@ -626,7 +626,7 @@
             </div>
             <div class="hero-visual">
                 <div class="image-frame-orange">
-                    <img src="assets/Galeria/poster_003.webp" alt="Producción Audiovisual Deportiva Taller VORA">
+                    <img src="assets/btspodcast.jpeg" alt="Producción Audiovisual Deportiva Taller VORA">
                 </div>
             </div>
         </section>
@@ -876,6 +876,8 @@
                 </div>
                 <div class="footer-column">
                     <h4>SOCIAL</h4>
+                    <a href="https://www.youtube.com/@VORAnocionesdeportivas" target="_blank"
+                        rel="noopener noreferrer">Youtube</a>
                     <a href="https://www.instagram.com/tallervora/" target="_blank"
                         rel="noopener noreferrer">Instagram</a>
                     <a href="https://www.facebook.com/profile.php?id=61589345946335&sk=about" target="_blank"
@@ -894,43 +896,7 @@
         </div>
     </footer>
 
-    <!-- INTERACTION LOGIC -->
-    <script>
-        function handleAllianceFormSubmit(e) {
-            e.preventDefault();
 
-            const director = document.getElementById('director-name').value.trim();
-            const club = document.getElementById('club-name').value.trim();
-            const discipline = document.getElementById('city-discipline').value.trim();
-            const whatsapp = document.getElementById('whatsapp-contact').value.trim();
-
-            if (!director || !club || !discipline || !whatsapp) {
-                alert('Por favor completa todos los campos requeridos para evaluar la alianza.');
-                return;
-            }
-
-            const message = `👋 ¡Hola Taller VORA! Quiero solicitar la evaluación de alianza para mi club deportivo:%0A%0A` +
-                `👤 *Director / Líder:* ${encodeURIComponent(director)}%0A` +
-                `🏆 *Club Deportivo:* ${encodeURIComponent(club)}%0A` +
-                `📍 *Ciudad y Disciplina:* ${encodeURIComponent(discipline)}%0A` +
-                `📱 *WhatsApp de Contacto:* ${encodeURIComponent(whatsapp)}%0A%0A` +
-                `Quedo atento a su contacto para conocer los detalles del programa.`;
-
-            const waUrl = `https://wa.me/573239135052?text=${message}`;
-
-            // Feedback en el botón antes de redirigir
-            const btn = document.getElementById('btn-submit');
-            const originalHtml = btn.innerHTML;
-            btn.innerHTML = '<span class="material-icons">check_circle</span> Solicitud Enviada... Conectando';
-            btn.style.background = '#59ffaa';
-
-            setTimeout(() => {
-                window.open(waUrl, '_blank');
-                btn.innerHTML = originalHtml;
-                btn.style.background = '';
-            }, 800);
-        }
-    </script>
     <script src="script.js"></script>
 
 </body>
