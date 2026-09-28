@@ -841,50 +841,20 @@
                     mes.
                 </p>
 
-                <div class="contact-form-card">
-                    <form id="alliance-form" onsubmit="handleAllianceFormSubmit(event)">
-                        <div class="form-grid">
-                            <!-- Campo 1 -->
-                            <div class="form-group">
-                                <label for="director-name" class="form-label">Nombre del Director / Líder *</label>
-                                <input type="text" id="director-name" name="director_name" class="form-input"
-                                    placeholder="Ej. Carlos Martínez" required autocomplete="name">
-                            </div>
+                <div class="contact-form-card" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 620px; margin: 40px auto 0; padding: 45px 30px;">
+                    <!-- CTA del Botón Final (WhatsApp) -->
+                    <a href="https://wa.me/573239135052?text=Hola%20Taller%20VORA,%20me%20gustar%C3%ADa%20colaborar%20con%20ustedes%20y%20conocer%20m%C3%A1s%20sobre%20el%20programa%20de%20alianzas%20para%20mi%20club."
+                        target="_blank" rel="noopener noreferrer" class="btn-submit-alliance" id="btn-submit"
+                        style="text-decoration: none; width: auto; min-width: 280px; max-width: 100%; margin-top: 0;">
+                        <i class="fab fa-whatsapp" style="font-size: 1.35rem;"></i>
+                        Contáctanos para colaborar
+                    </a>
 
-                            <!-- Campo 2 -->
-                            <div class="form-group">
-                                <label for="club-name" class="form-label">Nombre del Club Deportivo *</label>
-                                <input type="text" id="club-name" name="club_name" class="form-input"
-                                    placeholder="Ej. Club Deportivo Titanes" required autocomplete="organization">
-                            </div>
-
-                            <!-- Campo 3 -->
-                            <div class="form-group">
-                                <label for="city-discipline" class="form-label">Ciudad y Disciplina Principal *</label>
-                                <input type="text" id="city-discipline" name="city_discipline" class="form-input"
-                                    placeholder="Ej. Bogotá - Fútbol Base" required>
-                            </div>
-
-                            <!-- Campo 4 -->
-                            <div class="form-group">
-                                <label for="whatsapp-contact" class="form-label">WhatsApp de Contacto *</label>
-                                <input type="tel" id="whatsapp-contact" name="whatsapp" class="form-input"
-                                    placeholder="Ej. +57 300 123 4567" required autocomplete="tel">
-                            </div>
-                        </div>
-
-                        <!-- CTA del Botón Final -->
-                        <button type="submit" class="btn-submit-alliance" id="btn-submit">
-                            <span class="material-icons">how_to_reg</span>
-                            Solicitar Evaluación de Alianza para Mi Club
-                        </button>
-
-                        <!-- Microcopy de seguridad -->
-                        <p class="form-security-note">
-                            <span class="material-icons">shield</span>
-                            Sin compromisos económicos. Nos pondremos en contacto en menos de 24 horas.
-                        </p>
-                    </form>
+                    <!-- Microcopy de seguridad -->
+                    <p class="form-security-note" style="margin-top: 18px; margin-bottom: 0;">
+                        <span class="material-icons">shield</span>
+                        Sin compromisos económicos.
+                    </p>
                 </div>
             </div>
         </section>
