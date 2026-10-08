@@ -423,9 +423,15 @@
             </p>
 
             <div class="hero-media-wrapper">
-                <img src="assets/Galeria/VORA-defat01.webp"
-                    alt="Muestras digitales de retratos oficiales y afiche MVP final Club DEFAT" class="hero-image">
+                <img id="foto-principal-muestra" src="assets/Galeria/VORA-defat01.webp"
+                    alt="Muestra digital de la Sesión Base Club DEFAT" class="hero-image" style="width: 100%; object-fit: cover;">
+                <div style="display: flex; gap: 10px; margin-top: 10px; justify-content: center;">
+                    <img src="assets/Galeria/VORA-defat01.webp" alt="Afiche MVP" class="hero-image" style="width: 30%; cursor: pointer;" onclick="document.getElementById('foto-principal-muestra').src = this.src;">
+                    <img src="assets/Galeria/VORA-defat02.webp" alt="Retrato de Estudio 1" class="hero-image" style="width: 30%; cursor: pointer;" onclick="document.getElementById('foto-principal-muestra').src = this.src;">
+                    <img src="assets/Galeria/VORA-defat03.webp" alt="Retrato de Estudio 2" class="hero-image" style="width: 30%; cursor: pointer;" onclick="document.getElementById('foto-principal-muestra').src = this.src;">
+                </div>
             </div>
+            <p class="hero-subtitle" style="font-size: 0.95rem; margin-top: -15px; margin-bottom: 25px;">💡 Toca o haz clic en las miniaturas para ver las 3 entregas digitales que incluye tu Sesión Base ($60.000 COP): 1 Afiche MVP + 2 Retratos de Estudio Profesionales.</p>
 
             <div class="hero-cta">
                 <a href="#formulario" class="btn btn-primary">Reservar Cupo del Deportista</a>
