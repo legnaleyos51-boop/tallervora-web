@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión Fotográfica Oficial — Club DEFAT | Taller Vora</title>
+    <meta name="description"
+        content="Sesión Fotográfica Oficial — Club DEFAT. Transforma el esfuerzo, la disciplina y el talento de tu deportista en una pieza visual de nivel profesional.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=4.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        /* =========================================================
+       TALLER VORA — MANUAL DE ESTILO GRÁFICO WEB
+       ========================================================= */
+        :root {
+            --bg-main: #0d0d0d;
+            --bg-card: #121212;
+            --bg-card-hover: #1a1a1a;
+            --green-neon: #52C47C;
+            --green-bright: #22C55E;
+            --orange-accent: #FF5722;
+            --orange-bright: #F97316;
+            --text-main: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --border-glow: rgba(82, 196, 124, 0.3);
+            --font-family: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 50% 0%, rgba(82, 196, 124, 0.08) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* TIPOGRAFÍA & RESALTADOS */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-green {
+            color: var(--green-neon);
+        }
+
+        .text-orange {
+            color: var(--orange-accent);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        /* BOTONES (CTA) */
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange-accent), var(--orange-bright));
+            color: #FFFFFF;
+            box-shadow: 0 0 20px rgba(255, 87, 34, 0.4);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(255, 87, 34, 0.7);
+        }
+
+        /* TARJETAS CON BORDE NEÓN */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--green-neon);
+        }
+
+        /* HERO SECTION */
+        .landing-hero-defat {
+            background: none !important;
+            height: auto !important;
+            min-height: auto !important;
+            margin-top: 40px !important;
+            padding: 60px 0 60px !important;
+            position: relative;
+            display: block !important;
+            overflow: visible !important;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-media-wrapper {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 0 35px rgba(82, 196, 124, 0.2);
+            max-width: 480px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* SECCIONES Y GRIDS */
+        .section {
+            padding: 40px 0;
+        }
+
+        .price-tag {
+            margin: 20px 0 30px;
+        }
+
+        .price-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--green-neon);
+            display: block;
+        }
+
+        .price-detail {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            margin-bottom: 15px;
+            padding-left: 10px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--green-neon);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border-glow);
+        }
+
+        /* FORMULARIO FULL WIDTH (DE BORDE A BORDE) */
+        .section-form-full {
+            width: 100%;
+            padding: 40px 0 20px;
+        }
+
+        .form-header-container {
+            max-width: 900px;
+            margin: 0 auto 25px;
+            padding: 0 20px;
+        }
+
+        .form-iframe-wrapper {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            line-height: 0;
+        }
+
+        .form-iframe-wrapper iframe {
+            width: 100%;
+            min-height: 1520px;
+            border: none;
+            display: block;
+        }
+
+        /* FAQ ESTILO FOTOGRAFIA DEPORTIVA */
+        .faq-section {
+            padding: 80px 20px;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 1.8rem;
+            letter-spacing: 5px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .faq-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #222;
+            padding: 20px 0;
+            background: transparent;
+            border-radius: 0;
+            border-left: none;
+            border-top: none;
+            border-right: none;
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 40px;
+            transition: color 0.3s ease;
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+        .faq-question:hover {
+            color: var(--green-neon);
+        }
+
+        /* Icono de apertura + giratorio */
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--green-neon);
+            transition: transform 0.4s ease;
+        }
+
+        .faq-item[open] .faq-question::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 20px 0 10px 0;
+            color: #888;
+            line-height: 1.7;
+            font-size: 1rem;
+            animation: fadeInFaq 0.5s ease;
+        }
+
+        .faq-answer p {
+            color: #888;
+        }
+
+        .faq-answer strong {
+            color: #fff;
+        }
+
+        @keyframes fadeInFaq {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Quitar flecha por defecto en navegadores */
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-links {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .faq-links li {
+            margin-bottom: 8px;
+        }
+
+        .faq-links a {
+            color: var(--orange-accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .faq-links a:hover {
+            color: var(--green-neon);
+        }
+
+        .faq-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 0;
+            margin-top: 60px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .landing-header-spacer {
+                padding-top: 85px;
+            }
+        }
+
+        /* Ajuste para navbar fijo en desktop */
+        .landing-header-spacer {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/">
+            <img src="assets/logo-header-vora.png" alt="VORA Fotografía Deportiva" class="logo-img">
+        </a>
+        <a href="blog.html" class="nav-blog-link">blog</a>
+    </nav>
+
+    <!-- HERO / CABECERA -->
+    <header class="landing-hero-defat landing-header-spacer">
+        <div class="container hero-content text-center">
+            <h1 class="hero-title">
+                Sesión Fotográfica<br><span class="text-green">Club DEFAT</span> 📸⚽🏆
+            </h1>
+            <p class="hero-subtitle">
+                Transforma el esfuerzo, la disciplina y el talento de tu deportista en una <strong
+                    class="text-orange">pieza visual de nivel profesional</strong>.
+            </p>
+
+            <div class="hero-media-wrapper">
+                <img src="assets/Galeria/VORA-defat01.webp"
+                    alt="Muestras digitales de retratos oficiales y afiche MVP final Club DEFAT" class="hero-image">
+            </div>
+
+            <div class="hero-cta">
+                <a href="#formulario" class="btn btn-primary">Reservar Cupo del Deportista</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- OFERTA: SESIÓN FOTOGRÁFICA BASE -->
+        <section class="section" id="oferta">
+            <div class="container">
+                <div class="card text-center">
+                    <h2 class="section-title">Sesión Fotográfica <span class="text-green">Base</span></h2>
+                    <div class="price-tag">
+                        <span class="price-value">$60.000 COP</span>
+                        <span class="price-detail">(por deportista)</span>
+                    </div>
+                    <ul class="benefits-list text-left">
+                        <li class="benefit-item">
+                            <strong>Jornada & Dirección Fotográfica Profesional:</strong> Montaje de
+                            iluminación de estudio dentro de las instalaciones del club.
+                        </li>
+                        <li class="benefit-item">
+                            <strong>3 Retratos Digitales Editados:</strong> Incluye 1 composición
+                            artística especial tipo <span class="text-orange">Afiche MVP </span>
+                            lista para redes sociales y dispositivos móviles.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREPARACIÓN Y RECOMENDACIONES -->
+        <section class="section" id="preparacion">
+            <div class="container">
+                <h2 class="section-title text-center">Preparación para el Día de las Fotos</h2>
+                <p class="section-subtitle text-center">Recomendaciones para garantizar el máximo impacto visual</p>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <p>👕 <strong>Uniforme:</strong> Asistir con el uniforme oficial del Club DEFAT completo.</p>
+                    </div>
+                    <div class="info-card">
+                        <p>👟 <strong>Calzado:</strong> Llevar los guayos limpios para que luzcan impecables en los
+                            encuadres.</p>
+                    </div>
+                    <div class="info-card">
+                        <p>💄 <strong>Presentación:</strong> Maquillaje suave/sencillo y peinado listo para destacar
+                            frente a la cámara.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO DE INSCRIPCIÓN -->
+        <section class="section-form-full" id="formulario">
+            <div class="form-header-container text-center">
+                <h2 class="price-value">Formulario de Inscripción</h2>
+            </div>
+
+            <!-- GOOGLE FORMS: Borde a borde completo sin cajas -->
+            <div class="form-iframe-wrapper">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfNLbqRV9D_7DDI9d8lV0kBneUaqfATgoPrG5kGzvpuJ6i2RQ/viewform?embedded=true" width="100%" height="1520" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+            </div>
+        </section>
+
+        <!-- STAND DE MUESTRAS FÍSICAS -->
+        <section class="section" id="stand">
+            <div class="container">
+                <div class="card">
+                    <h2 class="section-title text-center">Vive la Experiencia en Persona</h2>
+                    <p class="section-subtitle text-center">Stand de Muestras Físicas el Día del Evento</p>
+                    <div class="stand-content text-center" style="max-width: 800px; margin: 0 auto;">
+                        <p>Sabemos que la calidad y durabilidad de una gran impresión no se aprecian a través de una
+                            pantalla. El día de la sesión podrás apreciar de cerca nuestros acabados premium para que
+                            este recuerdo perdure para toda la vida.</p>
+                    </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PREGUNTAS FRECUENTES (FAQ) -->
+        <section class="faq-section" id="faq">
+            <h2 class="faq-title">PREGUNTAS FRECUENTES</h2>
+            <div class="faq-container">
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cómo y cuándo se realiza el pago?</summary>
+                    <div class="faq-answer">
+                        <p>El pago de los <strong>$60.000 COP</strong> de la sesión base se realiza directamente el día de las fotos, justo antes de ingresar al set con el fotógrafo.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Cómo participo en el sorteo de las 2 Sesiones Fotográficas impresas?</summary>
+                    <div class="faq-answer">
+                        <p>¡El sorteo está activo en YouTube! 🎁 Comenta en las Partes 2 y 3 del podcast grabado con el <strong>Profe José</strong> (Director del Club DEFAT):</p>
+                        <ul class="faq-links">
+                            <li>👉 <a href="https://youtu.be/UWFYj3yRd0o" target="_blank" rel="noopener noreferrer">Ver Parte 2 del Podcast</a></li>
+                            <li>👉 <a href="https://youtu.be/LW7ftkQzTs8" target="_blank" rel="noopener noreferrer">Ver Parte 3 del Podcast</a></li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">¿Qué debo llevar el día de la sesión?</summary>
+                    <div class="faq-answer">
+                        <p>Uniforme oficial del <strong>Club DEFAT</strong>, guayos limpios, excelente actitud y estar peinado(a) listo(a) para la cámara.</p>
+                    </div>
+                </details>
+
+            </div>
+        </section>
+    </main>
+
+    <hr class="section-divider">
+
+    <section id="seccion-blog-home">
+        <div class="blog-home-container">
+            <h2>Historias que impulsan el talento</h2>
+            <p>Explora nuestro blog con contenido diseñado para acompañar el camino de cada atleta. Reflexiones y
+                consejos prácticos para vivir el deporte con propósito y pasión.</p>
+            <a href="blog.html" class="btn-blog-home">Explorar el Blog</a>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo-container">
+                <img src="assets/logo-header-vora.png" alt="Taller VORA Logo" class="footer-logo-img">
+            </div>
+
+            <nav class="footer-nav">
+                <div class="footer-column">
+                    <h4>CONTACTO</h4>
+                    <a href="https://wa.me/573239135052" target="_blank">WhatsApp</a>
+                    <a href="mailto:contacto@tallervora.com">Email</a>
+                </div>
+                <div class="footer-column">
+                    <h4>SOCIAL</h4>
+                    <a href="https://www.youtube.com/@VORAnocionesdeportivas" target="_blank">youtube</a>
+                    <a href="https://www.instagram.com/tallervora/" target="_blank">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61589345946335&sk=about">Facebook</a>
+                </div>
+                <div class="footer-column">
+                    <h4>LEGAL</h4>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos</a>
+                </div>
+            </nav>
+
+            <div class="footer-bottom">
+                <p>© 2026 Taller Vora. Fotografía de Autor. Bogotá, Colombia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
