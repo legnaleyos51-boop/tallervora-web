@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premios Torneo Estrellas del Voleibol — Taller VORA & Future Stars</title>
+    <meta name="description"
+        content="Taller VORA y Future Stars premian el esfuerzo, la pasión y la disciplina de las estrellas del voleibol juvenil con una experiencia fotográfica de nivel profesional.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=4.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        /* =========================================================
+       TALLER VORA — MANUAL DE ESTILO GRÁFICO WEB (HALLOWEEN EDITION)
+       ========================================================= */
+        :root {
+            --bg-main: #0d0d0d;
+            --bg-card: #121212;
+            --bg-card-hover: #18181b;
+            --green-neon: #52C47C;
+            --green-bright: #22C55E;
+            --orange-accent: #FF5722;
+            --orange-bright: #F97316;
+            --purple-spooky: #8B5CF6;
+            --text-main: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --border-glow: rgba(82, 196, 124, 0.3);
+            --border-orange: rgba(255, 87, 34, 0.4);
+            --font-family: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 90% 20%, rgba(255, 87, 34, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 90%, rgba(82, 196, 124, 0.10) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* FIX NAVBAR FIJO */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo-img {
+            max-height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-blog-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blog-link:hover {
+            color: var(--green-neon);
+        }
+
+        /* ESPACIADOR DE SEGURIDAD PARA EL CONTENIDO ABAJO DEL NAVBAR */
+        .landing-header-spacer {
+            padding-top: 130px !important; /* Margen superior amplio para garantizar que el Hero no quede tapado */
+        }
+
+/* ESTILOS PARA INTEGRACIÓN DE LOGOS EN CABECERA */
+.logo-torneo-img {
+    max-width: 420px;
+    width: 75%;
+    height: auto;
+    display: inline-block;
+    filter: drop-shadow(0 0 20px rgba(255, 87, 34, 0.4)); /* Glow Naranja VORA / Halloween */
+    transition: transform 0.3s ease;
+}
+
+.logo-torneo-img:hover {
+    transform: scale(1.03);
+}
+
+.logos-partnership {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los centros de ambos logos */
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.logo-partner-img {
+    max-height: 55px; /* Altura para el logo alargado de VORA */
+    width: 30%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(82, 196, 124, 0.3));
+}
+
+/* AJUSTE INDIVIDUAL PARA EL ESCUDO CIRCULAR DE FUTURE STARS */
+.logo-future-stars {
+    max-height: 95px !important; /* Aumentamos la altura para igualar el peso visual */
+    transform: translateY(-2px);  /* Pequeño ajuste óptico de alineación */
+}
+
+/* ADAPTACIÓN PARA PANTALLAS MÓVILES */
+@media (max-width: 768px) {
+    .logo-partner-img {
+        max-height: 40px;
+    }
+    .logo-future-stars {
+        max-height: 70px !important;
+    }
+}
+
+
+        /* TIPOGRAFÍA & RESALTADOS */
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-green { color: var(--green-neon); }
+        .text-orange { color: var(--orange-accent); }
+        .text-purple { color: var(--purple-spooky); }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 35px;
+        }
+
+        /* BOTONES (CTA) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px 38px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange-accent), var(--orange-bright));
+            color: #FFFFFF;
+            box-shadow: 0 0 25px rgba(255, 87, 34, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 35px rgba(255, 87, 34, 0.7);
+        }
+
+        .btn-secondary {
+            background: rgba(82, 196, 124, 0.1);
+            color: var(--green-neon);
+            border: 1px solid var(--green-neon);
+            box-shadow: 0 0 15px rgba(82, 196, 124, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--green-neon);
+            color: #000000;
+            box-shadow: 0 0 25px rgba(82, 196, 124, 0.6);
+            transform: translateY(-3px);
+        }
+
+        /* TARJETAS CON BORDE NEÓN Y GLOW */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            border-color: var(--green-bright);
+            box-shadow: 0 0 25px rgba(82, 196, 124, 0.25);
+        }
+
+        /* HERO SECTION */
+        .landing-hero-defat {
+            background: none !important;
+            height: auto !important;
+            min-height: auto !important;
+            padding-bottom: 60px !important;
+            position: relative;
+            display: block !important;
+            overflow: visible !important;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 87, 34, 0.15);
+            border: 1px solid var(--orange-accent);
+            color: var(--orange-bright);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 850px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-media-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-orange);
+            box-shadow: 0 0 35px rgba(255, 87, 34, 0.2);
+            max-width: 850px;
+            margin: 0 auto 40px;
+            background: #18181b;
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* SECCIÓN 2: PREMIO EXCLUSIVO Y BENEFICIOS */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0 40px;
+        }
+
+        .category-badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--green-neon);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .category-badge:hover {
+            border-color: var(--orange-accent);
+            background: rgba(255, 87, 34, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid var(--green-neon);
+            border-radius: 8px;
+            padding: 25px;
+            text-align: left;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        /* SECCIÓN 3: AUTORIDAD Y PODCAST */
+        .authority-card {
+            border-color: rgba(139, 92, 246, 0.3);
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.9) 0%, rgba(20, 15, 30, 0.9) 100%);
+        }
+
+        .authority-card:hover {
+            border-color: var(--purple-spooky);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.25);
+        }
+
+        /* SECCIÓN BLOG HOME */
+        #seccion-blog-home {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .blog-home-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .blog-home-container h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .blog-home-container p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .btn-blog-home {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 1px solid var(--green-neon);
+            color: var(--green-neon);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-blog-home:hover {
+            background: var(--green-neon);
+            color: #000;
+            box-shadow: 0 0 20px rgba(82, 196, 124, 0.4);
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin: 0;
+        }
+
+        /* FOOTER PRINCIPAL DE TALLER VORA */
+        .main-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 60px 0 30px;
+            background: #09090b;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo-img {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .footer-column h4 {
+            color: var(--green-neon);
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+        }
+
+        .footer-column a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--orange-accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+            width: 100%;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+                height: 70px;
+            }
+            .landing-header-spacer { 
+                padding-top: 110px !important; 
+            }
+            .hero-title { font-size: 1.9rem; }
+            .section-title { font-size: 1.6rem; }
+            .card { padding: 25px; }
+            .btn { width: 100%; }
+            .footer-nav { flex-direction: column; align-items: center; gap: 30px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO / NAVBAR CON FIJACIÓN SUPERIOR -->
+    <nav class="navbar">
+        <a href="/">
+            <img src="assets/logo-header-vora.png" alt="VORA Fotografía Deportiva" class="logo-img">
+        </a>
+        <a href="blog.html" class="nav-blog-link">blog</a>
+    </nav>
+
+    <!-- SECCIÓN 1: CABECERA Y HÉROE (HERO SECTION CON PADDING SUPERIOR) -->
+    <header class="landing-hero-defat landing-header-spacer">
+        <div class="container text-center">
+            
+            <!-- INSIGNIA TEMÁTICA DE HALLOWEEN / EVENTO -->
+            <div class="hero-badge">
+                🎃   Torneo de Voleibol — Edición Especial Halloween
+            </div>
+
+            <h1 class="hero-title">
+                ¡Inmortaliza el triunfo en el 
+            </h1>
+
+<!-- LOGO PRINCIPAL DEL TORNEO -->
+    <div class="tournament-logo-wrapper" style="margin-bottom: 35px;">
+        <img src="assets/logos/logo_torneo_estrellas.png" 
+             alt="Logo Oficial Torneo Estrellas del Voleibol" 
+             class="logo-torneo-img">
+    </div>
+
+<!-- SUBTÍTULO CON LOGOS ALIANZA -->
+<div class="logos-partnership">
+    <img src="assets/logos/Logo_VORA_claro.png" 
+         alt="Taller VORA Logo" 
+         class="logo-partner-img">
+    
+    <span class="partner-separator">&</span>
+    
+    <img src="assets/logos/logo_future_stars.png" 
+         alt="Future Stars Voleibol Logo" 
+         class="logo-partner-img logo-future-stars"> <!-- Se agrega la clase logo-future-stars -->
+</div>
+
+            <p class="hero-subtitle">
+                 premian el esfuerzo, la pasión y la disciplina de las estrellas del voleibol juvenil.
+            </p>
+
+            <!-- MARCO CONTENEDOR DE IMAGEN PRINCIPAL DEL EVENTO / AFICHE -->
+            <div class="hero-media-wrapper">
+                    <img src="assets/torneo_estrellas/muestra_poster_torneo.webp">
+            
+            </div>
+
+            <!-- CTA PRINCIPAL DE LA CABECERA -->
+            <div class="hero-cta">
+                <a href="#experiencia-premio" class="btn btn-primary">
+                    [ Conocer los Premios de Campeones ] 🎃✨
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- SECCIÓN 2: LA EXPERIENCIA DEL CAMPEÓN (EL PREMIO EXCLUSIVO) -->
+        <section class="section" id="experiencia-premio" style="padding: 60px 0;">
+            <div class="container">
+                <div class="card text-center">
+                    
+                    <h2 class="section-title">
+                        Sesión Fotográfica Oficial en Secuencia para los <span class="text-green">Equipos Ganadores</span>
+                    </h2>
+                    
+                    <p class="section-subtitle" style="max-width: 900px; margin: 0 auto 30px;">
+                        Cada equipo campeón de las <strong>4 categorías</strong> disfrutará de una jornada fotográfica profesional exclusiva realizada en nuestro set técnico en el parque de <strong>Future Stars</strong>.
+                    </p>
+
+                    <!-- CATEGORÍAS BENEFICIADAS -->
+                    <div class="categories-grid">
+                        <div class="category-badge">🏐 Menores Mixto</div>
+                        <div class="category-badge">🏐 Benjamín Mixto</div>
+                        <div class="category-badge">🏐 U13 Femenino</div>
+                        <div class="category-badge">🏐 U15 Femenino</div>
+                    </div>
+
+                    <!-- DETALLE DE BENEFICIOS -->
+                    <div class="benefits-grid">
+                        
+                        <div class="benefit-card">
+                            <h3>📸 Secuencia e Individuales</h3>
+                            <p>
+                                Registro individual tipo <strong>atleta de élite</strong> y montaje compuesto en secuencia oficial del equipo con acabados cinemáticos.
+                            </p>
+                        </div>
+
+                        <div class="benefit-card">
+                            <h3>🖼️ Póster Digital de Campeón</h3>
+                            <p>
+                                Galería digital en <strong>alta resolución</strong> lista para prensa, redes sociales y archivo personal de cada deportista.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- ESPACIO RESERVADO PARA GALERÍA DE MUESTRAS/PREVIEWS DE PREMIACIÓN -->
+                    <div style="margin-top: 40px; border: 1px dashed rgba(82, 196, 124, 0.3); border-radius: 1px; padding: 2px; background: rgba(0,0,0,0.3);">
+                        <img src="assets/BTS/BTSdefat.webp" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: EL GUÍA Y LA AUTORIDAD (CONEXIÓN Y FILOSOFÍA) -->
+        <section class="section" id="filosofia-podcast" style="padding: 60px 0;">
+            <div class="container">
+                <div class="card authority-card text-center">
+                    
+                    <div style="font-size: 2.5rem; margin-bottom: 15px;">🎙️ 🎃 ⚡</div>
+
+                    <h2 class="section-title">
+                        Apoyando el <span class="text-orange">Talento Deportivo Juvenil</span>
+                    </h2>
+
+                    <p class="section-subtitle" style="max-width: 850px; margin: 0 auto 30px; color: #E4E4E7; font-size: 1.05rem;">
+                        En <strong>Taller VORA</strong> no solo capturamos imágenes; celebramos el proceso formativo de cada atleta. A través de nuestra producción fotográfica y de nuestro <strong>Podcast Deportivo</strong>, le damos voz e imagen profesional a los proyectos deportivos, atletas y clubes que construyen futuro.
+                    </p>
+
+                    <!-- BOTÓN TRANSICIONAL / AUTORIDAD EN YOUTUBE -->
+                    <div style="margin-top: 30px;">
+                        <a href="https://www.youtube.com/@VORAnocionesdeportivas" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            ▶ [ Escuchar Episodios del Podcast en YouTube ]
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <hr class="section-divider">
+
+    <!-- SECCIÓN DEL BLOG: HISTORIAS QUE IMPULSAN EL TALENTO -->
+    <section id="seccion-blog-home">
+        <div class="blog-home-container">
+            <h2>Historias que impulsan el talento</h2>
+            <p>Explora nuestro blog con contenido diseñado para acompañar el camino de cada atleta. Reflexiones y
+                consejos prácticos para vivir el deporte con propósito y pasión.</p>
+            <a href="blog.html" class="btn-blog-home">Explorar el Blog</a>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- FOOTER OFICIAL DE TALLER VORA -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-logo-container">
+                <img src="assets/logo-header-vora.png" alt="Taller VORA Logo" class="footer-logo-img">
+            </div>
+
+            <nav class="footer-nav">
+                <div class="footer-column">
+                    <h4>CONTACTO</h4>
+                    <a href="https://wa.me/573239135052" target="_blank">WhatsApp</a>
+                    <a href="mailto:contacto@tallervora.com">Email</a>
+                </div>
+                <div class="footer-column">
+                    <h4>SOCIAL</h4>
+                    <a href="https://www.youtube.com/@VORAnocionesdeportivas" target="_blank">YouTube</a>
+                    <a href="https://www.instagram.com/tallervora/" target="_blank">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61589345946335&sk=about">Facebook</a>
+                </div>
+                <div class="footer-column">
+                    <h4>LEGAL</h4>
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos</a>
+                </div>
+            </nav>
+
+            <div class="footer-bottom">
+                <p>© 2026 Taller Vora. Fotografía de Autor. Bogotá, Colombia.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
