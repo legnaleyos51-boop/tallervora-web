@@ -19,9 +19,12 @@ const GALLERY_SETTINGS = {
     // Útil si una foto sale "decapitada" o mal centrada en el mosaico.
     specificPositions: {
         '001': 'center 20%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
-        '002': '20% center', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+        '002': 'center 20%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
         '003': 'center 20%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
         '005': 'center 39%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+        '008': 'center 10%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+        '010': 'center 20%', // Valores CSS: 'top', 'bottom', 'center 20%', etc.
+
     }
 };
 
